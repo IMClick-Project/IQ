@@ -1,2 +1,2 @@
-# LIQ
-Material y herramientas de estudio relacionadas a la vida académica/profesional en la Licenciatura en Ingeniería Química
+# IQ
+Material y herramientas desarrolladas con relación a la Ingeniería Química.
