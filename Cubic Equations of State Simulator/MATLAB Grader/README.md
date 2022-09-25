@@ -12,17 +12,17 @@ Therefore, along this document it is intended to report the important notes and 
 
 ## Bibliography
 
-* Banakar, S., Asapu, R., Panneerselvam, V., Cornelio, A. A., & Limperich, D. (2013). Retrospective on Cubic Equation of State for R134a Refrigerant Used in Automotive Application. *SAE Technical Paper Series*. [https://doi.org/10.4271/2013-26-0061](https://doi.org/10.4271/2013-26-0061)
-* Çengel, Y. A., Boles, M. A., & Kanoğlu, M. (2019). *Thermodynamics: An Engineering Approach* (9th ed.). United States: McGraw-Hill Education.
-* Chemours. (2018). *Freon 134a Refrigerant (R-134a): Thermodynamic Properties (SI Units)*. The Chemours Company FC, LLC. [https://www.freon.com/en/-/media/files/freon/freon-134a-si-thermodynamic-properties.pdf?rev=7519d264dfd74fe68c04c9e119f7361f](https://www.freon.com/en/-/media/files/freon/freon-134a-si-thermodynamic-properties.pdf?rev=7519d264dfd74fe68c04c9e119f7361f)
-* Elliott, J. R. & Lira, C. T. (2012). *Introductory Chemical Engineering Thermodynamics* (2nd ed.). United States: Prentice Hall.
-* Galdino, S. (2011). A family of regula falsi root-finding methods. In *Proceedings of the 2011 World Congress on Engineering and Technology*.
-* Intep, S. (2018). A review of bracketing methods for finding zeros of nonlinear functions. *Applied Mathematical Sciences, 12*(3), 137-146. [https://doi.org/10.12988/ams.2018.811](https://doi.org/10.12988/ams.2018.811)
-* Perry, R. H., Green, D. W., & Maloney, J. O. (1997). *Perry's Chemical Engineers' Handbook* (7th ed.). United States: McGraw-Hill.
-* Reklaitis, G. V. & Schneider, D. R. (1986). *Balances de materia y energía* (José Luis Torres Vázquez, trad.). Mexico: Nueva Editorial Interamericana.
-* Sandler, S. I. (2017). *Chemical, Biochemical, and Engineering Thermodynamics* (5th ed.). United States: John Wiley & Sons.
-* Smith, J. M., Ness, V. H., Abbott, M., & Swihart, M. (2017). *Introduction to Chemical Engineering Thermodynamics* (8th ed.). United States: McGraw Hill.
-* U.S. Secretary of Commerce on behalf of the United States of America. (2018). *Chlorine*. NIST Standard Reference Data. [https://webbook.nist.gov/cgi/inchi?ID=C7782505&Mask=4](https://webbook.nist.gov/cgi/inchi?ID=C7782505&Mask=4)
-* Whitacre, J. H. (2011). *A Hybrid Method For Solving A Single Nonlinear Equation* (Masters dissertation, Youngstown State University).
++ Banakar, S., Asapu, R., Panneerselvam, V., Cornelio, A. A., & Limperich, D. (2013). Retrospective on Cubic Equation of State for R134a Refrigerant Used in Automotive Application. *SAE Technical Paper Series*. [https://doi.org/10.4271/2013-26-0061](https://doi.org/10.4271/2013-26-0061)
++ Çengel, Y. A., Boles, M. A., & Kanoğlu, M. (2019). *Thermodynamics: An Engineering Approach* (9th ed.). United States: McGraw-Hill Education.
++ Chemours. (2018). *Freon 134a Refrigerant (R-134a): Thermodynamic Properties (SI Units)*. The Chemours Company FC, LLC. [https://www.freon.com/en/-/media/files/freon/freon-134a-si-thermodynamic-properties.pdf?rev=7519d264dfd74fe68c04c9e119f7361f](https://www.freon.com/en/-/media/files/freon/freon-134a-si-thermodynamic-properties.pdf?rev=7519d264dfd74fe68c04c9e119f7361f)
++ Elliott, J. R. & Lira, C. T. (2012). *Introductory Chemical Engineering Thermodynamics* (2nd ed.). United States: Prentice Hall.
++ Galdino, S. (2011). A family of regula falsi root-finding methods. In *Proceedings of the 2011 World Congress on Engineering and Technology*.
++ Intep, S. (2018). A review of bracketing methods for finding zeros of nonlinear functions. *Applied Mathematical Sciences, 12*(3), 137-146. [https://doi.org/10.12988/ams.2018.811](https://doi.org/10.12988/ams.2018.811)
++ Perry, R. H., Green, D. W., & Maloney, J. O. (1997). *Perry's Chemical Engineers' Handbook* (7th ed.). United States: McGraw-Hill.
++ Reklaitis, G. V. & Schneider, D. R. (1986). *Balances de materia y energía* (José Luis Torres Vázquez, trad.). Mexico: Nueva Editorial Interamericana.
++ Sandler, S. I. (2017). *Chemical, Biochemical, and Engineering Thermodynamics* (5th ed.). United States: John Wiley & Sons.
++ Smith, J. M., Ness, V. H., Abbott, M., & Swihart, M. (2017). *Introduction to Chemical Engineering Thermodynamics* (8th ed.). United States: McGraw Hill.
++ U.S. Secretary of Commerce on behalf of the United States of America. (2018). *Chlorine*. NIST Standard Reference Data. [https://webbook.nist.gov/cgi/inchi?ID=C7782505&Mask=4](https://webbook.nist.gov/cgi/inchi?ID=C7782505&Mask=4)
++ Whitacre, J. H. (2011). *A Hybrid Method For Solving A Single Nonlinear Equation* (Masters dissertation, Youngstown State University).
 
 
