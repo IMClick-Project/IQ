@@ -8,7 +8,7 @@ Giving $(\mathbf{P,V,T})$ the pressure, molar volume and absolute temperature, t
 
 $$
 \begin{aligned}
-\mathbf{(1) \; \; P=\frac{RT}{V-b}-\frac{\theta(V-\eta)}{(V-b)(V^2+\kappa V+\gamma)}} 
+\mathbf{(1) \quad P=\frac{RT}{V-b}-\frac{\theta(V-\eta)}{(V-b)(V^2+\kappa V+\gamma)}} 
 \end{aligned}
 $$
 
@@ -16,7 +16,7 @@ Where $\mathbf{\theta}$, $\mathbf{\eta}$, $\mathbf{b}$, $\mathbf{\kappa}$ and $\
 
 $$
 \begin{aligned}
-\mathbf{(2) P=\frac{RT}{V-b}-\frac{a_{(T)}}{(V+\epsilon b)(V+\sigma b)}}
+\mathbf{(2) \quad P=\frac{RT}{V-b}-\frac{a_{(T)}}{(V+\epsilon b)(V+\sigma b)}}
 \end{aligned}
 $$
 
@@ -39,13 +39,13 @@ Based on these facts, $\mathbf{\beta=\frac{bP}{RT}=\Omega\frac{P_r}{T_r}}$ with 
 
 $$
 \begin{aligned}
-\mathbf{(3)\hspace{2mm} V^{v}=\frac{RT}{P}+b-\frac{a_{(T)}}{P}\frac{V^{v}-b}{(V^{v}+\epsilon b)(V^{v}+\sigma b)} \hspace{2mm} \longleftrightarrow \hspace{2mm} Z^{v}=1+\beta-q\beta\frac{Z^{v}-\beta}{(Z^{v}+\epsilon \beta)(Z^{v}+\sigma \beta)} }
+\mathbf{(3) \quad V^{v}=\frac{RT}{P}+b-\frac{a_{(T)}}{P}\frac{V^{v}-b}{(V^{v}+\epsilon b)(V^{v}+\sigma b)} \quad \longleftrightarrow \quad Z^{v}=1+\beta-q\beta\frac{Z^{v}-\beta}{(Z^{v}+\epsilon \beta)(Z^{v}+\sigma \beta)} }
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
-\mathbf{(4)\hspace{2mm} V^{l}=b+(V^{l}+\epsilon b)(V^{l}+\sigma b)\frac{RT+P(b-V^{l})}{a_{(T)}} \hspace{2mm} \longleftrightarrow \hspace{2mm} Z^{l}=\beta+(Z^{l}+\epsilon \beta)(Z^{l}+\sigma \beta)\frac{1+\beta-Z^{l}}{q\beta}} 
+\mathbf{(4) \quad V^{l}=b+(V^{l}+\epsilon b)(V^{l}+\sigma b)\frac{RT+P(b-V^{l})}{a_{(T)}} \quad \longleftrightarrow \quad Z^{l}=\beta+(Z^{l}+\epsilon \beta)(Z^{l}+\sigma \beta)\frac{1+\beta-Z^{l}}{q\beta}} 
 \end{aligned}
 $$
 
