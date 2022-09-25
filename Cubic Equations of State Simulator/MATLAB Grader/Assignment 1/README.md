@@ -8,7 +8,7 @@ Giving $(\mathbf{P,V,T})$ the pressure, molar volume and absolute temperature, t
 
 $$
 \begin{aligned}
-\mathbf{(1)\hspace{4mm} P=\frac{RT}{V-b}-\frac{\theta(V-\eta)}{(V-b)(V^2+\kappa V+\gamma)}} 
+\mathbf{(1) \; \; P=\frac{RT}{V-b}-\frac{\theta(V-\eta)}{(V-b)(V^2+\kappa V+\gamma)}} 
 \end{aligned}
 $$
 
@@ -16,7 +16,7 @@ Where $\mathbf{\theta}$, $\mathbf{\eta}$, $\mathbf{b}$, $\mathbf{\kappa}$ and $\
 
 $$
 \begin{aligned}
-\mathbf{(2)\hspace{4mm} P=\frac{RT}{V-b}-\frac{a_{(T)}}{(V+\epsilon b)(V+\sigma b)}}
+\mathbf{(2) P=\frac{RT}{V-b}-\frac{a_{(T)}}{(V+\epsilon b)(V+\sigma b)}}
 \end{aligned}
 $$
 
