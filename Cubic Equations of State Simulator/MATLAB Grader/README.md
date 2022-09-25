@@ -8,7 +8,7 @@ Likewise, the increasing behavior of the saturation pressure between the values 
 
 Finally, enthalpy and entropy are other important properties to predict, and a reference state is essential for this. Therefore, it is necessary to derive the equations that allow the calculation of enthalpy and entropy values ​​​​from $\mathbf{PVT}$ and heat-capacity data, as well as the use of the concept of residual properties.
 
-Therefore, along this document it is intended to report the important notes and documentation needed to develop a simulator that can eject these functions according to thermodynamic theory and computation tools from MATLAB<sup>&reg;<sup>, where equilibrium phase diagrams/surfaces are plotted and compared according to both experimental and Antoine approches. Also, applications of this simulator in chemical engineering problems will be shown.
+Therefore, along this document it is intended to report the important notes and documentation needed to develop a simulator that can eject these functions according to thermodynamic theory and computation tools from MATLAB<sup>&reg;</sup>, where equilibrium phase diagrams/surfaces are plotted and compared according to both experimental and Antoine approches. Also, applications of this simulator in chemical engineering problems will be shown.
 
 ## Bibliography
 
@@ -17,7 +17,7 @@ Therefore, along this document it is intended to report the important notes and 
 - Chemours. (2018). *Freon 134a Refrigerant (R-134a): Thermodynamic Properties (SI Units)*. The Chemours Company FC, LLC. [https://www.freon.com/en/-/media/files/freon/freon-134a-si-thermodynamic-properties.pdf?rev=7519d264dfd74fe68c04c9e119f7361f](https://www.freon.com/en/-/media/files/freon/freon-134a-si-thermodynamic-properties.pdf?rev=7519d264dfd74fe68c04c9e119f7361f)
 - Elliott, J. R. & Lira, C. T. (2012). *Introductory Chemical Engineering Thermodynamics* (2nd ed.). United States: Prentice Hall.
 - Galdino, S. (2011). A family of regula falsi root-finding methods. In *Proceedings of the 2011 World Congress on Engineering and Technology*.
-- Intep, S. (2018). A review of bracketing methods for finding zeros of nonlinear functions. *Applied Mathematical Sciences*, 12(3), 137-146. [https://doi.org/10.12988/ams.2018.811](https://doi.org/10.12988/ams.2018.811)
+- Intep, S. (2018). A review of bracketing methods for finding zeros of nonlinear functions. *Applied Mathematical Sciences, 12*(3), 137-146. [https://doi.org/10.12988/ams.2018.811](https://doi.org/10.12988/ams.2018.811)
 - Perry, R. H., Green, D. W., & Maloney, J. O. (1997). *Perry's Chemical Engineers' Handbook* (7th ed.). United States: McGraw-Hill.
 - Reklaitis, G. V. & Schneider, D. R. (1986). *Balances de materia y energía* (José Luis Torres Vázquez, trad.). Mexico: Nueva Editorial Interamericana.
 - Sandler, S. I. (2017). *Chemical, Biochemical, and Engineering Thermodynamics* (5th ed.). United States: John Wiley & Sons.
