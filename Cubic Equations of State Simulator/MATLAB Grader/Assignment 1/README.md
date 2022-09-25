@@ -8,7 +8,7 @@ Giving $(\mathbf{P,V,T})$ the pressure, molar volume and absolute temperature, t
 
 $$
 \begin{aligned}
-\mathbf{(1)\hspace{2mm} P=\frac{RT}{V-b}-\frac{\theta(V-\eta)}{(V-b)(V^2+\kappa V+\gamma)}} 
+\mathbf{(1)\hspace{4mm} P=\frac{RT}{V-b}-\frac{\theta(V-\eta)}{(V-b)(V^2+\kappa V+\gamma)}} 
 \end{aligned}
 $$
 
@@ -16,7 +16,7 @@ Where $\mathbf{\theta}$, $\mathbf{\eta}$, $\mathbf{b}$, $\mathbf{\kappa}$ and $\
 
 $$
 \begin{aligned}
-\mathbf{(2)\hspace{2mm} P=\frac{RT}{V-b}-\frac{a_{(T)}}{(V+\epsilon b)(V+\sigma b)}}
+\mathbf{(2)\hspace{4mm} P=\frac{RT}{V-b}-\frac{a_{(T)}}{(V+\epsilon b)(V+\sigma b)}}
 \end{aligned}
 $$
 
@@ -24,16 +24,16 @@ This is important because the assignment of appropriate parameters leads not onl
 
 So, if we calculate $\mathbf{a_{(T)}}$ and $\mathbf{b}$ terms considering the critical $\mathbf{PV}$ isotherm of the susbtance using **Eq. (2)** and applying the **first to second derivate test**, functions of these parameters can be obtained with respect to both critical data and $\mathbf{\alpha_{(T_r,w)}}$ function, where $\mathbf{\Psi}$ and $\mathbf{\Omega}$ are pure numbers which depend to a particular EoS. By the other hand, $\mathbf{\alpha_{(T_r,w)}}$ is a dimesionless empirical factor that depends on the reduced temperature $\mathbf{T_r}$ of the system and the acentric factor $\mathbf{w}$, a term introduced by Pitzer and collaborators for empirical correction porpouses that is specific to a given chemical species and is applied in **SRK** and **PR** models, equations which try to correlate the variable attraction forces magnitudes between susbtance molecules considering temperature changes: $\mathbf{a_{(T)}=\Psi\frac{\alpha_{(T_r,w)}(RT_c)^2}{P_c}}$, $\mathbf{b=\Omega\frac{RT_c}{P_c}}$, and $\mathbf{T_r=\frac{T}{T_c}}$. Critical pressure $\mathbf{P_c}$, critical temperature $\mathbf{T_c}$ and acentric factor $\mathbf{w}$ data of some compounds are (Smith *et al.*, 2017):
 
-- **Ammonia:** $\mathbf{P_c=}$ 112.80 bar, $\mathbf{T_c=}$ 450.7 K, and $\mathbf{w=}$ 0.253.
-- **Argon:** $\mathbf{P_c=}$ 48.98 bar, $\mathbf{T_c=}$ 150.9 K, and $\mathbf{w=}$ 0.000.
-- **Carbon Dioxide:** $\mathbf{P_c=}$ 73.83 bar, $\mathbf{T_c=}$ 304.2 K, and $\mathbf{w=}$ 0.224.
-- **Chlorine:** $\mathbf{P_c=}$ 77.10 bar, $\mathbf{T_c=}$ 417.2 K, and $\mathbf{w=}$ 0.069.
-- **Hydrogen:** $\mathbf{P_c=}$ 13.13 bar, $\mathbf{T_c=}$ 33.19 K, and $\mathbf{w=}$ -0.216.
-- **Methane:** $\mathbf{P_c=}$ 45.99 bar, $\mathbf{T_c=}$ 190.6 K, and $\mathbf{w=}$ 0.012.
-- **Nitrogen:** $\mathbf{P_c=}$ 34.00 bar, $\mathbf{T_c=}$ 126.2 K, and $\mathbf{w=}$ 0.038.
-- **Oxygen:** $\mathbf{P_c=}$ 50.43 bar, $\mathbf{T_c=}$ 154.6 K, and $\mathbf{w=}$ 0.022.
-- **Refrigerant 134a (Tetrafluoroethane):** $\mathbf{P_c=}$ 40.60 bar, $\mathbf{T_c=}$ 374.2 K, and $\mathbf{w=}$ 0.327.
-- **Water:** $\mathbf{P_c=}$ 220.55 bar, $\mathbf{T_c=}$ 647.1 K, and $\mathbf{w=}$ 0.345.
++ **Ammonia:** $\mathbf{P_c=}$ 112.80 bar, $\mathbf{T_c=}$ 450.7 K, and $\mathbf{w=}$ 0.253.
++ **Argon:** $\mathbf{P_c=}$ 48.98 bar, $\mathbf{T_c=}$ 150.9 K, and $\mathbf{w=}$ 0.000.
++ **Carbon Dioxide:** $\mathbf{P_c=}$ 73.83 bar, $\mathbf{T_c=}$ 304.2 K, and $\mathbf{w=}$ 0.224.
++ **Chlorine:** $\mathbf{P_c=}$ 77.10 bar, $\mathbf{T_c=}$ 417.2 K, and $\mathbf{w=}$ 0.069.
++ **Hydrogen:** $\mathbf{P_c=}$ 13.13 bar, $\mathbf{T_c=}$ 33.19 K, and $\mathbf{w=}$ -0.216.
++ **Methane:** $\mathbf{P_c=}$ 45.99 bar, $\mathbf{T_c=}$ 190.6 K, and $\mathbf{w=}$ 0.012.
++ **Nitrogen:** $\mathbf{P_c=}$ 34.00 bar, $\mathbf{T_c=}$ 126.2 K, and $\mathbf{w=}$ 0.038.
++ **Oxygen:** $\mathbf{P_c=}$ 50.43 bar, $\mathbf{T_c=}$ 154.6 K, and $\mathbf{w=}$ 0.022.
++ **Refrigerant 134a (Tetrafluoroethane):** $\mathbf{P_c=}$ 40.60 bar, $\mathbf{T_c=}$ 374.2 K, and $\mathbf{w=}$ 0.327.
++ **Water:** $\mathbf{P_c=}$ 220.55 bar, $\mathbf{T_c=}$ 647.1 K, and $\mathbf{w=}$ 0.345.
 
 Based on these facts, $\mathbf{\beta=\frac{bP}{RT}=\Omega\frac{P_r}{T_r}}$ with $\mathbf{P_r=\frac{P}{P_c}}$ and $\mathbf{q=\frac{a_{(T)}}{bRT}=\frac{\Psi \alpha_{(T_r,w)}}{\Omega T_r}}$ parameters can be defined for generalization porpouses and, subsituting their values on **Eq. (2)** and resolving for $\mathbf{V}$, four iterative schemes can be obtained to calculate both liquid and vapor roots under saturated conditions $(\mathbf{P=P_{sat}})$ for a specific cubic isotherm given $\mathbf{T}$ (**Eqs. (3)-(4)**):
 
@@ -52,7 +52,7 @@ $$
 
 Hence, considering initial points for vapor and liquid iterative schemes at $\mathbf{V^v = \frac{RT}{P}}$ (or $\mathbf{Z^v=1}$) and $\mathbf{V^l = b}$ (or $\mathbf{Z^v=\beta}$), respectively, we can compute their roots for several temperature isotherms with the porpoise to plot the $\mathbf{PV}$ saturation curve for any substance using the cubic equation of state that the user prefers, as long as saturation pressures and critical/EoS data are known, according to:
 
-- **van der Waals (vdW):** $\mathbf{\alpha_{(T_r,w)}}=1$, $\mathbf{\sigma=0}$, $\mathbf{\epsilon=0}$, $\mathbf{\Omega=\frac{1}{8}}$, and $\mathbf{\Psi=\frac{27}{64}}$.
-- **Redlich/Kwong (RK):** $\mathbf{\alpha_{(T_r,w)}=T_r^{-1/2}}$, $\mathbf{\sigma=1}$, $\mathbf{\epsilon=0}$, $\mathbf{\Omega=0.08664}$, and $\mathbf{\Psi=0.42748}$.
-- **Soave/Redlich/Kwong (SRK):** $\mathbf{\alpha_{(T_r,w)}=[1+(0.480+1.574w-0.176w^2)(1-T_r^{1/2})]^2}$, $\mathbf{\sigma=1}$, $\mathbf{\epsilon=0}$, $\mathbf{\Omega=0.08664}$, and $\mathbf{\Psi=0.42748}$.
-- **Peng/Robinson (PR):** $\mathbf{\alpha_{(T_r,w)}=[1+(0.37464+1.54226w-0.26992w^2)(1-T_r^{1/2})]^2}$, $\mathbf{\sigma=1+\sqrt{2}}$, $\mathbf{\epsilon=1-\sqrt{2}}$, $\mathbf{\Omega=0.07780}$, and $\mathbf{\Psi=0.45724}$.
++ **van der Waals (vdW):** $\mathbf{\alpha_{(T_r,w)}}=1$, $\mathbf{\sigma=0}$, $\mathbf{\epsilon=0}$, $\mathbf{\Omega=\frac{1}{8}}$, and $\mathbf{\Psi=\frac{27}{64}}$.
++ **Redlich/Kwong (RK):** $\mathbf{\alpha_{(T_r,w)}=T_r^{-1/2}}$, $\mathbf{\sigma=1}$, $\mathbf{\epsilon=0}$, $\mathbf{\Omega=0.08664}$, and $\mathbf{\Psi=0.42748}$.
++ **Soave/Redlich/Kwong (SRK):** $\mathbf{\alpha_{(T_r,w)}=[1+(0.480+1.574w-0.176w^2)(1-T_r^{1/2})]^2}$, $\mathbf{\sigma=1}$, $\mathbf{\epsilon=0}$, $\mathbf{\Omega=0.08664}$, and $\mathbf{\Psi=0.42748}$.
++ **Peng/Robinson (PR):** $\mathbf{\alpha_{(T_r,w)}=[1+(0.37464+1.54226w-0.26992w^2)(1-T_r^{1/2})]^2}$, $\mathbf{\sigma=1+\sqrt{2}}$, $\mathbf{\epsilon=1-\sqrt{2}}$, $\mathbf{\Omega=0.07780}$, and $\mathbf{\Psi=0.45724}$.
