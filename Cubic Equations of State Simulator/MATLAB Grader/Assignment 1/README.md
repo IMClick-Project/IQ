@@ -79,8 +79,9 @@ Empirical constants $\mathbf{A}$, $\mathbf{B}$ and $\mathbf{C}$ data of the abov
 + **Refrigerant 134a (Tetrafluoroethane):** $\mathbf{A=14.4100}$, $\mathbf{B=2094.00}$, and $\mathbf{C=-33.0600}$.
 + **Water:** $\mathbf{A=16.5362}$, $\mathbf{B=3985.44}$, and $\mathbf{C=-38.9974}$.
 
-In thermodynamic equilibrium, a necessary condition for stability is that pressure must not increase with the volume. This statement is violated by the general EoS function when this is plotted for all its domain $(\mathbf{P}$ vs $\mathbf{V})$. Hence, the **Maxwell construction** is a way of correcting this deficiency, which stablish that the sinusoidal part of the isotherm must be replaced by a horizontal line whose height is such that the two areas (**EoS loops**) that this line lock up must be equal (**Figure 1**).
+In thermodynamic equilibrium, a necessary condition for stability is that pressure must not increase with the volume. This statement is violated by the general EoS function when this is plotted for all its domain $(\mathbf{P}$ vs $\mathbf{V})$. Hence, the **Maxwell Construction** is a way of correcting this deficiency, which stablish that the sinusoidal part of the isotherm must be replaced by a horizontal line whose height is such that the two areas (**EoS loops**) that this line lock up must be equal (**Figure 1**).
 
 ![Figure 1](https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/PV_MAXWELL.jpg)
 
-*Figure 1. Representation of the Maxwell Construction for a $T$ isotherm.*
+<center>*Figure 1. Representation of the Maxwell Construction for a* $T$ *isotherm.*</center>
+This statement is necessary for the calculation of real $\mathbf{PV}$ isotherms because, if we save the intersections that this horizontal line makes with the analytical EoS isotherm on work, we could conclude that these points will concur with the $\mathbf{VLE}$ roots at the $\mathbf{P_{sat}}$ that corresponds to the line height. Hence, if we plot all these points for a $\mathbf{T}$ range between the critical and triple point, the $\mathbf{PV}$ saturation curve for any substance can be obtained since the $\mathbf{P_{sat}}$ values that accomplish the Maxwell Construction are previous calculated.
