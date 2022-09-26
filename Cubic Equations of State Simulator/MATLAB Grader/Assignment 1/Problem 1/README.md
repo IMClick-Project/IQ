@@ -46,7 +46,7 @@ When opening the simulator folder, different types of files are shown (**Figure 
 
 The Excel file "Thermodynamic Data.xlsx" has a spreadsheet called "Compounds" where there is a table with the necessary properties to perform the calculations and plot the diagrams/surfaces. It is essential to always have at least one compound correctly registered. The columns of this table are:
 
-+ Compound: It cannot: be blank, contain more than 31 characters, contain special characters (/, \, ?, *, :, [, ]), start or end with an apostrophe ('), or be named “History”. These features are because this name will also be used for another spreadsheet.
++ Compound: It cannot: be blank, contain more than 31 characters, contain special characters (/, &#92;, ?, *, :, [, ]), start or end with an apostrophe ('), or be named “History”. These features are because this name will also be used for another spreadsheet.
 + Molar Mass: Molar mass of the Compound in g/mol. This numeric value is necessary and the data cannot be empty.
 + Ttriple: Triple temperature of the Compound in K. This numeric value is necessary and the data cannot be empty.
 + Ptriple: Triple pressure of the Compound in bar. This numeric value is necessary and the data cannot be empty.
