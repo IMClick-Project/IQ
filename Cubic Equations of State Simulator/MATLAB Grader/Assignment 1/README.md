@@ -81,7 +81,7 @@ Empirical constants $\mathbf{A}$, $\mathbf{B}$ and $\mathbf{C}$ data of the abov
 
 In thermodynamic equilibrium, a necessary condition for stability is that pressure must not increase with the volume. This statement is violated by the general EoS function when this is plotted for all its domain $(\mathbf{P}$ vs $\mathbf{V})$. Hence, the **Maxwell Construction** is a way of correcting this deficiency, which stablish that the sinusoidal part of the isotherm must be replaced by a horizontal line whose height is such that the two areas (**EoS loops**) that this line lock up must be equal (**Figure 1**).
 
-![Figure 1](https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/PV_MAXWELL.jpg = 781x381)
+![Figure 1](https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/PV_MAXWELL.jpg){width=781}
 
 *Figure 1. Representation of the Maxwell Construction for a* $T$ *isotherm.*
 
