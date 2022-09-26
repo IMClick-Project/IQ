@@ -132,7 +132,7 @@ $$
 
 *Figure 2. Iterative Scheme for Fugacity Test calculations.*
 
-This process can be followed when a $\mathbf{f_i^n}$ vs $\mathbf{P_{sat,i}}$ graph is plotted (**Figure 3**), where liquid and vapor lines represent the pressure changes with iterations until both fugacity functions intersect. The behavior of this iterative method allows us to visualize how the quotient of both fugacity for a pressure point always tends to decrease as **Ineq. (10)** is fulfilled, which allows this variable to be brought as close as possible to the real value of $\mathbf{P_{sat,i}}$ as $\mathbf{Er}$ is smaller. In other words, the Fugacity Test evaluates the limit of both fugacity functions when $\mathbf{P \rightarrow P_{sat,i}}$, while $\mathbf{Er}$ symbolizes one of the closeness parameters that define this limit.
+This process can be followed when a $\mathbf{f_i^n}$ vs $\mathbf{P_{sat,i}}$ graph is plotted (**Figure 3**), where liquid and vapor lines represent the pressure changes with iterations until both fugacity functions intersect. The behavior of this iterative method allows us to visualize how the quotient of both fugacity for a pressure point always tends to decrease as **Ineq. (10)** is fulfilled, which allows this variable to be brought as close as possible to the real value of $\mathbf{P_{sat,i}}$ as $\mathbf{Er}$ is smaller. In other words, the **Fugacity Test** evaluates the limit of both fugacity functions when $\mathbf{P \rightarrow P_{sat,i}}$, while $\mathbf{Er}$ symbolizes one of the closeness parameters that define this limit.
 
 <img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/F_VS_P.jpg" width="545" height="378">
 
