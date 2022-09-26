@@ -128,19 +128,19 @@ $$
 \end{aligned}
 $$
 
-![Figure 2](https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/ESCHEME.jpg)
+<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/ESCHEME.jpg" width="905" height="349">
 
 *Figure 2. Iterative Scheme for Fugacity Test calculations.*
 
 This process can be followed when a $\mathbf{f_i^n}$ vs $\mathbf{P_{sat,i}}$ graph is plotted (**Figure 3**), where liquid and vapor lines represent the pressure changes with iterations until both fugacity functions intersect. The behavior of this iterative method allows us to visualize how the quotient of both fugacity for a pressure point always tends to decrease as **Ineq. (10)** is fulfilled, which allows this variable to be brought as close as possible to the real value of $\mathbf{P_{sat,i}}$ as $\mathbf{Er}$ is smaller. In other words, the Fugacity Test evaluates the limit of both fugacity functions when $\mathbf{P \rightarrow P_{sat,i}}$, while $\mathbf{Er}$ symbolizes one of the closeness parameters that define this limit.
 
-![Figure 3](https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/F_VS_P.jpg)
+<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/F_VS_P.jpg" width="545" height="378">
 
 *Figure 3. Fugacity vs saturation pressure plot.*
 
 Several iterative calculations of this method can be performed for the range of temperatures previous stablished for the working substance, which can lead to the prediction of $\mathbf{PV}$ saturation diagrams based on a primordial initial estimitation for the first pressure $\mathbf{P_{sat,1}}$ used to commence the **Fugacity Test**. So, either the maximum point of the analytical isotherm or the empirical pressure provided by the Antoine equation, the estimation procedure must consider its pressure range within the $\mathbf{PV}$ saturation area, which implies that the difference between the computational methods that use this criterion will only be the required number of iterations that they need to accomplish the **Ineq. (10)**. This is observed when $\mathbf{P}$ vs $\mathbf{i}$ (iteration number) points of each of these methods are plotted, which their curvature will depend on how close the starting pressure is to the $\mathbf{P_{sat}}$ (**Figure 4**).
 
-![Figure 4](https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/F_VS_i.jpg)
+<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/F_VS_i.jpg" width="543" height="380">
 
 *Figure 4. Saturation pressure vs* $i$ *(iteration number) plot* $(P_{sat,1}^{(1)}>P_{sat,1}^{(2)}>P_{sat,1}^{(3)})$.
 
@@ -148,7 +148,7 @@ Considering the maximum point of the analytical isotherm as the initial pressure
 
 On the other hand, the $\mathbf{VLE}$ curve in a $\mathbf{P}$ vs $\mathbf{T}$ diagram demonstrates a continuous increasing behavior between the triple point and the critical point. Therefore, given a saturation pressure $\mathbf{P_{sat,i}}$ (between $\mathbf{P_t}$ and $\mathbf{P_c}$) at which it is intended to estimate its respective $\mathbf{T_{sat,i}}$ (between $\mathbf{T_t}$ and $\mathbf{T_c}$), a function $\mathbf{f(T_{sat})=P_{sat}(T_{sat})-P_{sat,i}}$ can be defined where $\mathbf{f(T_{sat,i})=0}$ and also $\mathbf{f(T_{sat})<0}$ and $\mathbf{f(T_{sat})>0}$ for $\mathbf{T_{sat}}$ $<$ $\mathbf{T_{sat,i}}$ and $\mathbf{T_{sat}}$ $>$ $\mathbf{T_{sat,i}}$, respectively (**Figure 5**).
 
-![Figure 5](https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/bracketing.jpg)
+<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/bracketing.jpg" width="1021" height="319">
 
 *Figure 5. Pressure vs temperature plot and representation of the function* $f(T_{sat})$*.*
 
@@ -164,6 +164,6 @@ As the iteration progresses, the width of the bracket is reduced until the appro
 
 Also known as dichotomy, binary chopping, or half-interval method, Bisection is one of the elementary bracketing methods for finding a root of nonlinear equation $\mathbf{f(x)=0}$. It requires repeatedly halving subintervals $\mathbf{[a,b]}$ and, at each step $\mathbf{i}$, locating the midpoint between $\mathbf{a_i}$ and $\mathbf{b_i}$, which is calculated as $\mathbf{p_i=\frac{a_i+b_i}{2}}$. If $\mathbf{f(p_i)=0}$, the zero of the function will have been found. In contrast, if $\mathbf{f(p_i)\neq0}$, then $\mathbf{f(p_i)}$ has the same sign as either $\mathbf{f(a_i)}$ or $\mathbf{f(b_i)}$: when $\mathbf{f(p_i)}$ and $\mathbf{f(a_i)}$ have the same sign ($\mathbf{f(a_i)f(p_i)>0}$ or $\mathbf{f(b_i)f(p_i)<0}$), the zero of the function is in $\mathbf{[p_i,b_i]}$, and we set $\mathbf{a_{i+1}=p_i}$ and $\mathbf{b_{i+1}=b_i}$; meanwhile when $\mathbf{f(p_i)}$ and $\mathbf{f(a_i)}$ have opposite signs ($\mathbf{f(a_i)f(p_i)<0}$ or $\mathbf{f(b_i)f(p_i)>0}$), the zero of the function is in $\mathbf{[a_i,p_i]}$, and we set $\mathbf{a_{i+1}=a_i}$ and $\mathbf{b_{i+1}=p_i}$ (**Figure 6**). In each iteration $\mathbf{i}$, $\mathbf{f(a)}$ and $\mathbf{f(b)}$ are modified to the corresponding ones in the range of the function given the new values ​​of $\mathbf{a}$ and $\mathbf{b}$ assigned from iteration $\mathbf{i}$ for iteration $\mathbf{i+1}$. It is also important to note that obtaining the exact zero of the function $\mathbf{f(x)}$ could require a large number of iterations, so an error value $\mathbf{Er}$ is defined to consider the root found as valid, which limits the iterative process while $\mathbf{|f(b)|>Er}$, $\mathbf{|f(a)|>Er}$, and $\mathbf{|a-b|>Er}$.
 
-![Figure 6](https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/bisection.jpg)
+<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/bisection.jpg" width="500" height="476">
 
 *Figure 6. Model that demonstrates how the Bisection method generates successive iterates.*
