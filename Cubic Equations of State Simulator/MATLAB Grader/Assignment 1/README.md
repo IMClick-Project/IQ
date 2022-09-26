@@ -49,10 +49,39 @@ $$
 \end{aligned}
 $$
 
-
 Hence, considering initial points for vapor and liquid iterative schemes at $\mathbf{V^v = \frac{RT}{P}}$ (or $\mathbf{Z^v=1}$) and $\mathbf{V^l = b}$ (or $\mathbf{Z^v=\beta}$), respectively, we can compute their roots for several temperature isotherms with the porpoise to plot the $\mathbf{PV}$ saturation curve for any substance using the cubic equation of state that the user prefers, as long as saturation pressures and critical/EoS data are known, according to:
 
 + **van der Waals (vdW):** $\mathbf{\alpha_{(T_r,w)}}=1$, $\mathbf{\sigma=0}$, $\mathbf{\epsilon=0}$, $\mathbf{\Omega=\frac{1}{8}}$, and $\mathbf{\Psi=\frac{27}{64}}$.
 + **Redlich/Kwong (RK):** $\mathbf{\alpha_{(T_r,w)}=T_r^{-1/2}}$, $\mathbf{\sigma=1}$, $\mathbf{\epsilon=0}$, $\mathbf{\Omega=0.08664}$, and $\mathbf{\Psi=0.42748}$.
 + **Soave/Redlich/Kwong (SRK):** $\mathbf{\alpha_{(T_r,w)}=[1+(0.480+1.574w-0.176w^2)(1-T_r^{1/2})]^2}$, $\mathbf{\sigma=1}$, $\mathbf{\epsilon=0}$, $\mathbf{\Omega=0.08664}$, and $\mathbf{\Psi=0.42748}$.
 + **Peng/Robinson (PR):** $\mathbf{\alpha_{(T_r,w)}=[1+(0.37464+1.54226w-0.26992w^2)(1-T_r^{1/2})]^2}$, $\mathbf{\sigma=1+\sqrt{2}}$, $\mathbf{\epsilon=1-\sqrt{2}}$, $\mathbf{\Omega=0.07780}$, and $\mathbf{\Psi=0.45724}$.
+
+### 1.2. Maxwell Construction and Fugacity Test
+
+Vapor pressures for a pure species are subject to experimental models, such as Antoine's approach (**Eq. (5)**), which uses three empirical constants ($\mathbf{A}$, $\mathbf{B}$ and $\mathbf{C}$) to calculate these data. However, they can also be implicit in an EoS, which makes these models useful as empirical equilibrium data is not known for all compounds.
+
+$$
+\begin{aligned}
+\mathbf{\ln{P_{sat}} [kPa] = A - \frac{B}{T [K]+C} \quad \longleftrightarrow \quad (5)\quad P_{sat} [bar]=0.01exp\left(A - \frac{B}{T [K]+C}\right)}
+\end{aligned}
+$$
+
+Empirical constants $\mathbf{A}$, $\mathbf{B}$ and $\mathbf{C}$ data of the above compounds are (Banakar *et al.*, 2013; Reklaitis & Schneider, 1986):
+
++ **Ammonia:** $\mathbf{A=15.4940}$, $\mathbf{B=2363.24}$, and $\mathbf{C=-22.6207}$.
++ **Argon:** $\mathbf{A=13.9153}$, $\mathbf{B=832.78}$, and $\mathbf{C=2.3608}$.
++ **Carbon Dioxide:** $\mathbf{A=15.3768}$, $\mathbf{B=1956.25}$, and $\mathbf{C=-2.1117}$.
++ **Chlorine:** $\mathbf{A=14.1372}$, $\mathbf{B=2055.15}$, and $\mathbf{C=-23.3117}$.
++ **Hydrogen:** $\mathbf{A=12.7844}$, $\mathbf{B=232.32}$, and $\mathbf{C=8.0800}$.
++ **Methane:** $\mathbf{A=13.5840}$, $\mathbf{B=968.13}$, and $\mathbf{C=-3.7200}$.
++ **Nitrogen:** $\mathbf{A=13.4477}$, $\mathbf{B=658.22}$, and $\mathbf{C=-2.8540}$.
++ **Oxygen:** $\mathbf{A=13.6835}$, $\mathbf{B=780.26}$, and $\mathbf{C=-4.1758}$.
++ **Refrigerant 134a (Tetrafluoroethane):** $\mathbf{A=14.4100}$, $\mathbf{B=2094.00}$, and $\mathbf{C=-33.0600}$.
++ **Water:** $\mathbf{A=16.5362}$, $\mathbf{B=3985.44}$, and $\mathbf{C=-38.9974}$.
+
+In thermodynamic equilibrium, a necessary condition for stability is that pressure must not increase with the volume. This statement is violated by the general EoS function when this is plotted for all its domain ($\mathbf{P}$ vs $\mathbf{V}$). Hence, the **Maxwell construction** is a way of correcting this deficiency, which stablish that the sinusoidal part of the isotherm must be replaced by a horizontal line whose height is such that the two areas (**EoS loops**) that this line lock up must be equal (**Figure 1**).
+
+<center>
+![Figure 1](/assets/images/PV_MAXWELL.png)
+*Figure 1. Representation of the Maxwell Construction for a $T$ isotherm.*
+</center>
