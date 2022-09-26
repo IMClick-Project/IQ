@@ -87,7 +87,7 @@ In thermodynamic equilibrium, a necessary condition for stability is that pressu
 
 This statement is necessary for the calculation of real $\mathbf{PV}$ isotherms because, if we save the intersections that this horizontal line makes with the analytical EoS isotherm on work, we could conclude that these points will concur with the $\mathbf{VLE}$ roots at the $\mathbf{P_{sat}}$ that corresponds to the line height. Hence, if we plot all these points for a $\mathbf{T}$ range between the critical and triple point, the $\mathbf{PV}$ saturation curve for any substance can be obtained since the $\mathbf{P_{sat}}$ values that accomplish the Maxwell Construction are previous calculated.
 
-So, to calculate these pressures, we need to call the Free Energy Criterion for any thermodynamic system, which states that the fugacity (or effective pressure) in all phases at equilibrium must be equal. Thus, for a $\mathbf{VLE}$ case, this criterion can be written as **Eq. (6)**, where the fugacity of each $\mathbf{n}$-phase $\mathbf{f^n }$, by definition, can be calculated in terms of their residual free energy $\mathbf{G_n^R}$ (**Eq. (7)**).
+So, to calculate these pressures, we need to call the **Free Energy Criterion** for any thermodynamic system, which states that the **fugacity** (or effective pressure) in all phases at equilibrium must be equal. Thus, for a $\mathbf{VLE}$ case, this criterion can be written as **Eq. (6)**, where the fugacity of each $\mathbf{n}$-phase $\mathbf{f^n }$, by definition, can be calculated in terms of their residual free energy $\mathbf{G_n^R}$ (**Eq. (7)**).
 
 $$
 \begin{aligned}
@@ -167,3 +167,29 @@ Also known as dichotomy, binary chopping, or half-interval method, Bisection is 
 <img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/bisection.jpg" width="600" height="571">
 
 *Figure 6. Model that demonstrates how the Bisection method generates successive iterates.*
+
+### 2.2. False Position Method
+
+The Bisection method is time-consuming in some cases because it does not consider that $\mathbf{f(a)}$ or $\mathbf{f(b)}$ is closer to the zero of $\mathbf{f(x)}$. For example, if $\mathbf{f(a)=-1}$ and $\mathbf{f(b)=100}$, the approximate root $\mathbf{p}$ should be chosen closer to $\mathbf{a}$ than $\mathbf{b}$. The False Position method takes this observation and, instead of considering the midpoint between $\mathbf{a}$ and $\mathbf{b}$, it finds the secant line from point $\mathbf{(a,f(a))}$ to point $\mathbf{(b,f(b))}$, and then estimates the root at the $\mathbf{x}$-intercept of the line. Therefore, the secant line has slope $\mathbf{\frac{f(b)-f(a)}{b-a}}$ and passes through the point $\mathbf{(b,f(b))}$, defining the equation of the line $\mathbf{y-f(b)=\frac{f(b)-f(a)}{b-a}(x-b)}$. The point where it intersects the $\mathbf{x}$-axis is $\mathbf{(p_i,0)}$, so $\mathbf{-f(b)=\frac{f(b)-f(a)}{b-a}(p_i-b)}$ and finally $\mathbf{p_i=b_i-\frac{f(b)_i(b_i-a_i)}{f(b)_i-f(a)_i}}$ (**Figure 7**).  In general cases, the sequence of approximate roots using the False Position method converges to the real root of equation $\mathbf{f(x)=0}$ faster than that using the Bisection method.
+
+<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/secant.jpg" width="600" height="571">
+
+*Figure 7. Model that demonstrates how the False Position method generates successive iterates.*
+
+### 2.3. Improved False Position Method: Illinois, Pegasus, and Anderson & Björk 
+
+Even though the False Position method does consider the relative magnitudes of $\mathbf{f(a)}$ and $\mathbf{f(b)}$, it retains one of the endpoints of the interval bracketing the real root. Therefore it converges to the root very slowly for convex or concave function $\mathbf{f(x)}$. There are several modifications of the False Position method. They are similar to False Position, except here we multiply $\mathbf{f(a)}$ or $\mathbf{f(b)}$ by $\mathbf{\lambda}$ when calculating $\mathbf{p}$ to avoid the retention of the left or right end point over successive iterations and accelerate the convergence of the method (**Figure 8**). Three known improvements to False Position are the Illinois, Pegasus, and Anderson & Björk methods. These modify the change rules of $\mathbf{a}$, $\mathbf{b}$, $\mathbf{f(a)}$, and $\mathbf{f(b)}$ for each iteration. For all three methods, if $\mathbf{f(a_i)f(p_i)>0}$ or $\mathbf{f(b_i)f(p_i)<0}$, $\mathbf{a_{i+1}=b_i}$ and $\mathbf{b_{i+1}=p_i}$, as well as $\mathbf{f(a)}$ and $\mathbf{f(b)}$ are updated for the next iteration with respect to the new values ​​of $\mathbf{a}$ and $\mathbf{b}$. However, when $\mathbf{f(a_i)f(p_i)<0}$ or $\mathbf{f(b_i)f(p_i)>0}$, $\mathbf{b_{i+1}=p_i}$ and $\mathbf{f(b)_{i+1}=f(p_i)}$, as well as (note that the value of $\mathbf{a_{i+1}}$ in all three method is not updated):
+
++ **Illinois method:** $\mathbf{f(a)_{i+1}=\frac{f(a)_i}{2}}$.
++ **Pegasus method:** $\mathbf{f(a)_{i+1}=\frac{f(a)_if(b)_i}{f(b)_i+f(p_i)}}$.
++ **Anderson & Björk method:** $\mathbf{f(a)_{i+1}=mf(a)_i}$, where $\mathbf{m=1-\frac{f(p_i)}{f(b)_i}}$ when $\mathbf{1-\frac{f(p_i)}{f(b)_i}}$ is positive or $\mathbf{m=\frac{1}{2}}$ in the contrary case.
+
+<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/modified.jpg" width="600" height="571">
+
+*Figure 8. Model that demonstrates how the Modified False Position method generates successive iterates.*
+
+An analysis of iterations of these five methods allows determining the best one to find the zero in $\mathbf{f(T_{sat})}$ and having an algorithm that allows obtaining the $\mathbf{T_{sat}}$ given a certain pressure. Additionally, a fundamental aspect in the simulation of the liquid phase is to select the initial volume to generate the part of the isobar or isotherm in that phase. It is known that this value must be greater than $\mathbf{b}$. However, a volume close to $\mathbf{b}$ can generate large and even unrealistic $\mathbf{Z}$ values. To solve this problem, it should be noted that $\mathbf{Z=\frac{PV}{RT}}$ in the liquid phase has a decreasing behavior with increasing volume. This is due to the little change in volume in the liquid phase that in isobars the temperature increases and in isotherms the pressure decreases. This behavior of $\mathbf{Z}$ in relation to $\mathbf{V}$ in the liquid phase allows establishing a decreasing function between a volume greater than $\mathbf{b}$, such as $\mathbf{b+1}$, and the volume in the saturated liquid phase. Sometimes this function starts at a $\mathbf{Z}$ value greater than 1. Therefore, in case $\mathbf{Z}$ at $\mathbf{V=b+1}$ is greater than 1, some bracketing method can be used to find the volume where $\mathbf{Z=1}$.
+
+Otherwise, if we wanted to generate a table of the thermodynamic properties of a substance, enthalpy and entropy are other important properties to predict, and a reference state is essential for this. Therefore, it is necessary to derive the equations that allow the calculation of enthalpy and entropy values ​​from $\mathbf{PVT}$ and heat-capacity data, as well as the use of the concept of residual properties.
+
+## Enthalpy and Entropy as Functions of T and P
