@@ -83,6 +83,6 @@ In thermodynamic equilibrium, a necessary condition for stability is that pressu
 
 ![Figure 1](https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/PV_MAXWELL.jpg)
 
-<p style="text-align: center;">*Figure 1. Representation of the Maxwell Construction for a* $T$ *isotherm.*</p>
+*Figure 1. Representation of the Maxwell Construction for a* $T$ *isotherm.*
 
 This statement is necessary for the calculation of real $\mathbf{PV}$ isotherms because, if we save the intersections that this horizontal line makes with the analytical EoS isotherm on work, we could conclude that these points will concur with the $\mathbf{VLE}$ roots at the $\mathbf{P_{sat}}$ that corresponds to the line height. Hence, if we plot all these points for a $\mathbf{T}$ range between the critical and triple point, the $\mathbf{PV}$ saturation curve for any substance can be obtained since the $\mathbf{P_{sat}}$ values that accomplish the Maxwell Construction are previous calculated.
