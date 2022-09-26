@@ -24,5 +24,3 @@ Therefore, along this document it is intended to report the important notes and 
 + Smith, J. M., Ness, V. H., Abbott, M., & Swihart, M. (2017). *Introduction to Chemical Engineering Thermodynamics* (8th ed.). United States: McGraw Hill.
 + U.S. Secretary of Commerce on behalf of the United States of America. (2018). *Chlorine*. NIST Standard Reference Data. [https://webbook.nist.gov/cgi/inchi?ID=C7782505&Mask=4](https://webbook.nist.gov/cgi/inchi?ID=C7782505&Mask=4)
 + Whitacre, J. H. (2011). *A Hybrid Method For Solving A Single Nonlinear Equation* (Masters dissertation, Youngstown State University).
-
-
