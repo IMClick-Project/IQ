@@ -192,4 +192,4 @@ An analysis of iterations of these five methods allows determining the best one 
 
 Otherwise, if we wanted to generate a table of the thermodynamic properties of a substance, enthalpy and entropy are other important properties to predict, and a reference state is essential for this. Therefore, it is necessary to derive the equations that allow the calculation of enthalpy and entropy values ​​from $\mathbf{PVT}$ and heat-capacity data, as well as the use of the concept of residual properties.
 
-## Enthalpy and Entropy as Functions of T and P
+## 3. Enthalpy and Entropy as Functions of T and P
