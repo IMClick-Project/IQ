@@ -58,7 +58,7 @@ Hence, considering initial points for vapor and liquid iterative schemes at $\ma
 
 ### 1.2. Maxwell Construction and Fugacity Test
 
-Vapor pressures for a pure species are subject to experimental models, such as Antoine's approach (**Eq. (5)**), which uses three empirical constants ($\mathbf{A}$, $\mathbf{B}$ and $\mathbf{C}$) to calculate these data. However, they can also be implicit in an EoS, which makes these models useful as empirical equilibrium data is not known for all compounds.
+Vapor pressures for a pure species are subject to experimental models, such as Antoine's approach (**Eq. (5)**), which uses three empirical constants $(\mathbf{A}$, $\mathbf{B}$ and $\mathbf{C})$ to calculate these data. However, they can also be implicit in an EoS, which makes these models useful as empirical equilibrium data is not known for all compounds.
 
 $$
 \begin{aligned}
@@ -79,9 +79,10 @@ Empirical constants $\mathbf{A}$, $\mathbf{B}$ and $\mathbf{C}$ data of the abov
 + **Refrigerant 134a (Tetrafluoroethane):** $\mathbf{A=14.4100}$, $\mathbf{B=2094.00}$, and $\mathbf{C=-33.0600}$.
 + **Water:** $\mathbf{A=16.5362}$, $\mathbf{B=3985.44}$, and $\mathbf{C=-38.9974}$.
 
-In thermodynamic equilibrium, a necessary condition for stability is that pressure must not increase with the volume. This statement is violated by the general EoS function when this is plotted for all its domain ($\mathbf{P}$ vs $\mathbf{V}$). Hence, the **Maxwell construction** is a way of correcting this deficiency, which stablish that the sinusoidal part of the isotherm must be replaced by a horizontal line whose height is such that the two areas (**EoS loops**) that this line lock up must be equal (**Figure 1**).
+In thermodynamic equilibrium, a necessary condition for stability is that pressure must not increase with the volume. This statement is violated by the general EoS function when this is plotted for all its domain $(\mathbf{P}$ vs $\mathbf{V})$. Hence, the **Maxwell construction** is a way of correcting this deficiency, which stablish that the sinusoidal part of the isotherm must be replaced by a horizontal line whose height is such that the two areas (**EoS loops**) that this line lock up must be equal (**Figure 1**).
 
 <center>
-![Figure 1](/assets/images/PV_MAXWELL.png)
+![Figure 1](PV_MAXWELL.png)
+
 *Figure 1. Representation of the Maxwell Construction for a $T$ isotherm.*
 </center>
