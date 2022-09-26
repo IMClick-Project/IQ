@@ -198,13 +198,13 @@ In engineering applications, enthalpy and entropy are often the thermodynamic pr
 
 $$
 \begin{aligned}
-\mathbf{(12) \quad dH=C_P dT+\left[V-T\left(\frac{\partial V}{\partial T}\right)_{P} \right]dP \quad \longrightarrow \quad (14) \quad dH^{ig}=C_P^{ig}dT \quad \longrightarrow \quad (16) \quad H^{ig}=H_0^{ig} + \int_{T_0}^{T} C_P^{ig} dT}
+\mathbf{(12) \quad dH=C_P dT+\left[V-T\left(\frac{\partial V}{\partial T}\right)\_{P} \right]dP \quad \longrightarrow \quad (14) \quad dH^{ig}=C_P^{ig}dT \quad \longrightarrow \quad (16) \quad H^{ig}=H_0^{ig} + \int\_{T_0}^{T} C_P^{ig} dT}
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
-\mathbf{(13) \quad dS=C_P\frac{dT}{T}+\left(\frac{\partial V}{\partial T}\right)_{P} dP \quad \longrightarrow \quad (15) \quad dS^{ig}=C_P^{ig}\frac{dT}{T}-R\frac{dP}{P} \quad \longrightarrow \quad (17) \quad S^{ig}=S_0^{ig} + \int_{T_0}^{T} C_P^{ig} \frac{dT}{T}-R\ln{\frac{P}{P_0}}}
+\mathbf{(13) \quad dS=C_P\frac{dT}{T}+\left(\frac{\partial V}{\partial T}\right)\_{P} dP \quad \longrightarrow \quad (15) \quad dS^{ig}=C_P^{ig}\frac{dT}{T}-R\frac{dP}{P} \quad \longrightarrow \quad (17) \quad S^{ig}=S_0^{ig} + \int\_{T_0}^{T} C_P^{ig} \frac{dT}{T}-R\ln{\frac{P}{P_0}}}
 \end{aligned}
 $$
 
