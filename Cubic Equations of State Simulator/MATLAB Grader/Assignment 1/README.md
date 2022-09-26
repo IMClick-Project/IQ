@@ -86,3 +86,71 @@ In thermodynamic equilibrium, a necessary condition for stability is that pressu
 *Figure 1. Representation of the Maxwell Construction for a* $T$ *isotherm.*
 
 This statement is necessary for the calculation of real $\mathbf{PV}$ isotherms because, if we save the intersections that this horizontal line makes with the analytical EoS isotherm on work, we could conclude that these points will concur with the $\mathbf{VLE}$ roots at the $\mathbf{P_{sat}}$ that corresponds to the line height. Hence, if we plot all these points for a $\mathbf{T}$ range between the critical and triple point, the $\mathbf{PV}$ saturation curve for any substance can be obtained since the $\mathbf{P_{sat}}$ values that accomplish the Maxwell Construction are previous calculated.
+
+So, to calculate these pressures, we need to call the Free Energy Criterion for any thermodynamic system, which states that the fugacity (or effective pressure) in all phases at equilibrium must be equal. Thus, for a $\mathbf{VLE}$ case, this criterion can be written as **Eq. (6)**, where the fugacity of each $\mathbf{n}$-phase $\mathbf{f^n }$, by definition, can be calculated in terms of their residual free energy $\mathbf{G_n^R}$ (**Eq. (7)**).
+
+$$
+\begin{aligned}
+\mathbf{(6) \quad f^v = f^l}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\mathbf{\ln{\frac{f^n}{P_{sat}}} = \ln{\phi^n} =
+ \frac{G^R_{n}}{RT} \quad \longleftrightarrow \quad \mathbf{(7)\quad f^n = P_{sat}exp\left(\frac{G^R_{n}}{RT}\right)}}
+\end{aligned}
+$$
+
+Given the quotient value between $\mathbf{G_n^R}$ and $\mathbf{RT}$ in terms of a general EoS (**Eq. (8)**), the fugacity for an isotherm can be calculated in both $\mathbf{VLE}$ phases estimating an initial saturated pressure, where $\mathbf{I^n}$ is the integral value of **Eq. (9)**, a result that can be obtained from introducing EoS to residual properties calculations:
+
+$$
+\begin{aligned}
+\mathbf{(8) \quad \frac{G^R_{n}}{RT} = Z^n-1-\ln{(Z^n-\beta)}-qI^n}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\mathbf{(9) \quad I^n = \int^{\rho^n}_0\frac{d(\rho^n b)}{(1+\epsilon \rho^n b)(1+\sigma \rho^n b)}}
+\end{aligned}
+$$
+
+For **van der Waals (vdW):** $\mathbf{(a) \quad \epsilon = \sigma \quad \longleftrightarrow \quad }\mathbf{ I^n = \frac{\beta}{Z^n+\epsilon \beta}}$.
+
+For **Redlich/Kwong (RK), Soave/Redlich/Kwong (SRK)**, and **Peng/Robinson (PR):** $\mathbf{(b) \quad \epsilon \neq \sigma \quad \longleftrightarrow \quad \mathbf{ I^n
+= \frac{1}{\sigma - \epsilon}\ln{\frac{Z^n+\sigma \beta}{Z^n+\epsilon \beta}}}}$.
+
+Therefore, if we proposed an error value $\mathbf{Er}$ that describes the minimum relative fugacity difference between both $\mathbf{VLE}$ phases required to obtain an effective saturation pressure that can follow the Maxwell Construction, an iterative scheme can be proposed to predict a real EoS isotherm according to the accomplishment of **Ineq. (10)**, a **Fugacity Test** that will always change pressure values under the **Eq. (11)** until the relative fugacity difference gets equal or lower than the approved  value (**Figure 2**).
+
+$$
+\begin{aligned}
+\mathbf{(10) \quad \left| 1- \frac{f^l_i}{f^v_i} \right| > Er \quad \longrightarrow \quad (11)\quad P_{sat,i+1} = P_{sat,i}\frac{f^l_i}{f^v_i}}
+\end{aligned}
+$$
+
+![Figure 2](https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/ESCHEME.jpg)
+
+*Figure 2. Iterative Scheme for Fugacity Test calculations.*
+
+This process can be followed when a $\mathbf{f_i^n}$ vs $\mathbf{P_{sat,i}}$ graph is plotted (**Figure 3**), where liquid and vapor lines represent the pressure changes with iterations until both fugacity functions intersect. The behavior of this iterative method allows us to visualize how the quotient of both fugacity for a pressure point always tends to decrease as **Ineq. (10)** is fulfilled, which allows this variable to be brought as close as possible to the real value of $\mathbf{P_{sat,i}}$ as $\mathbf{Er}$ is smaller. In other words, the Fugacity Test evaluates the limit of both fugacity functions when $\mathbf{P \rightarrow P_{sat,i}}$, while $\mathbf{Er}$ symbolizes one of the closeness parameters that define this limit.
+
+![Figure 3](https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/F_VS_P.jpg)
+
+*Figure 3. Fugacity vs saturation pressure plot.*
+
+Several iterative calculations of this method can be performed for the range of temperatures previous stablished for the working substance, which can lead to the prediction of $\mathbf{PV}$ saturation diagrams based on a primordial initial estimitation for the first pressure $\mathbf{P_{sat,1}}$ used to commence the **Fugacity Test**. So, either the maximum point of the analytical isotherm or the empirical pressure provided by the Antoine equation, the estimation procedure must consider its pressure range within the $\mathbf{PV}$ saturation area, which implies that the difference between the computational methods that use this criterion will only be the required number of iterations that they need to accomplish the **Ineq. (10)**. This is observed when $\mathbf{P}$ vs $\mathbf{i}$ (iteration number) points of each of these methods are plotted, which their curvature will depend on how close the starting pressure is to the $\mathbf{P_{sat}}$ (**Figure 4**).
+
+![Figure 4](https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/F_VS_i.jpg)
+
+*Figure 4. Saturation pressure vs* $i$ *(iteration number) plot ($P_{sat,1}^{(1)}>P_{sat,1}^{(2)}>P_{sat,1}^{(3)}$).*
+
+Considering the maximum point of the analytical isotherm as the initial pressure for the Fugacity Test allows establishing a prediction method of the saturation pressure without using empirical parameters such as those of the Antoine equation. This initial pressure is a single value in the analytical isotherm, is always positive (as it is a point above the saturation pressure to be predicted), and depends only on the properties of the substance and the parameters of the cubic equation of state.
+
+On the other hand, the $\mathbf{VLE}$ curve in a $\mathbf{P}$ vs $\mathbf{T}$ diagram demonstrates a continuous increasing behavior between the triple point and the critical point. Therefore, given a saturation pressure $\mathbf{P_{sat,i}}$ (between $\mathbf{P_t}$ and $\mathbf{P_c}$) at which it is intended to estimate its respective $\mathbf{T_{sat,i}}$ (between $\mathbf{T_t}$ and $\mathbf{T_c}$), a function $\mathbf{f(T_{sat})=P_{sat}(T_{sat})-P_{sat,i}}$ can be defined where $\mathbf{f(T_{sat,i})=0}$ and also $\mathbf{f(T_{sat})<0}$ and $\mathbf{f(T_{sat})>0}$ for $\mathbf{T_{sat}<T_{sat,i}}$ and $\mathbf{T_{sat}>T_{sat,i}}$, respectively (**Figure 5**).
+
+![Figure 5](https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/bracketing.jpg)
+
+*Figure 5. Figure 5. Pressure vs temperature plot and representation of the function* $f(T_{sat})$*.*
+
+Finding the zero of the nonlinear function $\mathbf{f(T_{sat})}$ given its characteristics is possible by some **bracketing method**. In addition, by using the Fugacity Test to estimate $\mathbf{P_{sat}(T_{sat})}$, a way of predicting $\mathbf{T_{sat}}$ given a pressure depending only on the properties of the substance and parameters of the cubic equation of state is being proposed, additionally to use the iterative method already developed. The next sections will be explained in more detail the bracketing methods and their study/implementation for the isobars, isotherms, and two-phase envelopes predictions.
