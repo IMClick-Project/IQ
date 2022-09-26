@@ -16,7 +16,7 @@ EoS Simulator (**Figure 1**) is a program developed in MATLAB<sup>&reg;</sup> R2
 
 ### 1.1. How to download and install EoS Simulator?
 
-The application is in a zipped folder located in a reportory on GitHub<sup>&reg;</sup>. The steps to download and install the simulator are:
+The application is in a zipped folder located in a repository on GitHub<sup>&reg;</sup>. The steps to download and install the simulator are:
 
 1.  Go to [https://github.com/IMClick-Project/IQ/tree/main/Cubic%20Equations%20of%20State%20Simulator](https://github.com/IMClick-Project/IQ/tree/main/Cubic%20Equations%20of%20State%20Simulator).
 2.  Click on "EoS Simulator.rar".
