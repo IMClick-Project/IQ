@@ -118,10 +118,10 @@ $$
 
 For **van der Waals (vdW):** $\mathbf{(a) \quad \epsilon = \sigma \quad \longleftrightarrow \quad }\mathbf{ I^n = \frac{\beta}{Z^n+\epsilon \beta}}$.
 
-For **Redlich/Kwong (RK), Soave/Redlich/Kwong (SRK)**, and **Peng/Robinson (PR):** $\mathbf{(b) \quad \epsilon \neq \sigma \quad \longleftrightarrow \quad \mathbf{ I^n
-= \frac{1}{\sigma - \epsilon}\ln{\frac{Z^n+\sigma \beta}{Z^n+\epsilon \beta}}}}$.
+For **Redlich/Kwong (RK), Soave/Redlich/Kwong (SRK)**, and **Peng/Robinson (PR):** $\mathbf{(b) \quad \epsilon \neq \sigma \quad \longleftrightarrow \quad I^n
+= \frac{1}{\sigma - \epsilon}\ln{\frac{Z^n+\sigma \beta}{Z^n+\epsilon \beta}}}$.
 
-Therefore, if we proposed an error value $\mathbf{Er}$ that describes the minimum relative fugacity difference between both $\mathbf{VLE}$ phases required to obtain an effective saturation pressure that can follow the Maxwell Construction, an iterative scheme can be proposed to predict a real EoS isotherm according to the accomplishment of **Ineq. (10)**, a **Fugacity Test** that will always change pressure values under the **Eq. (11)** until the relative fugacity difference gets equal or lower than the approved  value (**Figure 2**).
+Therefore, if we proposed an error value $\mathbf{Er}$ that describes the minimum relative fugacity difference between both $\mathbf{VLE}$ phases required to obtain an effective saturation pressure that can follow the Maxwell Construction, an iterative scheme can be proposed to predict a real EoS isotherm according to the accomplishment of **Ineq. (10)**, a **Fugacity Test** that will always change pressure values under the **Eq. (11)** until the relative fugacity difference gets equal or lower than the approved $\mathbf{Er}$ value (**Figure 2**).
 
 $$
 \begin{aligned}
@@ -143,7 +143,7 @@ Several iterative calculations of this method can be performed for the range of 
 
 ![Figure 4](https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/F_VS_i.jpg)
 
-*Figure 4. Saturation pressure vs* $i$ *(iteration number) plot ($P_{sat,1}^{(1)}>P_{sat,1}^{(2)}>P_{sat,1}^{(3)}$).*
+*Figure 4. Saturation pressure vs* $i$ *(iteration number) plot* ($P_{sat,1}^{(1)}>P_{sat,1}^{(2)}>P_{sat,1}^{(3)}$).
 
 Considering the maximum point of the analytical isotherm as the initial pressure for the Fugacity Test allows establishing a prediction method of the saturation pressure without using empirical parameters such as those of the Antoine equation. This initial pressure is a single value in the analytical isotherm, is always positive (as it is a point above the saturation pressure to be predicted), and depends only on the properties of the substance and the parameters of the cubic equation of state.
 
