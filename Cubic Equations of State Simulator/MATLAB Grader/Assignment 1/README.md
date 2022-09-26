@@ -198,13 +198,13 @@ In engineering applications, enthalpy and entropy are often the thermodynamic pr
 
 $$
 \begin{aligned}
-\mathbf{(12) \quad dH=C_PdT+\left[V-T\left(\frac{\partial V}{\partial T} \right)_P\right]dP \quad \longrightarrow \quad (14) \quad dH^{ig}=C_P^{ig}dT \quad \longrightarrow \quad (16) \quad H^{ig}=H_0^{ig}+\int_{T_0}^T C_P^{ig} dT}
+\mathbf{(12) \quad dH=C_P dT+\left[V-T\left(\frac{\partial V}{\partial T} \right) _P \right]dP \quad \longrightarrow \quad (14) \quad dH^{ig}=C_P^{ig}dT \quad \longrightarrow \quad (16) \quad H^{ig}=H_0^{ig}+ \int_{T_0}^T C_P^{ig} dT}
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
-\mathbf{(13) \quad dS=C_P\frac{dT}{T}+\left(\frac{\partial V}{\partial T} \right)_PdP \quad \longrightarrow \quad (15) \quad dS^{ig}=C_P^{ig}\frac{dT}{T}-R\frac{dP}{P} \quad \longrightarrow \quad (17) \quad S^{ig}=S_0^{ig}+\int_{T_0}^T C_P^{ig}\frac{dT}{T}-R\ln{\frac{P}{P_0}}}
+\mathbf{(13) \quad dS=C_P\frac{dT}{T}+\left(\frac{\partial V}{\partial T} \right) _P dP \quad \longrightarrow \quad (15) \quad dS^{ig}=C_P^{ig}\frac{dT}{T}-R\frac{dP}{P} \quad \longrightarrow \quad (17) \quad S^{ig}=S_0^{ig}+ \int_{T_0}^T C_P^{ig}\frac{dT}{T}-R\ln{\frac{P}{P_0}}}
 \end{aligned}
 $$
 
@@ -299,13 +299,19 @@ With $\mathbf{y=\ln{\alpha(T_r)}}$ and $\mathbf{x=\ln{T_r}}$, then $\mathbf{\fra
 
 $$
 \begin{aligned}
-\mathbf{exp(y)=\left[1+p\left(1-exp\left(\frac{x}{2}\right) \right)\right]^2 \quad \longleftrightarrow \quad exp(y)\frac{dy}{dx}=2\left[1+p\left(1-exp\left(\frac{x}{2}\right) \right)\right]\frac{d}{dx}\left[1+p\left(1-exp\left(\frac{x}{2}\right) \right)\right]=2\left[1+p\left(1-exp\left(\frac{x}{2}\right) \right)\right]\left[-\frac{p}{2}exp\left(\frac{x}{2} \right)\right]}
+\mathbf{exp(y)=\left[1+p\left(1-exp\left(\frac{x}{2}\right) \right)\right]^2 }
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
-\mathbf{ \longleftrightarrow \quad \frac{dy}{dx}=\left[1+p\left(1-exp\left(\frac{x}{2}\right) \right)\right]\left[-pexp\left(\frac{x}{2}-y \right)\right]}
+\mathbf{\longleftrightarrow \quad exp(y)\frac{dy}{dx}=2\left[1+p\left(1-exp\left(\frac{x}{2}\right) \right)\right]\frac{d}{dx}\left[1+p\left(1-exp\left(\frac{x}{2}\right) \right)\right]=2\left[1+p\left(1-exp\left(\frac{x}{2}\right) \right)\right]\left[-\frac{p}{2}exp\left(\frac{x}{2} \right)\right]}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\mathbf{\longleftrightarrow \quad \frac{dy}{dx}=\left[1+p\left(1-exp\left(\frac{x}{2}\right) \right)\right]\left[-pexp\left(\frac{x}{2}-y \right)\right]}
 \end{aligned}
 $$
 
