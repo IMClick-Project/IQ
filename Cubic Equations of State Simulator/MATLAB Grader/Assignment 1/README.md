@@ -150,6 +150,12 @@ On the other hand, the $\mathbf{VLE}$ curve in a $\mathbf{P}$ vs $\mathbf{T}$ di
 
 ![Figure 5](https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/bracketing.jpg)
 
-*Figure 5. Figure 5. Pressure vs temperature plot and representation of the function* $f(T_{sat})$*.*
+*Figure 5. Pressure vs temperature plot and representation of the function* $f(T_{sat})$*.*
 
 Finding the zero of the nonlinear function $\mathbf{f(T_{sat})}$ given its characteristics is possible by some **bracketing method**. In addition, by using the Fugacity Test to estimate $\mathbf{P_{sat}(T_{sat})}$, a way of predicting $\mathbf{T_{sat}}$ given a pressure depending only on the properties of the substance and parameters of the cubic equation of state is being proposed, additionally to use the iterative method already developed. The next sections will be explained in more detail the bracketing methods and their study/implementation for the isobars, isotherms, and two-phase envelopes predictions.
+
+## 2. Bracketing Methods
+
+The bracketing methods require two initial guess points, $\mathbf{a}$ and $\mathbf{b}$, that contain the root, and $\mathbf{f(a)}$ and $\mathbf{f(b)}$ have a different parity, that is, $\mathbf{f(a)f(b)<0}$. By the **Intermediate Value Theorem**, there is at least one real root $\mathbf{p}$ in the interval $\mathbf{[a,b]}$ such that $\mathbf{f(p)=0}$. Given the increasing function of $\mathbf{P_{sat}}$ concerning $\mathbf{T_{sat}}$, there is only one zero in the real and continuos function $\mathbf{f(T_{sat})}$.
+
+As the iteration progresses, the width of the bracket is reduced until the approximate solution to the desired accuracy is reached.  Some of the known bracketing methods are the **Bisection method**, Regula Falsi method (or **False Position**), and **improved or modified False Position method**.
