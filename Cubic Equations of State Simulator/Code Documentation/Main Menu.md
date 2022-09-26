@@ -2,13 +2,13 @@
 
 The simulator's main menu is the MATLAB app file called "EoS_Simulator.mlapp".
 
-## Design View
+## 1. Design View
 
 <img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/Code%20Documentation/main.jpg" width="342" height="168">
 
 *Figure 1. Design View in EoS_Simulator.mlapp*
 
-## Code View
+## 2. Code View
 
 ```Matlab
 classdef EoS_Simulator < matlab.apps.AppBase
