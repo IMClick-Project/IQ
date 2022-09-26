@@ -194,7 +194,7 @@ Otherwise, if we wanted to generate a table of the thermodynamic properties of a
 
 ## 3. Enthalpy and Entropy as Functions of T and P
 
-In engineering applications, enthalpy and entropy are often the thermodynamic properties of interest, and $\mathbf{T}$ and $\mathbf{P}$ are the most common measurable properties of a substance or system. Thus, their mathematical connections, expressing the variation of $\mathbf{H}$ and $\mathbf{S}$ with changes in $\mathbf{T}$ and $\mathbf{P}$, are required. The **Eqs. (12)-(13)** are general equations relating enthalpy and entropy to temperature and pressure for homogeneous fluids of constant composition. The coefficients of $\mathbf{dT}$ and $\mathbf{dP}$ are evaluated from heat-capacity and $\mathbf{PVT}$ data. The ideal-gas state ($\mathbf{ig}$) provides an example of $\mathbf{PVT}$ behavior: $\mathbf{PV^{ig}=RT}$ and $\mathbf{\left(\frac{\partial V^{ig}}{\partial T}\right)_P=\frac{R}{P}}$. Substituting these equations into **Eqs. (12)-(13)** reduces them to **Eqs. (14)-(15)**. General expressions for $\mathbf{H^{ig}}$ and $\mathbf{S^{ig}}$ are found by integration of **Eqs. (14)-(15)** from an ideal-gas state at reference conditions $\mathbf{T_0}$ and $\mathbf{P_0}$ to an ideal-gas state at $\mathbf{T}$ and $\mathbf{P}$ (**Eqs. (16)-(17)**).
+In engineering applications, enthalpy and entropy are often the thermodynamic properties of interest, and $\mathbf{T}$ and $\mathbf{P}$ are the most common measurable properties of a substance or system. Thus, their mathematical connections, expressing the variation of $\mathbf{H}$ and $\mathbf{S}$ with changes in $\mathbf{T}$ and $\mathbf{P}$, are required. The **Eqs. (12)-(13)** are general equations relating enthalpy and entropy to temperature and pressure for homogeneous fluids of constant composition. The coefficients of $\mathbf{dT}$ and $\mathbf{dP}$ are evaluated from heat-capacity and $\mathbf{PVT}$ data. The ideal-gas state $(\mathbf{ig})$ provides an example of $\mathbf{PVT}$ behavior: $\mathbf{PV^{ig}=RT}$ and $\mathbf{\left(\frac{\partial V^{ig}}{\partial T}\right)_P=\frac{R}{P}}$. Substituting these equations into **Eqs. (12)-(13)** reduces them to **Eqs. (14)-(15)**. General expressions for $\mathbf{H^{ig}}$ and $\mathbf{S^{ig}}$ are found by integration of **Eqs. (14)-(15)** from an ideal-gas state at reference conditions $\mathbf{T_0}$ and $\mathbf{P_0}$ to an ideal-gas state at $\mathbf{T}$ and $\mathbf{P}$ (**Eqs. (16)-(17)**).
 
 $$
 \begin{aligned}
@@ -208,8 +208,7 @@ $$
 \end{aligned}
 $$
 
-The properties of the ideal gas state reflect the real molecular configurations but suppose the absence of intermolecular interactions. Residual properties represent the effect of such interactions. The generic residual property is defined by $\mathbf{M^R=M-M^{ig}}$, where $\mathbf{M}
-$ and $\mathbf{M^{ig}}$ are actual and ideal-gas-state properties at the same $\mathbf{T}$ and $\mathbf{P}$. They represent molar values for any extensive thermodynamic property like $\mathbf{V}$, $\mathbf{U}$, $\mathbf{H}$, $\mathbf{S}$, $\mathbf{G}$, or $\mathbf{A}$. Hence, because of $\mathbf{H=H^{ig}+H^R}$ and $\mathbf{S=S^{ig}+S^R}$, the **Eqs. (16)-(17)** can be expressed as **Eqs. (18)-(19)**. These expressions allow calculating the enthalpy and entropy using an ideal gas as a reference state.
+The properties of the ideal gas state reflect the real molecular configurations but suppose the absence of intermolecular interactions. Residual properties represent the effect of such interactions. The generic residual property is defined by $\mathbf{M^R=M-M^{ig}}$, where $\mathbf{M}$ and $\mathbf{M^{ig}}$ are actual and ideal-gas-state properties at the same $\mathbf{T}$ and $\mathbf{P}$. They represent molar values for any extensive thermodynamic property like $\mathbf{V}$, $\mathbf{U}$, $\mathbf{H}$, $\mathbf{S}$, $\mathbf{G}$, or $\mathbf{A}$. Hence, because of $\mathbf{H=H^{ig}+H^R}$ and $\mathbf{S=S^{ig}+S^R}$, the **Eqs. (16)-(17)** can be expressed as **Eqs. (18)-(19)**. These expressions allow calculating the enthalpy and entropy using an ideal gas as a reference state.
 
 $$
 \begin{aligned}
@@ -251,13 +250,13 @@ $$
 
 $$
 \begin{aligned}
-\mathbf{(23) \quad \int_{T_0}^TC_P^{ig}dT=A(T-T_0)+\frac{B}{2}(T^2-T_0^2)+\frac{C}{3}(T^3-T_0^3)+\frac{D}{4}(T^4-T_0^4)+\frac{E}{5}(T^5-T_0^5)}
+\mathbf{(23) \quad \int_{T_0}^T C_P^{ig}dT=A(T-T_0)+\frac{B}{2}(T^2-T_0^2)+\frac{C}{3}(T^3-T_0^3)+\frac{D}{4}(T^4-T_0^4)+\frac{E}{5}(T^5-T_0^5)}
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
-\mathbf{(24) \quad \int_{T_0}^TC_P^{ig}\frac{dT}{T}=A\ln{\frac{T}{T_0}}+B(T-T_0)+\frac{C}{2}(T^2-T_0^2)+\frac{D}{3}(T^3-T_0^3)+\frac{E}{4}(T^4-T_0^4)}
+\mathbf{(24) \quad \int_{T_0}^T C_P^{ig}\frac{dT}{T}=A\ln{\frac{T}{T_0}}+B(T-T_0)+\frac{C}{2}(T^2-T_0^2)+\frac{D}{3}(T^3-T_0^3)+\frac{E}{4}(T^4-T_0^4)}
 \end{aligned}
 $$
 
@@ -270,7 +269,7 @@ The constants of **Eq. (22)** of some compounds are (Chemours, 2018; Reklaitis &
 + **Hydrogen:** $\mathbf{A=1.76386E+01}$, $\mathbf{B=6.70055E-02}$, $\mathbf{C=-1.31485E-04}$, $\mathbf{D=1.05883E-07}$, and $\mathbf{E=-2.91803E-11}$.
 + **Methane:** $\mathbf{A=3.83870E+01}$, $\mathbf{B=-7.36639E-02}$, $\mathbf{C=2.90981E-04}$, $\mathbf{D=-2.63849E-07}$, and $\mathbf{E=8.00679E-11}$.
 + **Nitrogen:** $\mathbf{A=2.94119E+01}$, $\mathbf{B=-3.00681E-03}$, $\mathbf{C=5.45064E-05}$, $\mathbf{D=5.13186E-09}$, and $\mathbf{E=-4.25308E-12}$.
-+ **Oxygen:** $\mathbf{A=2.98832E+01}$, $\mathbf{B=-1.13842E-02}$, $\mathbf{C=4.33779E-05}$, $\mathbf{D=-3.70082E-08$, and $\mathbf{E=1.01006E-11}$.
++ **Oxygen:** $\mathbf{A=2.98832E+01}$, $\mathbf{B=-1.13842E-02}$, $\mathbf{C=4.33779E-05}$, $\mathbf{D=-3.70082E-08}$, and $\mathbf{E=1.01006E-11}$.
 + **Refrigerant 134a (Tetrafluoroethane):** $\mathbf{A=1.94006E+01}$, $\mathbf{B=2.58531E-01}$, $\mathbf{C=-1.29665E-04}$, $\mathbf{D=0}$, and $\mathbf{E=0}$.
 + **Water:** $\mathbf{A=3.40471E+01}$, $\mathbf{B=-9.65064E-03}$, $\mathbf{C=3.29983E-05}$, $\mathbf{D=-2.04467E-08}$, and $\mathbf{E=4.30228E-12}$.
 
