@@ -1,14 +1,16 @@
 # Volume Menu
 
-The "Volume" button on the main menu opens this menu of options for volume-related thermodynamic property prediction functions. This menu is the MATLAB app file called "Volume.mlapp".
+The "Volume" button on the main menu opens this menu of options for volume-related thermodynamic property prediction functions. This menu is the MATLAB App file called "Volume.mlapp".
 
-## 1. Design View
+## 1. MATLAB App
+
+### 1.1. Design View
 
 <img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/Code%20Documentation/volume.jpg" width="721" height="314">
 
 *Figure 1. Design View in Volume.mlapp*
 
-## 2. Code View
+### 1.2. Code View
 
 ```Matlab
 classdef Volume < matlab.apps.AppBase
