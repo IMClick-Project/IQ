@@ -8,7 +8,7 @@ The "Entropy" button on the main menu opens this menu of options for entropy-rel
 
 <img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/Code%20Documentation/entropy.jpg" width="722" height="282">
 
-*Figure 1. Design View in Entropy.mlapp*
+*Figure 1. Design View in Entropy.mlapp.*
 
 ### 1.2. Code View
 

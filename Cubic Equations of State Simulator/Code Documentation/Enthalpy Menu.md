@@ -8,7 +8,7 @@ The "Enthalpy" button on the main menu opens this menu of options for enthalpy-r
 
 <img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/Code%20Documentation/enthalpy.jpg" width="721" height="279">
 
-*Figure 1. Design View in Enthalpy.mlapp*
+*Figure 1. Design View in Enthalpy.mlapp.*
 
 ### 1.2. Code View
 

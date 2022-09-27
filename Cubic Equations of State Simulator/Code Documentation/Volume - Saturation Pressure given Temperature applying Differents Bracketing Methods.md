@@ -8,7 +8,7 @@ This is the fourth option in the volume menu. Its interface is programmed in "Vo
 
 <img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/Code%20Documentation/volume4.jpg" width="1104" height="599">
 
-*Figure 1. Design View in Volume4.mlapp*
+*Figure 1. Design View in Volume4.mlapp.*
 
 ### 1.2. Code View
 

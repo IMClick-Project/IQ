@@ -8,7 +8,7 @@ The simulator's main menu is the MATLAB App file called "EoS_Simulator.mlapp".
 
 <img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/Code%20Documentation/main.jpg" width="342" height="168">
 
-*Figure 1. Design View in EoS_Simulator.mlapp*
+*Figure 1. Design View in EoS_Simulator.mlapp.*
 
 ### 1.2. Code View
 
