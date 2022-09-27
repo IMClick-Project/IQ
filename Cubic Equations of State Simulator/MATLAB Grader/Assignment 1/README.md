@@ -142,7 +142,7 @@ Several iterative calculations of this method can be performed for the range of 
 
 <img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/F_VS_i.jpg" width="543" height="380">
 
-*Figure 4. Saturation pressure vs* $i$ *(iteration number) plot* $(P_{sat,1}^{(1)}>P_{sat,1}^{(2)}>P_{sat,1}^{(3)})$.
+*Figure 4. Saturation pressure vs* $i$ *(iteration number) plot* $(P_{sat,1}^{(1)}>P_{sat,1}^{(2)}>P_{sat,1}^{(3)})$*.*
 
 Considering the maximum point of the analytical isotherm as the initial pressure for the Fugacity Test allows establishing a prediction method of the saturation pressure without using empirical parameters such as those of the Antoine equation. This initial pressure is a single value in the analytical isotherm, is always positive (as it is a point above the saturation pressure to be predicted), and depends only on the properties of the substance and the parameters of the cubic equation of state.
 
