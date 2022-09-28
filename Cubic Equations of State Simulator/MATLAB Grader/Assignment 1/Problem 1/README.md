@@ -18,7 +18,7 @@ EoS Simulator (**Figure 1**) is a program developed in MATLAB<sup>&reg;</sup> R2
 
 The application is in a zipped folder located in a repository on GitHub<sup>&reg;</sup>. The steps to download and install the simulator are:
 
-1.  Go to [https://github.com/IMClick-Project/IQ/tree/main/Cubic%20Equations%20of%20State%20Simulator](https://github.com/IMClick-Project/IQ/tree/main/Cubic%20Equations%20of%20State%20Simulator).
+1.  Enter the [repository folder](https://github.com/IMClick-Project/IQ/tree/main/Cubic%20Equations%20of%20State%20Simulator) of this application.
 2.  Click on "EoS Simulator.rar".
 3.  Click on the "Download" button.
 4.  After the download is complete, unzip the downloaded file to the C drive (C:). A folder with the application icon will appear.
@@ -98,7 +98,7 @@ In this problem, the thermodynamic and experimental data of other five compounds
 + Refrigerant 134a (Smith *et al.*, 2017; Banakar *et al.*, 2013; Perry *et al.*, 1997): Molar Mass=102.03 g/mol, $\mathbf{T_t=}$ 169.85 K, $\mathbf{P_t=}$ 0.0039 bar, $\mathbf{T_c=}$ 374.2 K, $\mathbf{P_c=}$ 40.6 bar, $\mathbf{w=}$ 0.327, $\mathbf{V_c=}$ 198 cm3/mol, $\mathbf{A=14.4100}$ (**Eq. (5)**), $\mathbf{B=2094.00}$ (**Eq. (5)**), $\mathbf{C=-33.0600}$ (**Eq. (5)**), $\mathbf{A=1.94006E+01}$ (**Eq. (22)**), $\mathbf{B=2.58531E-01}$ (**Eq. (22)**), $\mathbf{C=-1.29665E-04}$ (**Eq. (22)**), $\mathbf{D=0}$ (**Eq. (22)**), and $\mathbf{E=0}$ (**Eq. (22)**).
 + Water (Smith *et al.*, 2017; Reklaitis & Schneider, 1986; Çengel *et al.*, 2019): Molar Mass=18.015 g/mol, $\mathbf{T_t=}$ 273.16 K, $\mathbf{P_t=}$ 0.006117 bar, $\mathbf{T_c=}$ 647.1 K, $\mathbf{P_c=}$ 220.55 bar, $\mathbf{w=}$ 0.345, $\mathbf{V_c=}$ 55.9 cm3/mol, $\mathbf{A=16.5362}$ (**Eq. (5)**), $\mathbf{B=3985.44}$ (**Eq. (5)**), $\mathbf{C=-38.9974}$ (**Eq. (5)**), $\mathbf{A=3.40471E+01}$ (**Eq. (22)**), $\mathbf{B=-9.65064E-03}$ (**Eq. (22)**), $\mathbf{C=3.29983E-05}$ (**Eq. (22)**), $\mathbf{D=-2.04467E-08}$ (**Eq. (22)**), and $\mathbf{E=4.30228E-12}$ (**Eq. (22)**).
 
-The experimental data of these compounds will be provided in the following link: [https://github.com/IMClick-Project/IQ/tree/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/Problem%201](https://github.com/IMClick-Project/IQ/tree/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/Problem%201). The reference state information will be a state in saturation provided in these tables:
+The experimental data of these compounds will be provided in this [link](https://github.com/IMClick-Project/IQ/tree/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/Problem%201/Experimental%20Data). The reference state information will be a state in saturation provided in these tables:
 
 + Methane (Perry *et al.*, 1997): Enthalpy-State of aggregation=Real Liquid, $\mathbf{T_0}=$ 150 K, $\mathbf{P_0}=$ 10.41 bar, and $\mathbf{H_0}=$ 429.4 kJ/kg; Entropy-State of aggregation=Real Vapor, $\mathbf{T_0}=$ 150 K, $\mathbf{P_0}=$ 10.41 bar, and $\mathbf{S_0}=$ 8.849 kJ/kg·K.
 + Nitrogen (Perry *et al.*, 1997): Enthalpy-State of aggregation=Real Liquid, $\mathbf{T_0}=$ 90 K, $\mathbf{P_0}=$ 3.6 bar, and $\mathbf{H_0}=$ -95.6 kJ/kg; Entropy-State of aggregation=Real Vapor, $\mathbf{T_0}=$ 90 K, $\mathbf{P_0}=$ 3.6 bar, and $\mathbf{S_0}=$ 5.152 kJ/kg·K.
