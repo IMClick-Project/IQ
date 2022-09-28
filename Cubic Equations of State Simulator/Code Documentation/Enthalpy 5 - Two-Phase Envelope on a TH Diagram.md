@@ -1,6 +1,6 @@
 # Two-Phase Envelope on a TH Diagram
 
-This is the fifth option in the volume menu. Its interface is programmed in "Enthalpy5.mlapp" and it uses the function called "Two_Phase_TH_Diagram.m" for thermodynamic calculations.
+This is the fifth option in the enthalpy menu. Its interface is programmed in "Enthalpy5.mlapp" and it uses the function called "Two_Phase_TH_Diagram.m" for thermodynamic calculations.
 
 ## 1. MATLAB App
 
