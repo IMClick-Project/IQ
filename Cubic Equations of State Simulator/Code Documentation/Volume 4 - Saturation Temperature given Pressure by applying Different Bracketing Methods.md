@@ -1,4 +1,4 @@
-# Saturation Temperature given Pressure applying Differents Bracketing Methods
+# Saturation Temperature given Pressure by applying Different Bracketing Methods
 
 This is the fourth option in the volume menu. Its interface is programmed in "Volume4.mlapp" and it uses the function called "Saturation_Temperature_given_Pressure.m" for thermodynamic calculations.
 
@@ -157,76 +157,76 @@ classdef Volume4 < matlab.apps.AppBase
             table2PR.Properties.VariableNames{'Var9'}='Iterations-P';
             table2PR.Properties.VariableNames{'Var10'}='Tsat-AB [K]';
             table2PR.Properties.VariableNames{'Var11'}='Iterations-AB';
-            writecell(cell(10,8),"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","Total Iterations vs EoS","Range","A1");
-            writetable(table1,"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","Total Iterations vs EoS","Range","A4");
-            writecell({'Compound'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","Total Iterations vs EoS","Range","A1");
-            writecell({'Triple Temperature [K]'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","Total Iterations vs EoS","Range","A2");
-            writecell({'Close to Critical Temperature (CCT) [K]'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","Total Iterations vs EoS","Range","A3");
-            writecell({app.Compound.Value},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","Total Iterations vs EoS","Range","B1");
-            writematrix(str2double({app.TripleTemperature.Value}),"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","Total Iterations vs EoS","Range","B2");
-            writematrix(str2double({app.CriticalTemperature.Value}),"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","Total Iterations vs EoS","Range","B3");
-            writecell(cell(5000,11),"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","vdW - Iterations vs Psat","Range","A1");
-            writetable(table2vdW,"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","vdW - Iterations vs Psat");
+            writecell(cell(10,8),"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","Total Iterations vs EoS","Range","A1");
+            writetable(table1,"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","Total Iterations vs EoS","Range","A4");
+            writecell({'Compound'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","Total Iterations vs EoS","Range","A1");
+            writecell({'Triple Temperature [K]'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","Total Iterations vs EoS","Range","A2");
+            writecell({'Close to Critical Temperature (CCT) [K]'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","Total Iterations vs EoS","Range","A3");
+            writecell({app.Compound.Value},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","Total Iterations vs EoS","Range","B1");
+            writematrix(str2double({app.TripleTemperature.Value}),"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","Total Iterations vs EoS","Range","B2");
+            writematrix(str2double({app.CriticalTemperature.Value}),"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","Total Iterations vs EoS","Range","B3");
+            writecell(cell(5000,11),"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","vdW - Iterations vs Psat","Range","A1");
+            writetable(table2vdW,"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","vdW - Iterations vs Psat");
             for i=2:1+height(table2vdW)
-                if ismissing(string(readcell("./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","vdW - Iterations vs Psat","Range",[i,2,i,2])))
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","vdW - Iterations vs Psat","Range",['B',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","vdW - Iterations vs Psat","Range",['C',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","vdW - Iterations vs Psat","Range",['D',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","vdW - Iterations vs Psat","Range",['E',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","vdW - Iterations vs Psat","Range",['F',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","vdW - Iterations vs Psat","Range",['G',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","vdW - Iterations vs Psat","Range",['H',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","vdW - Iterations vs Psat","Range",['I',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","vdW - Iterations vs Psat","Range",['J',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","vdW - Iterations vs Psat","Range",['K',num2str(i)]);
+                if ismissing(string(readcell("./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","vdW - Iterations vs Psat","Range",[i,2,i,2])))
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","vdW - Iterations vs Psat","Range",['B',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","vdW - Iterations vs Psat","Range",['C',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","vdW - Iterations vs Psat","Range",['D',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","vdW - Iterations vs Psat","Range",['E',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","vdW - Iterations vs Psat","Range",['F',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","vdW - Iterations vs Psat","Range",['G',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","vdW - Iterations vs Psat","Range",['H',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","vdW - Iterations vs Psat","Range",['I',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","vdW - Iterations vs Psat","Range",['J',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","vdW - Iterations vs Psat","Range",['K',num2str(i)]);
                 end
             end
-            writecell(cell(5000,11),"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","RK - Iterations vs Psat","Range","A1");
-            writetable(table2RK,"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","RK - Iterations vs Psat");
+            writecell(cell(5000,11),"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","RK - Iterations vs Psat","Range","A1");
+            writetable(table2RK,"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","RK - Iterations vs Psat");
             for i=2:1+height(table2RK)
-                if ismissing(string(readcell("./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","RK - Iterations vs Psat","Range",[i,2,i,2])))
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","RK - Iterations vs Psat","Range",['B',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","RK - Iterations vs Psat","Range",['C',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","RK - Iterations vs Psat","Range",['D',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","RK - Iterations vs Psat","Range",['E',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","RK - Iterations vs Psat","Range",['F',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","RK - Iterations vs Psat","Range",['G',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","RK - Iterations vs Psat","Range",['H',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","RK - Iterations vs Psat","Range",['I',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","RK - Iterations vs Psat","Range",['J',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","RK - Iterations vs Psat","Range",['K',num2str(i)]);
+                if ismissing(string(readcell("./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","RK - Iterations vs Psat","Range",[i,2,i,2])))
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","RK - Iterations vs Psat","Range",['B',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","RK - Iterations vs Psat","Range",['C',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","RK - Iterations vs Psat","Range",['D',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","RK - Iterations vs Psat","Range",['E',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","RK - Iterations vs Psat","Range",['F',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","RK - Iterations vs Psat","Range",['G',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","RK - Iterations vs Psat","Range",['H',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","RK - Iterations vs Psat","Range",['I',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","RK - Iterations vs Psat","Range",['J',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","RK - Iterations vs Psat","Range",['K',num2str(i)]);
                 end
             end
-            writecell(cell(5000,11),"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","SRK - Iterations vs Psat","Range","A1");
-            writetable(table2SRK,"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","SRK - Iterations vs Psat");
+            writecell(cell(5000,11),"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","SRK - Iterations vs Psat","Range","A1");
+            writetable(table2SRK,"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","SRK - Iterations vs Psat");
             for i=2:1+height(table2SRK)
-                if ismissing(string(readcell("./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","SRK - Iterations vs Psat","Range",[i,2,i,2])))
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","SRK - Iterations vs Psat","Range",['B',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","SRK - Iterations vs Psat","Range",['C',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","SRK - Iterations vs Psat","Range",['D',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","SRK - Iterations vs Psat","Range",['E',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","SRK - Iterations vs Psat","Range",['F',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","SRK - Iterations vs Psat","Range",['G',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","SRK - Iterations vs Psat","Range",['H',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","SRK - Iterations vs Psat","Range",['I',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","SRK - Iterations vs Psat","Range",['J',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","SRK - Iterations vs Psat","Range",['K',num2str(i)]);
+                if ismissing(string(readcell("./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","SRK - Iterations vs Psat","Range",[i,2,i,2])))
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","SRK - Iterations vs Psat","Range",['B',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","SRK - Iterations vs Psat","Range",['C',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","SRK - Iterations vs Psat","Range",['D',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","SRK - Iterations vs Psat","Range",['E',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","SRK - Iterations vs Psat","Range",['F',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","SRK - Iterations vs Psat","Range",['G',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","SRK - Iterations vs Psat","Range",['H',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","SRK - Iterations vs Psat","Range",['I',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","SRK - Iterations vs Psat","Range",['J',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","SRK - Iterations vs Psat","Range",['K',num2str(i)]);
                 end
             end
-            writecell(cell(5000,11),"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","PR - Iterations vs Psat","Range","A1");
-            writetable(table2PR,"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","PR - Iterations vs Psat");
+            writecell(cell(5000,11),"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","PR - Iterations vs Psat","Range","A1");
+            writetable(table2PR,"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","PR - Iterations vs Psat");
             for i=2:1+height(table2PR)
-                if ismissing(string(readcell("./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","PR - Iterations vs Psat","Range",[i,2,i,2])))
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","PR - Iterations vs Psat","Range",['B',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","PR - Iterations vs Psat","Range",['C',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","PR - Iterations vs Psat","Range",['D',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","PR - Iterations vs Psat","Range",['E',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","PR - Iterations vs Psat","Range",['F',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","PR - Iterations vs Psat","Range",['G',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","PR - Iterations vs Psat","Range",['H',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","PR - Iterations vs Psat","Range",['I',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","PR - Iterations vs Psat","Range",['J',num2str(i)]);
-                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure applying Differents Bracketing Methods.xlsx","Sheet","PR - Iterations vs Psat","Range",['K',num2str(i)]);
+                if ismissing(string(readcell("./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","PR - Iterations vs Psat","Range",[i,2,i,2])))
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","PR - Iterations vs Psat","Range",['B',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","PR - Iterations vs Psat","Range",['C',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","PR - Iterations vs Psat","Range",['D',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","PR - Iterations vs Psat","Range",['E',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","PR - Iterations vs Psat","Range",['F',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","PR - Iterations vs Psat","Range",['G',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","PR - Iterations vs Psat","Range",['H',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","PR - Iterations vs Psat","Range",['I',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","PR - Iterations vs Psat","Range",['J',num2str(i)]);
+                    writecell({'NaN'},"./Results/Saturation Temperature given Pressure by applying Differents Bracketing Methods.xlsx","Sheet","PR - Iterations vs Psat","Range",['K',num2str(i)]);
                 end
             end
             close(progressbar);
@@ -266,7 +266,7 @@ classdef Volume4 < matlab.apps.AppBase
             app.UIFigure = uifigure('Visible', 'off');
             app.UIFigure.Color = [1 1 1];
             app.UIFigure.Position = [100 100 1221 665];
-            app.UIFigure.Name = 'Saturation Temperature given Pressure applying Differents Bracketing Methods';
+            app.UIFigure.Name = 'Saturation Temperature given Pressure by applying Different Bracketing Methods';
             app.UIFigure.Icon = fullfile(pathToMLAPP, 'Logoico.png');
             app.UIFigure.Resize = 'off';
 
@@ -363,8 +363,8 @@ classdef Volume4 < matlab.apps.AppBase
             app.TsatgivenPapplyingDifferentsBracketingMethods.FontSize = 20;
             app.TsatgivenPapplyingDifferentsBracketingMethods.FontWeight = 'bold';
             app.TsatgivenPapplyingDifferentsBracketingMethods.FontColor = [0.1412 0.302 0.4784];
-            app.TsatgivenPapplyingDifferentsBracketingMethods.Position = [35 604 543 48];
-            app.TsatgivenPapplyingDifferentsBracketingMethods.Text = {'Saturation Temperature '; 'given Pressure applying Differents Bracketing Methods'};
+            app.TsatgivenPapplyingDifferentsBracketingMethods.Position = [26 604 561 48];
+            app.TsatgivenPapplyingDifferentsBracketingMethods.Text = {'Saturation Temperature '; 'given Pressure by applying Different Bracketing Methods'};
 
             % Create Table2vdW
             app.Table2vdW = uitable(app.UIFigure);
