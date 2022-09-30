@@ -194,7 +194,7 @@ classdef Volume7 < matlab.apps.AppBase
             createComponents(app)
 
             % Register the app with App Designer
-            registerApp(app, app.PVTDiagramgivenIsobarPressuresUIFigure)
+            registerApp(app, app.PVTSurfacegivenIsobarPressuresUIFigure)
 
             % Execute the startup function
             runStartupFcn(app, @startupFcn)
