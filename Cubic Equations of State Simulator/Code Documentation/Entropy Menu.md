@@ -18,12 +18,12 @@ classdef Entropy < matlab.apps.AppBase
     % Properties that correspond to app components
     properties (Access = public)
         EntropyUIFigure      matlab.ui.Figure
-        PSTDiagramgivenIsobarPressuresButton  matlab.ui.control.Button
+        PSTSurfacegivenIsobarPressuresButton  matlab.ui.control.Button
         TwoPhaseEnvelopeonaTSDiagramButton  matlab.ui.control.Button
         IsobargivenPressureonaTSDiagramButton  matlab.ui.control.Button
         BackButton           matlab.ui.control.Button
         ChooseanoptionLabel  matlab.ui.control.Label
-        PSTDiagramgivenIsothermTemperaturesButton  matlab.ui.control.Button
+        PSTSurfacegivenIsothermTemperaturesButton  matlab.ui.control.Button
         TwoPhaseEnvelopeonaPSDiagramButton  matlab.ui.control.Button
         IsothermgivenTemperatureonaPSDiagramButton  matlab.ui.control.Button
         Image                matlab.ui.control.Image
@@ -57,8 +57,8 @@ classdef Entropy < matlab.apps.AppBase
             delete(app);
         end
 
-        % Button pushed function: PSTDiagramgivenIsothermTemperaturesButton
-        function PSTDiagramgivenIsothermTemperaturesButtonPushed(app, event)
+        % Button pushed function: PSTSurfacegivenIsothermTemperaturesButton
+        function PSTSurfacegivenIsothermTemperaturesButtonPushed(app, event)
             Entropy3;
             delete(app);
         end
@@ -75,8 +75,8 @@ classdef Entropy < matlab.apps.AppBase
             delete(app);
         end
 
-        % Button pushed function: PSTDiagramgivenIsobarPressuresButton
-        function PSTDiagramgivenIsobarPressuresButtonPushed(app, event)
+        % Button pushed function: PSTSurfacegivenIsobarPressuresButton
+        function PSTSurfacegivenIsobarPressuresButtonPushed(app, event)
             Entropy6;
             delete(app);
         end
@@ -122,14 +122,14 @@ classdef Entropy < matlab.apps.AppBase
             app.TwoPhaseEnvelopeonaPSDiagramButton.Position = [16 180 482 22];
             app.TwoPhaseEnvelopeonaPSDiagramButton.Text = 'Two-Phase Envelope on a PS Diagram';
 
-            % Create PSTDiagramgivenIsothermTemperaturesButton
-            app.PSTDiagramgivenIsothermTemperaturesButton = uibutton(app.EntropyUIFigure, 'push');
-            app.PSTDiagramgivenIsothermTemperaturesButton.ButtonPushedFcn = createCallbackFcn(app, @PSTDiagramgivenIsothermTemperaturesButtonPushed, true);
-            app.PSTDiagramgivenIsothermTemperaturesButton.BackgroundColor = [0.8588 0.9608 0.9608];
-            app.PSTDiagramgivenIsothermTemperaturesButton.FontWeight = 'bold';
-            app.PSTDiagramgivenIsothermTemperaturesButton.FontColor = [0.1373 0.298 0.4784];
-            app.PSTDiagramgivenIsothermTemperaturesButton.Position = [16 149 482 22];
-            app.PSTDiagramgivenIsothermTemperaturesButton.Text = 'PST Diagram given Isotherm Temperatures';
+            % Create PSTSurfacegivenIsothermTemperaturesButton
+            app.PSTSurfacegivenIsothermTemperaturesButton = uibutton(app.EntropyUIFigure, 'push');
+            app.PSTSurfacegivenIsothermTemperaturesButton.ButtonPushedFcn = createCallbackFcn(app, @PSTSurfacegivenIsothermTemperaturesButtonPushed, true);
+            app.PSTSurfacegivenIsothermTemperaturesButton.BackgroundColor = [0.8588 0.9608 0.9608];
+            app.PSTSurfacegivenIsothermTemperaturesButton.FontWeight = 'bold';
+            app.PSTSurfacegivenIsothermTemperaturesButton.FontColor = [0.1373 0.298 0.4784];
+            app.PSTSurfacegivenIsothermTemperaturesButton.Position = [16 149 482 22];
+            app.PSTSurfacegivenIsothermTemperaturesButton.Text = 'PST Surface given Isotherm Temperatures';
 
             % Create ChooseanoptionLabel
             app.ChooseanoptionLabel = uilabel(app.EntropyUIFigure);
@@ -166,14 +166,14 @@ classdef Entropy < matlab.apps.AppBase
             app.TwoPhaseEnvelopeonaTSDiagramButton.Position = [18 86 480 22];
             app.TwoPhaseEnvelopeonaTSDiagramButton.Text = 'Two-Phase Envelope on a TS Diagram';
 
-            % Create PSTDiagramgivenIsobarPressuresButton
-            app.PSTDiagramgivenIsobarPressuresButton = uibutton(app.EntropyUIFigure, 'push');
-            app.PSTDiagramgivenIsobarPressuresButton.ButtonPushedFcn = createCallbackFcn(app, @PSTDiagramgivenIsobarPressuresButtonPushed, true);
-            app.PSTDiagramgivenIsobarPressuresButton.BackgroundColor = [0.8588 0.9608 0.9608];
-            app.PSTDiagramgivenIsobarPressuresButton.FontWeight = 'bold';
-            app.PSTDiagramgivenIsobarPressuresButton.FontColor = [0.1373 0.298 0.4784];
-            app.PSTDiagramgivenIsobarPressuresButton.Position = [18 54 480 22];
-            app.PSTDiagramgivenIsobarPressuresButton.Text = 'PST Diagram given Isobar Pressures';
+            % Create PSTSurfacegivenIsobarPressuresButton
+            app.PSTSurfacegivenIsobarPressuresButton = uibutton(app.EntropyUIFigure, 'push');
+            app.PSTSurfacegivenIsobarPressuresButton.ButtonPushedFcn = createCallbackFcn(app, @PSTSurfacegivenIsobarPressuresButtonPushed, true);
+            app.PSTSurfacegivenIsobarPressuresButton.BackgroundColor = [0.8588 0.9608 0.9608];
+            app.PSTSurfacegivenIsobarPressuresButton.FontWeight = 'bold';
+            app.PSTSurfacegivenIsobarPressuresButton.FontColor = [0.1373 0.298 0.4784];
+            app.PSTSurfacegivenIsobarPressuresButton.Position = [18 54 480 22];
+            app.PSTSurfacegivenIsobarPressuresButton.Text = 'PST Surface given Isobar Pressures';
 
             % Show the figure after all components are created
             app.EntropyUIFigure.Visible = 'on';

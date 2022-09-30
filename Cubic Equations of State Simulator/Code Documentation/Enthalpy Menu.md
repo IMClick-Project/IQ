@@ -18,12 +18,12 @@ classdef Enthalpy < matlab.apps.AppBase
     % Properties that correspond to app components
     properties (Access = public)
         EnthalpyUIFigure     matlab.ui.Figure
-        PHTDiagramgivenIsobarPressuresButton  matlab.ui.control.Button
+        PHTSurfacegivenIsobarPressuresButton  matlab.ui.control.Button
         TwoPhaseEnvelopeonaTHDiagramButton  matlab.ui.control.Button
         IsobargivenPressureonaTHDiagramButton  matlab.ui.control.Button
         BackButton           matlab.ui.control.Button
         ChooseanoptionLabel  matlab.ui.control.Label
-        PHTDiagramgivenIsothermTemperaturesButton  matlab.ui.control.Button
+        PHTSurfacegivenIsothermTemperaturesButton  matlab.ui.control.Button
         TwoPhaseEnvelopeonaPHDiagramButton  matlab.ui.control.Button
         IsothermgivenTemperatureonaPHDiagramButton  matlab.ui.control.Button
         Image                matlab.ui.control.Image
@@ -57,8 +57,8 @@ classdef Enthalpy < matlab.apps.AppBase
             delete(app);
         end
 
-        % Button pushed function: PHTDiagramgivenIsothermTemperaturesButton
-        function PHTDiagramgivenIsothermTemperaturesButtonPushed(app, event)
+        % Button pushed function: PHTSurfacegivenIsothermTemperaturesButton
+        function PHTSurfacegivenIsothermTemperaturesButtonPushed(app, event)
             Enthalpy3;
             delete(app);
         end
@@ -75,8 +75,8 @@ classdef Enthalpy < matlab.apps.AppBase
             delete(app);
         end
 
-        % Button pushed function: PHTDiagramgivenIsobarPressuresButton
-        function PHTDiagramgivenIsobarPressuresButtonPushed(app, event)
+        % Button pushed function: PHTSurfacegivenIsobarPressuresButton
+        function PHTSurfacegivenIsobarPressuresButtonPushed(app, event)
             Enthalpy6;
             delete(app);
         end
@@ -122,14 +122,14 @@ classdef Enthalpy < matlab.apps.AppBase
             app.TwoPhaseEnvelopeonaPHDiagramButton.Position = [15 181 482 22];
             app.TwoPhaseEnvelopeonaPHDiagramButton.Text = 'Two-Phase Envelope on a PH Diagram';
 
-            % Create PHTDiagramgivenIsothermTemperaturesButton
-            app.PHTDiagramgivenIsothermTemperaturesButton = uibutton(app.EnthalpyUIFigure, 'push');
-            app.PHTDiagramgivenIsothermTemperaturesButton.ButtonPushedFcn = createCallbackFcn(app, @PHTDiagramgivenIsothermTemperaturesButtonPushed, true);
-            app.PHTDiagramgivenIsothermTemperaturesButton.BackgroundColor = [0.8588 0.9608 0.9608];
-            app.PHTDiagramgivenIsothermTemperaturesButton.FontWeight = 'bold';
-            app.PHTDiagramgivenIsothermTemperaturesButton.FontColor = [0.1373 0.298 0.4784];
-            app.PHTDiagramgivenIsothermTemperaturesButton.Position = [15 150 482 22];
-            app.PHTDiagramgivenIsothermTemperaturesButton.Text = 'PHT Diagram given Isotherm Temperatures';
+            % Create PHTSurfacegivenIsothermTemperaturesButton
+            app.PHTSurfacegivenIsothermTemperaturesButton = uibutton(app.EnthalpyUIFigure, 'push');
+            app.PHTSurfacegivenIsothermTemperaturesButton.ButtonPushedFcn = createCallbackFcn(app, @PHTSurfacegivenIsothermTemperaturesButtonPushed, true);
+            app.PHTSurfacegivenIsothermTemperaturesButton.BackgroundColor = [0.8588 0.9608 0.9608];
+            app.PHTSurfacegivenIsothermTemperaturesButton.FontWeight = 'bold';
+            app.PHTSurfacegivenIsothermTemperaturesButton.FontColor = [0.1373 0.298 0.4784];
+            app.PHTSurfacegivenIsothermTemperaturesButton.Position = [15 150 482 22];
+            app.PHTSurfacegivenIsothermTemperaturesButton.Text = 'PHT Surface given Isotherm Temperatures';
 
             % Create ChooseanoptionLabel
             app.ChooseanoptionLabel = uilabel(app.EnthalpyUIFigure);
@@ -166,14 +166,14 @@ classdef Enthalpy < matlab.apps.AppBase
             app.TwoPhaseEnvelopeonaTHDiagramButton.Position = [17 87 480 22];
             app.TwoPhaseEnvelopeonaTHDiagramButton.Text = 'Two-Phase Envelope on a TH Diagram';
 
-            % Create PHTDiagramgivenIsobarPressuresButton
-            app.PHTDiagramgivenIsobarPressuresButton = uibutton(app.EnthalpyUIFigure, 'push');
-            app.PHTDiagramgivenIsobarPressuresButton.ButtonPushedFcn = createCallbackFcn(app, @PHTDiagramgivenIsobarPressuresButtonPushed, true);
-            app.PHTDiagramgivenIsobarPressuresButton.BackgroundColor = [0.8588 0.9608 0.9608];
-            app.PHTDiagramgivenIsobarPressuresButton.FontWeight = 'bold';
-            app.PHTDiagramgivenIsobarPressuresButton.FontColor = [0.1373 0.298 0.4784];
-            app.PHTDiagramgivenIsobarPressuresButton.Position = [17 55 480 22];
-            app.PHTDiagramgivenIsobarPressuresButton.Text = 'PHT Diagram given Isobar Pressures';
+            % Create PHTSurfacegivenIsobarPressuresButton
+            app.PHTSurfacegivenIsobarPressuresButton = uibutton(app.EnthalpyUIFigure, 'push');
+            app.PHTSurfacegivenIsobarPressuresButton.ButtonPushedFcn = createCallbackFcn(app, @PHTSurfacegivenIsobarPressuresButtonPushed, true);
+            app.PHTSurfacegivenIsobarPressuresButton.BackgroundColor = [0.8588 0.9608 0.9608];
+            app.PHTSurfacegivenIsobarPressuresButton.FontWeight = 'bold';
+            app.PHTSurfacegivenIsobarPressuresButton.FontColor = [0.1373 0.298 0.4784];
+            app.PHTSurfacegivenIsobarPressuresButton.Position = [17 55 480 22];
+            app.PHTSurfacegivenIsobarPressuresButton.Text = 'PHT Surface given Isobar Pressures';
 
             % Show the figure after all components are created
             app.EnthalpyUIFigure.Visible = 'on';

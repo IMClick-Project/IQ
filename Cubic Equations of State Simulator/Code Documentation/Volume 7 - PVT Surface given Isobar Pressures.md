@@ -1,6 +1,6 @@
-# PVT Diagram given Isobar Pressures
+# PVT Surface given Isobar Pressures
 
-This is the seventh option in the volume menu. Its interface is programmed in "Volume7.mlapp" and it uses the function called "PVT_Diagram_given_Isobar_Pressures.m" for thermodynamic calculations.
+This is the seventh option in the volume menu. Its interface is programmed in "Volume7.mlapp" and it uses the function called "PVT_Surface_given_Isobar_Pressures.m" for thermodynamic calculations.
 
 ## 1. MATLAB App
 
@@ -17,13 +17,13 @@ classdef Volume7 < matlab.apps.AppBase
 
     % Properties that correspond to app components
     properties (Access = public)
-        PVTDiagramgivenIsobarPressuresUIFigure  matlab.ui.Figure
+        PVTSurfacegivenIsobarPressuresUIFigure  matlab.ui.Figure
         Compound               matlab.ui.control.DropDown
         CompoundDropDownLabel  matlab.ui.control.Label
         EoS                    matlab.ui.control.DropDown
         CubicEquationofStateDropDownLabel  matlab.ui.control.Label
         BackButton             matlab.ui.control.Button
-        PVTDiagramgivenIsobarPressuresLabel  matlab.ui.control.Label
+        PVTSurfacegivenIsobarPressuresLabel  matlab.ui.control.Label
         Image                  matlab.ui.control.Image
         CalculateButton        matlab.ui.control.Button
         Figure1                matlab.ui.control.UIAxes
@@ -35,7 +35,7 @@ classdef Volume7 < matlab.apps.AppBase
         % Code that executes after component creation
         function startupFcn(app)
             clc;
-            movegui(app.PVTDiagramgivenIsobarPressuresUIFigure,"north");
+            movegui(app.PVTSurfacegivenIsobarPressuresUIFigure,"north");
             % Compound
             data=readtable("Thermodynamic Data.xlsx","Sheet","Compounds");
             app.Compound.Items=table2cell(data(:,1));
@@ -59,12 +59,12 @@ classdef Volume7 < matlab.apps.AppBase
                 end
             end
             if tam>0
-                progressbar=uiprogressdlg(app.PVTDiagramgivenIsobarPressuresUIFigure,"Title","Status","Message","Calculating","Indeterminate","on","Cancelable","off");
+                progressbar=uiprogressdlg(app.PVTSurfacegivenIsobarPressuresUIFigure,"Title","Status","Message","Calculating","Indeterminate","on","Cancelable","off");
                 drawnow;
-                PVT_Diagram_given_Isobar_Pressures;
+                PVT_Surface_given_Isobar_Pressures;
                 close(progressbar);
             else
-                uialert(app.PVTDiagramgivenIsobarPressuresUIFigure,"Input isobar pressures not found.","Data Status","Icon","warning");
+                uialert(app.PVTSurfacegivenIsobarPressuresUIFigure,"Input isobar pressures not found.","Data Status","Icon","warning");
             end
         end
 
@@ -92,16 +92,16 @@ classdef Volume7 < matlab.apps.AppBase
             % Get the file path for locating images
             pathToMLAPP = fileparts(mfilename('fullpath'));
 
-            % Create PVTDiagramgivenIsobarPressuresUIFigure and hide until all components are created
-            app.PVTDiagramgivenIsobarPressuresUIFigure = uifigure('Visible', 'off');
-            app.PVTDiagramgivenIsobarPressuresUIFigure.Color = [1 1 1];
-            app.PVTDiagramgivenIsobarPressuresUIFigure.Position = [100 100 634 632];
-            app.PVTDiagramgivenIsobarPressuresUIFigure.Name = 'PVT Diagram given Isobar Pressures';
-            app.PVTDiagramgivenIsobarPressuresUIFigure.Icon = fullfile(pathToMLAPP, 'Logoico.png');
-            app.PVTDiagramgivenIsobarPressuresUIFigure.Resize = 'off';
+            % Create PVTSurfacegivenIsobarPressuresUIFigure and hide until all components are created
+            app.PVTSurfacegivenIsobarPressuresUIFigure = uifigure('Visible', 'off');
+            app.PVTSurfacegivenIsobarPressuresUIFigure.Color = [1 1 1];
+            app.PVTSurfacegivenIsobarPressuresUIFigure.Position = [100 100 634 632];
+            app.PVTSurfacegivenIsobarPressuresUIFigure.Name = 'PVT Surface given Isobar Pressures';
+            app.PVTSurfacegivenIsobarPressuresUIFigure.Icon = fullfile(pathToMLAPP, 'Logoico.png');
+            app.PVTSurfacegivenIsobarPressuresUIFigure.Resize = 'off';
 
             % Create Figure1
-            app.Figure1 = uiaxes(app.PVTDiagramgivenIsobarPressuresUIFigure);
+            app.Figure1 = uiaxes(app.PVTSurfacegivenIsobarPressuresUIFigure);
             title(app.Figure1, 'EoS - Compound')
             xlabel(app.Figure1, 'T [K]')
             ylabel(app.Figure1, 'V [m^3/kg]')
@@ -116,7 +116,7 @@ classdef Volume7 < matlab.apps.AppBase
             app.Figure1.Position = [43 58 532 394];
 
             % Create CalculateButton
-            app.CalculateButton = uibutton(app.PVTDiagramgivenIsobarPressuresUIFigure, 'push');
+            app.CalculateButton = uibutton(app.PVTSurfacegivenIsobarPressuresUIFigure, 'push');
             app.CalculateButton.ButtonPushedFcn = createCallbackFcn(app, @CalculateButtonPushed, true);
             app.CalculateButton.BackgroundColor = [0.8588 0.9608 0.9608];
             app.CalculateButton.FontWeight = 'bold';
@@ -125,21 +125,21 @@ classdef Volume7 < matlab.apps.AppBase
             app.CalculateButton.Text = 'Calculate';
 
             % Create Image
-            app.Image = uiimage(app.PVTDiagramgivenIsobarPressuresUIFigure);
+            app.Image = uiimage(app.PVTSurfacegivenIsobarPressuresUIFigure);
             app.Image.Position = [43 468 127 103];
             app.Image.ImageSource = fullfile(pathToMLAPP, 'Logoico.png');
 
-            % Create PVTDiagramgivenIsobarPressuresLabel
-            app.PVTDiagramgivenIsobarPressuresLabel = uilabel(app.PVTDiagramgivenIsobarPressuresUIFigure);
-            app.PVTDiagramgivenIsobarPressuresLabel.HorizontalAlignment = 'center';
-            app.PVTDiagramgivenIsobarPressuresLabel.FontSize = 20;
-            app.PVTDiagramgivenIsobarPressuresLabel.FontWeight = 'bold';
-            app.PVTDiagramgivenIsobarPressuresLabel.FontColor = [0.1412 0.302 0.4784];
-            app.PVTDiagramgivenIsobarPressuresLabel.Position = [37 584 548 26];
-            app.PVTDiagramgivenIsobarPressuresLabel.Text = 'PVT Diagram given Isobar Pressures';
+            % Create PVTSurfacegivenIsobarPressuresLabel
+            app.PVTSurfacegivenIsobarPressuresLabel = uilabel(app.PVTSurfacegivenIsobarPressuresUIFigure);
+            app.PVTSurfacegivenIsobarPressuresLabel.HorizontalAlignment = 'center';
+            app.PVTSurfacegivenIsobarPressuresLabel.FontSize = 20;
+            app.PVTSurfacegivenIsobarPressuresLabel.FontWeight = 'bold';
+            app.PVTSurfacegivenIsobarPressuresLabel.FontColor = [0.1412 0.302 0.4784];
+            app.PVTSurfacegivenIsobarPressuresLabel.Position = [37 584 548 26];
+            app.PVTSurfacegivenIsobarPressuresLabel.Text = 'PVT Surface given Isobar Pressures';
 
             % Create BackButton
-            app.BackButton = uibutton(app.PVTDiagramgivenIsobarPressuresUIFigure, 'push');
+            app.BackButton = uibutton(app.PVTSurfacegivenIsobarPressuresUIFigure, 'push');
             app.BackButton.ButtonPushedFcn = createCallbackFcn(app, @BackButtonPushed, true);
             app.BackButton.BackgroundColor = [0.8588 0.9608 0.9608];
             app.BackButton.FontWeight = 'bold';
@@ -148,7 +148,7 @@ classdef Volume7 < matlab.apps.AppBase
             app.BackButton.Text = 'Back';
 
             % Create CubicEquationofStateDropDownLabel
-            app.CubicEquationofStateDropDownLabel = uilabel(app.PVTDiagramgivenIsobarPressuresUIFigure);
+            app.CubicEquationofStateDropDownLabel = uilabel(app.PVTSurfacegivenIsobarPressuresUIFigure);
             app.CubicEquationofStateDropDownLabel.HorizontalAlignment = 'right';
             app.CubicEquationofStateDropDownLabel.FontWeight = 'bold';
             app.CubicEquationofStateDropDownLabel.FontColor = [0.1412 0.302 0.4784];
@@ -156,7 +156,7 @@ classdef Volume7 < matlab.apps.AppBase
             app.CubicEquationofStateDropDownLabel.Text = 'Cubic Equation of State';
 
             % Create EoS
-            app.EoS = uidropdown(app.PVTDiagramgivenIsobarPressuresUIFigure);
+            app.EoS = uidropdown(app.PVTSurfacegivenIsobarPressuresUIFigure);
             app.EoS.Items = {'van der Waals', 'Redlich-Kwong', 'Soave-Redlich-Kwong', 'Peng-Robinson'};
             app.EoS.ValueChangedFcn = createCallbackFcn(app, @EoSValueChanged, true);
             app.EoS.BackgroundColor = [0.8588 0.9608 0.9608];
@@ -164,7 +164,7 @@ classdef Volume7 < matlab.apps.AppBase
             app.EoS.Value = 'van der Waals';
 
             % Create CompoundDropDownLabel
-            app.CompoundDropDownLabel = uilabel(app.PVTDiagramgivenIsobarPressuresUIFigure);
+            app.CompoundDropDownLabel = uilabel(app.PVTSurfacegivenIsobarPressuresUIFigure);
             app.CompoundDropDownLabel.HorizontalAlignment = 'right';
             app.CompoundDropDownLabel.FontWeight = 'bold';
             app.CompoundDropDownLabel.FontColor = [0.1412 0.302 0.4784];
@@ -172,7 +172,7 @@ classdef Volume7 < matlab.apps.AppBase
             app.CompoundDropDownLabel.Text = 'Compound';
 
             % Create Compound
-            app.Compound = uidropdown(app.PVTDiagramgivenIsobarPressuresUIFigure);
+            app.Compound = uidropdown(app.PVTSurfacegivenIsobarPressuresUIFigure);
             app.Compound.Items = {};
             app.Compound.ValueChangedFcn = createCallbackFcn(app, @CompoundValueChanged, true);
             app.Compound.BackgroundColor = [0.8588 0.9608 0.9608];
@@ -180,7 +180,7 @@ classdef Volume7 < matlab.apps.AppBase
             app.Compound.Value = {};
 
             % Show the figure after all components are created
-            app.PVTDiagramgivenIsobarPressuresUIFigure.Visible = 'on';
+            app.PVTSurfacegivenIsobarPressuresUIFigure.Visible = 'on';
         end
     end
 
@@ -208,7 +208,7 @@ classdef Volume7 < matlab.apps.AppBase
         function delete(app)
 
             % Delete UIFigure when app is deleted
-            delete(app.PVTDiagramgivenIsobarPressuresUIFigure)
+            delete(app.PVTSurfacegivenIsobarPressuresUIFigure)
         end
     end
 end

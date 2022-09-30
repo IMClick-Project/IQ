@@ -1,6 +1,6 @@
-# PST Diagram given Isobar Pressures
+# PST Surface given Isobar Pressures
 
-This is the sixth option in the entropy menu. Its interface is programmed in "Entropy6.mlapp" and it uses the function called "PST_Diagram_given_Isobar_Pressures.m" for thermodynamic calculations.
+This is the sixth option in the entropy menu. Its interface is programmed in "Entropy6.mlapp" and it uses the function called "PST_Surface_given_Isobar_Pressures.m" for thermodynamic calculations.
 
 ## 1. MATLAB App
 
@@ -17,7 +17,7 @@ classdef Entropy6 < matlab.apps.AppBase
 
     % Properties that correspond to app components
     properties (Access = public)
-        PSTDiagramgivenIsobarPressuresUIFigure  matlab.ui.Figure
+        PSTSurfacegivenIsobarPressuresUIFigure  matlab.ui.Figure
         ReferenceEntropy           matlab.ui.control.EditField
         EnthalpykJkgLabel          matlab.ui.control.Label
         ReferencePressure          matlab.ui.control.EditField
@@ -33,7 +33,7 @@ classdef Entropy6 < matlab.apps.AppBase
         EoS                        matlab.ui.control.DropDown
         CubicEquationofStateDropDownLabel  matlab.ui.control.Label
         BackButton                 matlab.ui.control.Button
-        PSTDiagramgivenIsobarPressuresLabel  matlab.ui.control.Label
+        PSTSurfacegivenIsobarPressuresLabel  matlab.ui.control.Label
         Image                      matlab.ui.control.Image
         Figure1                    matlab.ui.control.UIAxes
     end
@@ -44,7 +44,7 @@ classdef Entropy6 < matlab.apps.AppBase
         % Code that executes after component creation
         function startupFcn(app)
             clc;
-            movegui(app.PSTDiagramgivenIsobarPressuresUIFigure,"north");
+            movegui(app.PSTSurfacegivenIsobarPressuresUIFigure,"north");
             % Compound
             data=readtable("Thermodynamic Data.xlsx","Sheet","Compounds");
             app.Compound.Items=table2cell(data(:,1));
@@ -118,14 +118,14 @@ classdef Entropy6 < matlab.apps.AppBase
                 end
             end
             if tam>0 && app.ReferenceState.Value~="NaN" && app.ReferenceTemperature.Value~="NaN" && app.ReferencePressure.Value~="NaN" && app.ReferenceEntropy.Value~="NaN"
-                progressbar=uiprogressdlg(app.PSTDiagramgivenIsobarPressuresUIFigure,"Title","Status","Message","Calculating","Indeterminate","on","Cancelable","off");
+                progressbar=uiprogressdlg(app.PSTSurfacegivenIsobarPressuresUIFigure,"Title","Status","Message","Calculating","Indeterminate","on","Cancelable","off");
                 drawnow;
-                PST_Diagram_given_Isobar_Pressures;
+                PST_Surface_given_Isobar_Pressures;
                 close(progressbar);
             elseif app.ReferenceState.Value=="NaN" || app.ReferenceTemperature.Value=="NaN" || app.ReferencePressure.Value=="NaN" || app.ReferenceEntropy.Value=="NaN"
-                uialert(app.PSTDiagramgivenIsobarPressuresUIFigure,"Incomplete Data.","Data Status","Icon","warning");
+                uialert(app.PSTSurfacegivenIsobarPressuresUIFigure,"Incomplete Data.","Data Status","Icon","warning");
             else
-                uialert(app.PSTDiagramgivenIsobarPressuresUIFigure,"Input isobar pressures not found.","Data Status","Icon","warning");
+                uialert(app.PSTSurfacegivenIsobarPressuresUIFigure,"Input isobar pressures not found.","Data Status","Icon","warning");
             end
         end
     end
@@ -139,16 +139,16 @@ classdef Entropy6 < matlab.apps.AppBase
             % Get the file path for locating images
             pathToMLAPP = fileparts(mfilename('fullpath'));
 
-            % Create PSTDiagramgivenIsobarPressuresUIFigure and hide until all components are created
-            app.PSTDiagramgivenIsobarPressuresUIFigure = uifigure('Visible', 'off');
-            app.PSTDiagramgivenIsobarPressuresUIFigure.Color = [1 1 1];
-            app.PSTDiagramgivenIsobarPressuresUIFigure.Position = [100 100 943 632];
-            app.PSTDiagramgivenIsobarPressuresUIFigure.Name = 'PST Diagram given Isobar Pressures';
-            app.PSTDiagramgivenIsobarPressuresUIFigure.Icon = 'Logoico.png';
-            app.PSTDiagramgivenIsobarPressuresUIFigure.Resize = 'off';
+            % Create PSTSurfacegivenIsobarPressuresUIFigure and hide until all components are created
+            app.PSTSurfacegivenIsobarPressuresUIFigure = uifigure('Visible', 'off');
+            app.PSTSurfacegivenIsobarPressuresUIFigure.Color = [1 1 1];
+            app.PSTSurfacegivenIsobarPressuresUIFigure.Position = [100 100 943 632];
+            app.PSTSurfacegivenIsobarPressuresUIFigure.Name = 'PST Surface given Isobar Pressures';
+            app.PSTSurfacegivenIsobarPressuresUIFigure.Icon = 'Logoico.png';
+            app.PSTSurfacegivenIsobarPressuresUIFigure.Resize = 'off';
 
             % Create Figure1
-            app.Figure1 = uiaxes(app.PSTDiagramgivenIsobarPressuresUIFigure);
+            app.Figure1 = uiaxes(app.PSTSurfacegivenIsobarPressuresUIFigure);
             title(app.Figure1, 'EoS - Compound')
             xlabel(app.Figure1, 'T [K]')
             ylabel(app.Figure1, 'S [kJ/kg/K]')
@@ -160,21 +160,21 @@ classdef Entropy6 < matlab.apps.AppBase
             app.Figure1.Position = [211 53 532 400];
 
             % Create Image
-            app.Image = uiimage(app.PSTDiagramgivenIsobarPressuresUIFigure);
+            app.Image = uiimage(app.PSTSurfacegivenIsobarPressuresUIFigure);
             app.Image.Position = [45 462 127 103];
             app.Image.ImageSource = fullfile(pathToMLAPP, 'Logoico.png');
 
-            % Create PSTDiagramgivenIsobarPressuresLabel
-            app.PSTDiagramgivenIsobarPressuresLabel = uilabel(app.PSTDiagramgivenIsobarPressuresUIFigure);
-            app.PSTDiagramgivenIsobarPressuresLabel.HorizontalAlignment = 'center';
-            app.PSTDiagramgivenIsobarPressuresLabel.FontSize = 20;
-            app.PSTDiagramgivenIsobarPressuresLabel.FontWeight = 'bold';
-            app.PSTDiagramgivenIsobarPressuresLabel.FontColor = [0.1412 0.302 0.4784];
-            app.PSTDiagramgivenIsobarPressuresLabel.Position = [1 589 943 26];
-            app.PSTDiagramgivenIsobarPressuresLabel.Text = 'PST Diagram given Isobar Pressures';
+            % Create PSTSurfacegivenIsobarPressuresLabel
+            app.PSTSurfacegivenIsobarPressuresLabel = uilabel(app.PSTSurfacegivenIsobarPressuresUIFigure);
+            app.PSTSurfacegivenIsobarPressuresLabel.HorizontalAlignment = 'center';
+            app.PSTSurfacegivenIsobarPressuresLabel.FontSize = 20;
+            app.PSTSurfacegivenIsobarPressuresLabel.FontWeight = 'bold';
+            app.PSTSurfacegivenIsobarPressuresLabel.FontColor = [0.1412 0.302 0.4784];
+            app.PSTSurfacegivenIsobarPressuresLabel.Position = [1 589 943 26];
+            app.PSTSurfacegivenIsobarPressuresLabel.Text = 'PST Surface given Isobar Pressures';
 
             % Create BackButton
-            app.BackButton = uibutton(app.PSTDiagramgivenIsobarPressuresUIFigure, 'push');
+            app.BackButton = uibutton(app.PSTSurfacegivenIsobarPressuresUIFigure, 'push');
             app.BackButton.ButtonPushedFcn = createCallbackFcn(app, @BackButtonPushed, true);
             app.BackButton.BackgroundColor = [0.8588 0.9608 0.9608];
             app.BackButton.FontWeight = 'bold';
@@ -183,7 +183,7 @@ classdef Entropy6 < matlab.apps.AppBase
             app.BackButton.Text = 'Back';
 
             % Create CubicEquationofStateDropDownLabel
-            app.CubicEquationofStateDropDownLabel = uilabel(app.PSTDiagramgivenIsobarPressuresUIFigure);
+            app.CubicEquationofStateDropDownLabel = uilabel(app.PSTSurfacegivenIsobarPressuresUIFigure);
             app.CubicEquationofStateDropDownLabel.HorizontalAlignment = 'right';
             app.CubicEquationofStateDropDownLabel.FontWeight = 'bold';
             app.CubicEquationofStateDropDownLabel.FontColor = [0.1412 0.302 0.4784];
@@ -191,7 +191,7 @@ classdef Entropy6 < matlab.apps.AppBase
             app.CubicEquationofStateDropDownLabel.Text = 'Cubic Equation of State';
 
             % Create EoS
-            app.EoS = uidropdown(app.PSTDiagramgivenIsobarPressuresUIFigure);
+            app.EoS = uidropdown(app.PSTSurfacegivenIsobarPressuresUIFigure);
             app.EoS.Items = {'van der Waals', 'Redlich-Kwong', 'Soave-Redlich-Kwong', 'Peng-Robinson'};
             app.EoS.ValueChangedFcn = createCallbackFcn(app, @EoSValueChanged, true);
             app.EoS.BackgroundColor = [0.8588 0.9608 0.9608];
@@ -199,7 +199,7 @@ classdef Entropy6 < matlab.apps.AppBase
             app.EoS.Value = 'van der Waals';
 
             % Create CompoundDropDownLabel
-            app.CompoundDropDownLabel = uilabel(app.PSTDiagramgivenIsobarPressuresUIFigure);
+            app.CompoundDropDownLabel = uilabel(app.PSTSurfacegivenIsobarPressuresUIFigure);
             app.CompoundDropDownLabel.HorizontalAlignment = 'right';
             app.CompoundDropDownLabel.FontWeight = 'bold';
             app.CompoundDropDownLabel.FontColor = [0.1412 0.302 0.4784];
@@ -207,7 +207,7 @@ classdef Entropy6 < matlab.apps.AppBase
             app.CompoundDropDownLabel.Text = 'Compound';
 
             % Create Compound
-            app.Compound = uidropdown(app.PSTDiagramgivenIsobarPressuresUIFigure);
+            app.Compound = uidropdown(app.PSTSurfacegivenIsobarPressuresUIFigure);
             app.Compound.Items = {};
             app.Compound.ValueChangedFcn = createCallbackFcn(app, @CompoundValueChanged, true);
             app.Compound.BackgroundColor = [0.8588 0.9608 0.9608];
@@ -215,7 +215,7 @@ classdef Entropy6 < matlab.apps.AppBase
             app.Compound.Value = {};
 
             % Create CalculateButton
-            app.CalculateButton = uibutton(app.PSTDiagramgivenIsobarPressuresUIFigure, 'push');
+            app.CalculateButton = uibutton(app.PSTSurfacegivenIsobarPressuresUIFigure, 'push');
             app.CalculateButton.ButtonPushedFcn = createCallbackFcn(app, @CalculateButtonPushed, true);
             app.CalculateButton.BackgroundColor = [0.8588 0.9608 0.9608];
             app.CalculateButton.FontWeight = 'bold';
@@ -224,7 +224,7 @@ classdef Entropy6 < matlab.apps.AppBase
             app.CalculateButton.Text = 'Calculate';
 
             % Create Label
-            app.Label = uilabel(app.PSTDiagramgivenIsobarPressuresUIFigure);
+            app.Label = uilabel(app.PSTSurfacegivenIsobarPressuresUIFigure);
             app.Label.HorizontalAlignment = 'center';
             app.Label.FontWeight = 'bold';
             app.Label.FontColor = [0.1412 0.302 0.4784];
@@ -232,7 +232,7 @@ classdef Entropy6 < matlab.apps.AppBase
             app.Label.Text = 'Reference Data';
 
             % Create StateLabel
-            app.StateLabel = uilabel(app.PSTDiagramgivenIsobarPressuresUIFigure);
+            app.StateLabel = uilabel(app.PSTSurfacegivenIsobarPressuresUIFigure);
             app.StateLabel.HorizontalAlignment = 'right';
             app.StateLabel.FontWeight = 'bold';
             app.StateLabel.FontColor = [0.1412 0.302 0.4784];
@@ -240,12 +240,12 @@ classdef Entropy6 < matlab.apps.AppBase
             app.StateLabel.Text = 'State';
 
             % Create ReferenceState
-            app.ReferenceState = uieditfield(app.PSTDiagramgivenIsobarPressuresUIFigure, 'text');
+            app.ReferenceState = uieditfield(app.PSTSurfacegivenIsobarPressuresUIFigure, 'text');
             app.ReferenceState.Editable = 'off';
             app.ReferenceState.Position = [732 539 176 22];
 
             % Create TemperatureKLabel
-            app.TemperatureKLabel = uilabel(app.PSTDiagramgivenIsobarPressuresUIFigure);
+            app.TemperatureKLabel = uilabel(app.PSTSurfacegivenIsobarPressuresUIFigure);
             app.TemperatureKLabel.HorizontalAlignment = 'right';
             app.TemperatureKLabel.FontWeight = 'bold';
             app.TemperatureKLabel.FontColor = [0.1412 0.302 0.4784];
@@ -253,12 +253,12 @@ classdef Entropy6 < matlab.apps.AppBase
             app.TemperatureKLabel.Text = 'Temperature [K]';
 
             % Create ReferenceTemperature
-            app.ReferenceTemperature = uieditfield(app.PSTDiagramgivenIsobarPressuresUIFigure, 'text');
+            app.ReferenceTemperature = uieditfield(app.PSTSurfacegivenIsobarPressuresUIFigure, 'text');
             app.ReferenceTemperature.Editable = 'off';
             app.ReferenceTemperature.Position = [732 513 176 22];
 
             % Create PressurebarEditFieldLabel
-            app.PressurebarEditFieldLabel = uilabel(app.PSTDiagramgivenIsobarPressuresUIFigure);
+            app.PressurebarEditFieldLabel = uilabel(app.PSTSurfacegivenIsobarPressuresUIFigure);
             app.PressurebarEditFieldLabel.HorizontalAlignment = 'right';
             app.PressurebarEditFieldLabel.FontWeight = 'bold';
             app.PressurebarEditFieldLabel.FontColor = [0.1412 0.302 0.4784];
@@ -266,12 +266,12 @@ classdef Entropy6 < matlab.apps.AppBase
             app.PressurebarEditFieldLabel.Text = 'Pressure [bar]';
 
             % Create ReferencePressure
-            app.ReferencePressure = uieditfield(app.PSTDiagramgivenIsobarPressuresUIFigure, 'text');
+            app.ReferencePressure = uieditfield(app.PSTSurfacegivenIsobarPressuresUIFigure, 'text');
             app.ReferencePressure.Editable = 'off';
             app.ReferencePressure.Position = [732 488 176 22];
 
             % Create EnthalpykJkgLabel
-            app.EnthalpykJkgLabel = uilabel(app.PSTDiagramgivenIsobarPressuresUIFigure);
+            app.EnthalpykJkgLabel = uilabel(app.PSTSurfacegivenIsobarPressuresUIFigure);
             app.EnthalpykJkgLabel.HorizontalAlignment = 'right';
             app.EnthalpykJkgLabel.FontWeight = 'bold';
             app.EnthalpykJkgLabel.FontColor = [0.1412 0.302 0.4784];
@@ -279,12 +279,12 @@ classdef Entropy6 < matlab.apps.AppBase
             app.EnthalpykJkgLabel.Text = 'Entropy [kJ/kg/K]';
 
             % Create ReferenceEntropy
-            app.ReferenceEntropy = uieditfield(app.PSTDiagramgivenIsobarPressuresUIFigure, 'text');
+            app.ReferenceEntropy = uieditfield(app.PSTSurfacegivenIsobarPressuresUIFigure, 'text');
             app.ReferenceEntropy.Editable = 'off';
             app.ReferenceEntropy.Position = [732 462 176 22];
 
             % Show the figure after all components are created
-            app.PSTDiagramgivenIsobarPressuresUIFigure.Visible = 'on';
+            app.PSTSurfacegivenIsobarPressuresUIFigure.Visible = 'on';
         end
     end
 
@@ -312,7 +312,7 @@ classdef Entropy6 < matlab.apps.AppBase
         function delete(app)
 
             % Delete UIFigure when app is deleted
-            delete(app.PSTDiagramgivenIsobarPressuresUIFigure)
+            delete(app.PSTSurfacegivenIsobarPressuresUIFigure)
         end
     end
 end

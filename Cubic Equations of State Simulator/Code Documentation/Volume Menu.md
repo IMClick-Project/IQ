@@ -18,13 +18,13 @@ classdef Volume < matlab.apps.AppBase
     % Properties that correspond to app components
     properties (Access = public)
         VolumeUIFigure       matlab.ui.Figure
-        PVTDiagramgivenIsobarPressuresButton  matlab.ui.control.Button
+        PVTSurfacegivenIsobarPressuresButton  matlab.ui.control.Button
         TwoPhaseEnvelopeonaTVDiagramButton  matlab.ui.control.Button
         IsobargivenPressureonaTVDiagramButton  matlab.ui.control.Button
-        PsatgivenTapplyingDifferentsBracketingMethods  matlab.ui.control.Button
+        TsatgivenPbyapplyingDifferentsBracketingMethods  matlab.ui.control.Button
         BackButton           matlab.ui.control.Button
         ChooseanoptionLabel  matlab.ui.control.Label
-        PVTDiagramgivenIsothermTemperaturesButton  matlab.ui.control.Button
+        PVTSurfacegivenIsothermTemperaturesButton  matlab.ui.control.Button
         TwoPhaseEnvelopeonaPVDiagramButton  matlab.ui.control.Button
         IsothermgivenTemperatureonaPVDiagramButton  matlab.ui.control.Button
         Image                matlab.ui.control.Image
@@ -58,15 +58,15 @@ classdef Volume < matlab.apps.AppBase
             delete(app);
         end
 
-        % Button pushed function: PVTDiagramgivenIsothermTemperaturesButton
-        function PVTDiagramgivenIsothermTemperaturesButtonPushed(app, event)
+        % Button pushed function: PVTSurfacegivenIsothermTemperaturesButton
+        function PVTSurfacegivenIsothermTemperaturesButtonPushed(app, event)
             Volume3;
             delete(app); 
         end
 
         % Button pushed function: 
-        % PsatgivenTapplyingDifferentsBracketingMethods
-        function PsatgivenTapplyingDifferentsBracketingMethodsButtonPushed(app, event)
+        % TsatgivenPbyapplyingDifferentsBracketingMethods
+        function TsatgivenPbyapplyingDifferentsBracketingMethodsButtonPushed(app, event)
             Volume4;
             delete(app); 
         end
@@ -83,8 +83,8 @@ classdef Volume < matlab.apps.AppBase
             delete(app); 
         end
 
-        % Button pushed function: PVTDiagramgivenIsobarPressuresButton
-        function PVTDiagramgivenIsobarPressuresButtonPushed(app, event)
+        % Button pushed function: PVTSurfacegivenIsobarPressuresButton
+        function PVTSurfacegivenIsobarPressuresButtonPushed(app, event)
             Volume7;
             delete(app); 
         end
@@ -130,14 +130,14 @@ classdef Volume < matlab.apps.AppBase
             app.TwoPhaseEnvelopeonaPVDiagramButton.Position = [11 212 482 22];
             app.TwoPhaseEnvelopeonaPVDiagramButton.Text = 'Two-Phase Envelope on a PV Diagram';
 
-            % Create PVTDiagramgivenIsothermTemperaturesButton
-            app.PVTDiagramgivenIsothermTemperaturesButton = uibutton(app.VolumeUIFigure, 'push');
-            app.PVTDiagramgivenIsothermTemperaturesButton.ButtonPushedFcn = createCallbackFcn(app, @PVTDiagramgivenIsothermTemperaturesButtonPushed, true);
-            app.PVTDiagramgivenIsothermTemperaturesButton.BackgroundColor = [0.8588 0.9608 0.9608];
-            app.PVTDiagramgivenIsothermTemperaturesButton.FontWeight = 'bold';
-            app.PVTDiagramgivenIsothermTemperaturesButton.FontColor = [0.1373 0.298 0.4784];
-            app.PVTDiagramgivenIsothermTemperaturesButton.Position = [11 181 482 22];
-            app.PVTDiagramgivenIsothermTemperaturesButton.Text = 'PVT Diagram given Isotherm Temperatures';
+            % Create PVTSurfacegivenIsothermTemperaturesButton
+            app.PVTSurfacegivenIsothermTemperaturesButton = uibutton(app.VolumeUIFigure, 'push');
+            app.PVTSurfacegivenIsothermTemperaturesButton.ButtonPushedFcn = createCallbackFcn(app, @PVTSurfacegivenIsothermTemperaturesButtonPushed, true);
+            app.PVTSurfacegivenIsothermTemperaturesButton.BackgroundColor = [0.8588 0.9608 0.9608];
+            app.PVTSurfacegivenIsothermTemperaturesButton.FontWeight = 'bold';
+            app.PVTSurfacegivenIsothermTemperaturesButton.FontColor = [0.1373 0.298 0.4784];
+            app.PVTSurfacegivenIsothermTemperaturesButton.Position = [11 181 482 22];
+            app.PVTSurfacegivenIsothermTemperaturesButton.Text = 'PVT Surface given Isotherm Temperatures';
 
             % Create ChooseanoptionLabel
             app.ChooseanoptionLabel = uilabel(app.VolumeUIFigure);
@@ -156,14 +156,14 @@ classdef Volume < matlab.apps.AppBase
             app.BackButton.Position = [14 23 479 22];
             app.BackButton.Text = 'Back';
 
-            % Create PsatgivenTapplyingDifferentsBracketingMethods
-            app.PsatgivenTapplyingDifferentsBracketingMethods = uibutton(app.VolumeUIFigure, 'push');
-            app.PsatgivenTapplyingDifferentsBracketingMethods.ButtonPushedFcn = createCallbackFcn(app, @PsatgivenTapplyingDifferentsBracketingMethodsButtonPushed, true);
-            app.PsatgivenTapplyingDifferentsBracketingMethods.BackgroundColor = [0.8588 0.9608 0.9608];
-            app.PsatgivenTapplyingDifferentsBracketingMethods.FontWeight = 'bold';
-            app.PsatgivenTapplyingDifferentsBracketingMethods.FontColor = [0.1373 0.298 0.4784];
-            app.PsatgivenTapplyingDifferentsBracketingMethods.Position = [13 149 480 22];
-            app.PsatgivenTapplyingDifferentsBracketingMethods.Text = 'Saturation Pressure given Temperature applying Differents Bracketing Methods';
+            % Create TsatgivenPbyapplyingDifferentsBracketingMethods
+            app.TsatgivenPbyapplyingDifferentsBracketingMethods = uibutton(app.VolumeUIFigure, 'push');
+            app.TsatgivenPbyapplyingDifferentsBracketingMethods.ButtonPushedFcn = createCallbackFcn(app, @TsatgivenPbyapplyingDifferentsBracketingMethodsButtonPushed, true);
+            app.TsatgivenPbyapplyingDifferentsBracketingMethods.BackgroundColor = [0.8588 0.9608 0.9608];
+            app.TsatgivenPbyapplyingDifferentsBracketingMethods.FontWeight = 'bold';
+            app.TsatgivenPbyapplyingDifferentsBracketingMethods.FontColor = [0.1373 0.298 0.4784];
+            app.TsatgivenPbyapplyingDifferentsBracketingMethods.Position = [11 149 482 22];
+            app.TsatgivenPbyapplyingDifferentsBracketingMethods.Text = 'Saturation Temperature given Pressure by applying Different Bracketing Methods';
 
             % Create IsobargivenPressureonaTVDiagramButton
             app.IsobargivenPressureonaTVDiagramButton = uibutton(app.VolumeUIFigure, 'push');
@@ -183,14 +183,14 @@ classdef Volume < matlab.apps.AppBase
             app.TwoPhaseEnvelopeonaTVDiagramButton.Position = [13 87 480 22];
             app.TwoPhaseEnvelopeonaTVDiagramButton.Text = 'Two-Phase Envelope on a TV Diagram';
 
-            % Create PVTDiagramgivenIsobarPressuresButton
-            app.PVTDiagramgivenIsobarPressuresButton = uibutton(app.VolumeUIFigure, 'push');
-            app.PVTDiagramgivenIsobarPressuresButton.ButtonPushedFcn = createCallbackFcn(app, @PVTDiagramgivenIsobarPressuresButtonPushed, true);
-            app.PVTDiagramgivenIsobarPressuresButton.BackgroundColor = [0.8588 0.9608 0.9608];
-            app.PVTDiagramgivenIsobarPressuresButton.FontWeight = 'bold';
-            app.PVTDiagramgivenIsobarPressuresButton.FontColor = [0.1373 0.298 0.4784];
-            app.PVTDiagramgivenIsobarPressuresButton.Position = [13 55 480 22];
-            app.PVTDiagramgivenIsobarPressuresButton.Text = 'PVT Diagram given Isobar Pressures';
+            % Create PVTSurfacegivenIsobarPressuresButton
+            app.PVTSurfacegivenIsobarPressuresButton = uibutton(app.VolumeUIFigure, 'push');
+            app.PVTSurfacegivenIsobarPressuresButton.ButtonPushedFcn = createCallbackFcn(app, @PVTSurfacegivenIsobarPressuresButtonPushed, true);
+            app.PVTSurfacegivenIsobarPressuresButton.BackgroundColor = [0.8588 0.9608 0.9608];
+            app.PVTSurfacegivenIsobarPressuresButton.FontWeight = 'bold';
+            app.PVTSurfacegivenIsobarPressuresButton.FontColor = [0.1373 0.298 0.4784];
+            app.PVTSurfacegivenIsobarPressuresButton.Position = [13 55 480 22];
+            app.PVTSurfacegivenIsobarPressuresButton.Text = 'PVT Surface given Isobar Pressures';
 
             % Show the figure after all components are created
             app.VolumeUIFigure.Visible = 'on';

@@ -1,6 +1,6 @@
-# PST Diagram given Isotherm Temperatures
+# PST Surface given Isotherm Temperatures
 
-This is the third option in the entropy menu. Its interface is programmed in "Entropy3.mlapp" and it uses the function called "PST_Diagram_given_Isotherm_Temperatures.m" for thermodynamic calculations.
+This is the third option in the entropy menu. Its interface is programmed in "Entropy3.mlapp" and it uses the function called "PST_Surface_given_Isotherm_Temperatures.m" for thermodynamic calculations.
 
 ## 1. MATLAB App
 
@@ -17,7 +17,7 @@ classdef Entropy3 < matlab.apps.AppBase
 
     % Properties that correspond to app components
     properties (Access = public)
-        PSTDiagramgivenIsothermTemperaturesUIFigure  matlab.ui.Figure
+        PSTSurfacegivenIsothermTemperaturesUIFigure  matlab.ui.Figure
         ReferenceEntropy           matlab.ui.control.EditField
         EnthalpykJkgLabel          matlab.ui.control.Label
         ReferencePressure          matlab.ui.control.EditField
@@ -33,7 +33,7 @@ classdef Entropy3 < matlab.apps.AppBase
         EoS                        matlab.ui.control.DropDown
         CubicEquationofStateDropDownLabel  matlab.ui.control.Label
         BackButton                 matlab.ui.control.Button
-        PSTDiagramgivenIsothermTemperaturesLabel  matlab.ui.control.Label
+        PSTSurfacegivenIsothermTemperaturesLabel  matlab.ui.control.Label
         Image                      matlab.ui.control.Image
         Figure1                    matlab.ui.control.UIAxes
     end
@@ -44,7 +44,7 @@ classdef Entropy3 < matlab.apps.AppBase
         % Code that executes after component creation
         function startupFcn(app)
             clc;
-            movegui(app.PSTDiagramgivenIsothermTemperaturesUIFigure,"north");
+            movegui(app.PSTSurfacegivenIsothermTemperaturesUIFigure,"north");
             % Compound
             data=readtable("Thermodynamic Data.xlsx","Sheet","Compounds");
             app.Compound.Items=table2cell(data(:,1));
@@ -118,14 +118,14 @@ classdef Entropy3 < matlab.apps.AppBase
                 end
             end
             if tam>0 && app.ReferenceState.Value~="NaN" && app.ReferenceTemperature.Value~="NaN" && app.ReferencePressure.Value~="NaN" && app.ReferenceEntropy.Value~="NaN"
-                progressbar=uiprogressdlg(app.PSTDiagramgivenIsothermTemperaturesUIFigure,"Title","Status","Message","Calculating","Indeterminate","on","Cancelable","off");
+                progressbar=uiprogressdlg(app.PSTSurfacegivenIsothermTemperaturesUIFigure,"Title","Status","Message","Calculating","Indeterminate","on","Cancelable","off");
                 drawnow;
-                PST_Diagram_given_Isotherm_Temperatures;
+                PST_Surface_given_Isotherm_Temperatures;
                 close(progressbar);
             elseif app.ReferenceState.Value=="NaN" || app.ReferenceTemperature.Value=="NaN" || app.ReferencePressure.Value=="NaN" || app.ReferenceEntropy.Value=="NaN"
-                uialert(app.PSTDiagramgivenIsothermTemperaturesUIFigure,"Incomplete Data.","Data Status","Icon","warning");
+                uialert(app.PSTSurfacegivenIsothermTemperaturesUIFigure,"Incomplete Data.","Data Status","Icon","warning");
             else
-                uialert(app.PSTDiagramgivenIsothermTemperaturesUIFigure,"Input isotherm temperatures not found.","Data Status","Icon","warning");
+                uialert(app.PSTSurfacegivenIsothermTemperaturesUIFigure,"Input isotherm temperatures not found.","Data Status","Icon","warning");
             end
         end
     end
@@ -139,16 +139,16 @@ classdef Entropy3 < matlab.apps.AppBase
             % Get the file path for locating images
             pathToMLAPP = fileparts(mfilename('fullpath'));
 
-            % Create PSTDiagramgivenIsothermTemperaturesUIFigure and hide until all components are created
-            app.PSTDiagramgivenIsothermTemperaturesUIFigure = uifigure('Visible', 'off');
-            app.PSTDiagramgivenIsothermTemperaturesUIFigure.Color = [1 1 1];
-            app.PSTDiagramgivenIsothermTemperaturesUIFigure.Position = [100 100 943 632];
-            app.PSTDiagramgivenIsothermTemperaturesUIFigure.Name = 'PST Diagram given Isotherm Temperatures';
-            app.PSTDiagramgivenIsothermTemperaturesUIFigure.Icon = 'Logoico.png';
-            app.PSTDiagramgivenIsothermTemperaturesUIFigure.Resize = 'off';
+            % Create PSTSurfacegivenIsothermTemperaturesUIFigure and hide until all components are created
+            app.PSTSurfacegivenIsothermTemperaturesUIFigure = uifigure('Visible', 'off');
+            app.PSTSurfacegivenIsothermTemperaturesUIFigure.Color = [1 1 1];
+            app.PSTSurfacegivenIsothermTemperaturesUIFigure.Position = [100 100 943 632];
+            app.PSTSurfacegivenIsothermTemperaturesUIFigure.Name = 'PST Surface given Isotherm Temperatures';
+            app.PSTSurfacegivenIsothermTemperaturesUIFigure.Icon = 'Logoico.png';
+            app.PSTSurfacegivenIsothermTemperaturesUIFigure.Resize = 'off';
 
             % Create Figure1
-            app.Figure1 = uiaxes(app.PSTDiagramgivenIsothermTemperaturesUIFigure);
+            app.Figure1 = uiaxes(app.PSTSurfacegivenIsothermTemperaturesUIFigure);
             title(app.Figure1, 'EoS - Compound')
             xlabel(app.Figure1, 'T [K]')
             ylabel(app.Figure1, 'S [kJ/kg/K]')
@@ -160,21 +160,21 @@ classdef Entropy3 < matlab.apps.AppBase
             app.Figure1.Position = [211 53 532 400];
 
             % Create Image
-            app.Image = uiimage(app.PSTDiagramgivenIsothermTemperaturesUIFigure);
+            app.Image = uiimage(app.PSTSurfacegivenIsothermTemperaturesUIFigure);
             app.Image.Position = [45 462 127 103];
             app.Image.ImageSource = fullfile(pathToMLAPP, 'Logoico.png');
 
-            % Create PSTDiagramgivenIsothermTemperaturesLabel
-            app.PSTDiagramgivenIsothermTemperaturesLabel = uilabel(app.PSTDiagramgivenIsothermTemperaturesUIFigure);
-            app.PSTDiagramgivenIsothermTemperaturesLabel.HorizontalAlignment = 'center';
-            app.PSTDiagramgivenIsothermTemperaturesLabel.FontSize = 20;
-            app.PSTDiagramgivenIsothermTemperaturesLabel.FontWeight = 'bold';
-            app.PSTDiagramgivenIsothermTemperaturesLabel.FontColor = [0.1412 0.302 0.4784];
-            app.PSTDiagramgivenIsothermTemperaturesLabel.Position = [1 589 943 26];
-            app.PSTDiagramgivenIsothermTemperaturesLabel.Text = 'PST Diagram given Isotherm Temperatures';
+            % Create PSTSurfacegivenIsothermTemperaturesLabel
+            app.PSTSurfacegivenIsothermTemperaturesLabel = uilabel(app.PSTSurfacegivenIsothermTemperaturesUIFigure);
+            app.PSTSurfacegivenIsothermTemperaturesLabel.HorizontalAlignment = 'center';
+            app.PSTSurfacegivenIsothermTemperaturesLabel.FontSize = 20;
+            app.PSTSurfacegivenIsothermTemperaturesLabel.FontWeight = 'bold';
+            app.PSTSurfacegivenIsothermTemperaturesLabel.FontColor = [0.1412 0.302 0.4784];
+            app.PSTSurfacegivenIsothermTemperaturesLabel.Position = [1 589 943 26];
+            app.PSTSurfacegivenIsothermTemperaturesLabel.Text = 'PST Surface given Isotherm Temperatures';
 
             % Create BackButton
-            app.BackButton = uibutton(app.PSTDiagramgivenIsothermTemperaturesUIFigure, 'push');
+            app.BackButton = uibutton(app.PSTSurfacegivenIsothermTemperaturesUIFigure, 'push');
             app.BackButton.ButtonPushedFcn = createCallbackFcn(app, @BackButtonPushed, true);
             app.BackButton.BackgroundColor = [0.8588 0.9608 0.9608];
             app.BackButton.FontWeight = 'bold';
@@ -183,7 +183,7 @@ classdef Entropy3 < matlab.apps.AppBase
             app.BackButton.Text = 'Back';
 
             % Create CubicEquationofStateDropDownLabel
-            app.CubicEquationofStateDropDownLabel = uilabel(app.PSTDiagramgivenIsothermTemperaturesUIFigure);
+            app.CubicEquationofStateDropDownLabel = uilabel(app.PSTSurfacegivenIsothermTemperaturesUIFigure);
             app.CubicEquationofStateDropDownLabel.HorizontalAlignment = 'right';
             app.CubicEquationofStateDropDownLabel.FontWeight = 'bold';
             app.CubicEquationofStateDropDownLabel.FontColor = [0.1412 0.302 0.4784];
@@ -191,7 +191,7 @@ classdef Entropy3 < matlab.apps.AppBase
             app.CubicEquationofStateDropDownLabel.Text = 'Cubic Equation of State';
 
             % Create EoS
-            app.EoS = uidropdown(app.PSTDiagramgivenIsothermTemperaturesUIFigure);
+            app.EoS = uidropdown(app.PSTSurfacegivenIsothermTemperaturesUIFigure);
             app.EoS.Items = {'van der Waals', 'Redlich-Kwong', 'Soave-Redlich-Kwong', 'Peng-Robinson'};
             app.EoS.ValueChangedFcn = createCallbackFcn(app, @EoSValueChanged, true);
             app.EoS.BackgroundColor = [0.8588 0.9608 0.9608];
@@ -199,7 +199,7 @@ classdef Entropy3 < matlab.apps.AppBase
             app.EoS.Value = 'van der Waals';
 
             % Create CompoundDropDownLabel
-            app.CompoundDropDownLabel = uilabel(app.PSTDiagramgivenIsothermTemperaturesUIFigure);
+            app.CompoundDropDownLabel = uilabel(app.PSTSurfacegivenIsothermTemperaturesUIFigure);
             app.CompoundDropDownLabel.HorizontalAlignment = 'right';
             app.CompoundDropDownLabel.FontWeight = 'bold';
             app.CompoundDropDownLabel.FontColor = [0.1412 0.302 0.4784];
@@ -207,7 +207,7 @@ classdef Entropy3 < matlab.apps.AppBase
             app.CompoundDropDownLabel.Text = 'Compound';
 
             % Create Compound
-            app.Compound = uidropdown(app.PSTDiagramgivenIsothermTemperaturesUIFigure);
+            app.Compound = uidropdown(app.PSTSurfacegivenIsothermTemperaturesUIFigure);
             app.Compound.Items = {};
             app.Compound.ValueChangedFcn = createCallbackFcn(app, @CompoundValueChanged, true);
             app.Compound.BackgroundColor = [0.8588 0.9608 0.9608];
@@ -215,7 +215,7 @@ classdef Entropy3 < matlab.apps.AppBase
             app.Compound.Value = {};
 
             % Create CalculateButton
-            app.CalculateButton = uibutton(app.PSTDiagramgivenIsothermTemperaturesUIFigure, 'push');
+            app.CalculateButton = uibutton(app.PSTSurfacegivenIsothermTemperaturesUIFigure, 'push');
             app.CalculateButton.ButtonPushedFcn = createCallbackFcn(app, @CalculateButtonPushed, true);
             app.CalculateButton.BackgroundColor = [0.8588 0.9608 0.9608];
             app.CalculateButton.FontWeight = 'bold';
@@ -224,7 +224,7 @@ classdef Entropy3 < matlab.apps.AppBase
             app.CalculateButton.Text = 'Calculate';
 
             % Create Label
-            app.Label = uilabel(app.PSTDiagramgivenIsothermTemperaturesUIFigure);
+            app.Label = uilabel(app.PSTSurfacegivenIsothermTemperaturesUIFigure);
             app.Label.HorizontalAlignment = 'center';
             app.Label.FontWeight = 'bold';
             app.Label.FontColor = [0.1412 0.302 0.4784];
@@ -232,7 +232,7 @@ classdef Entropy3 < matlab.apps.AppBase
             app.Label.Text = 'Reference Data';
 
             % Create StateLabel
-            app.StateLabel = uilabel(app.PSTDiagramgivenIsothermTemperaturesUIFigure);
+            app.StateLabel = uilabel(app.PSTSurfacegivenIsothermTemperaturesUIFigure);
             app.StateLabel.HorizontalAlignment = 'right';
             app.StateLabel.FontWeight = 'bold';
             app.StateLabel.FontColor = [0.1412 0.302 0.4784];
@@ -240,12 +240,12 @@ classdef Entropy3 < matlab.apps.AppBase
             app.StateLabel.Text = 'State';
 
             % Create ReferenceState
-            app.ReferenceState = uieditfield(app.PSTDiagramgivenIsothermTemperaturesUIFigure, 'text');
+            app.ReferenceState = uieditfield(app.PSTSurfacegivenIsothermTemperaturesUIFigure, 'text');
             app.ReferenceState.Editable = 'off';
             app.ReferenceState.Position = [732 539 176 22];
 
             % Create TemperatureKLabel
-            app.TemperatureKLabel = uilabel(app.PSTDiagramgivenIsothermTemperaturesUIFigure);
+            app.TemperatureKLabel = uilabel(app.PSTSurfacegivenIsothermTemperaturesUIFigure);
             app.TemperatureKLabel.HorizontalAlignment = 'right';
             app.TemperatureKLabel.FontWeight = 'bold';
             app.TemperatureKLabel.FontColor = [0.1412 0.302 0.4784];
@@ -253,12 +253,12 @@ classdef Entropy3 < matlab.apps.AppBase
             app.TemperatureKLabel.Text = 'Temperature [K]';
 
             % Create ReferenceTemperature
-            app.ReferenceTemperature = uieditfield(app.PSTDiagramgivenIsothermTemperaturesUIFigure, 'text');
+            app.ReferenceTemperature = uieditfield(app.PSTSurfacegivenIsothermTemperaturesUIFigure, 'text');
             app.ReferenceTemperature.Editable = 'off';
             app.ReferenceTemperature.Position = [732 513 176 22];
 
             % Create PressurebarEditFieldLabel
-            app.PressurebarEditFieldLabel = uilabel(app.PSTDiagramgivenIsothermTemperaturesUIFigure);
+            app.PressurebarEditFieldLabel = uilabel(app.PSTSurfacegivenIsothermTemperaturesUIFigure);
             app.PressurebarEditFieldLabel.HorizontalAlignment = 'right';
             app.PressurebarEditFieldLabel.FontWeight = 'bold';
             app.PressurebarEditFieldLabel.FontColor = [0.1412 0.302 0.4784];
@@ -266,12 +266,12 @@ classdef Entropy3 < matlab.apps.AppBase
             app.PressurebarEditFieldLabel.Text = 'Pressure [bar]';
 
             % Create ReferencePressure
-            app.ReferencePressure = uieditfield(app.PSTDiagramgivenIsothermTemperaturesUIFigure, 'text');
+            app.ReferencePressure = uieditfield(app.PSTSurfacegivenIsothermTemperaturesUIFigure, 'text');
             app.ReferencePressure.Editable = 'off';
             app.ReferencePressure.Position = [732 488 176 22];
 
             % Create EnthalpykJkgLabel
-            app.EnthalpykJkgLabel = uilabel(app.PSTDiagramgivenIsothermTemperaturesUIFigure);
+            app.EnthalpykJkgLabel = uilabel(app.PSTSurfacegivenIsothermTemperaturesUIFigure);
             app.EnthalpykJkgLabel.HorizontalAlignment = 'right';
             app.EnthalpykJkgLabel.FontWeight = 'bold';
             app.EnthalpykJkgLabel.FontColor = [0.1412 0.302 0.4784];
@@ -279,12 +279,12 @@ classdef Entropy3 < matlab.apps.AppBase
             app.EnthalpykJkgLabel.Text = 'Entropy [kJ/kg/K]';
 
             % Create ReferenceEntropy
-            app.ReferenceEntropy = uieditfield(app.PSTDiagramgivenIsothermTemperaturesUIFigure, 'text');
+            app.ReferenceEntropy = uieditfield(app.PSTSurfacegivenIsothermTemperaturesUIFigure, 'text');
             app.ReferenceEntropy.Editable = 'off';
             app.ReferenceEntropy.Position = [732 462 176 22];
 
             % Show the figure after all components are created
-            app.PSTDiagramgivenIsothermTemperaturesUIFigure.Visible = 'on';
+            app.PSTSurfacegivenIsothermTemperaturesUIFigure.Visible = 'on';
         end
     end
 
@@ -312,7 +312,7 @@ classdef Entropy3 < matlab.apps.AppBase
         function delete(app)
 
             % Delete UIFigure when app is deleted
-            delete(app.PSTDiagramgivenIsothermTemperaturesUIFigure)
+            delete(app.PSTSurfacegivenIsothermTemperaturesUIFigure)
         end
     end
 end

@@ -1,6 +1,6 @@
-# PVT Diagram given Isotherm Temperatures
+# PVT Surface given Isotherm Temperatures
 
-This is the third option in the volume menu. Its interface is programmed in "Volume3.mlapp" and it uses the function called "PVT_Diagram_given_Isotherm_Temperatures.m" for thermodynamic calculations.
+This is the third option in the volume menu. Its interface is programmed in "Volume3.mlapp" and it uses the function called "PVT_Surface_given_Isotherm_Temperatures.m" for thermodynamic calculations.
 
 ## 1. MATLAB App
 
@@ -17,13 +17,13 @@ classdef Volume3 < matlab.apps.AppBase
 
     % Properties that correspond to app components
     properties (Access = public)
-        PVTDiagramgivenIsothermTemperaturesUIFigure  matlab.ui.Figure
+        PVTSurfacegivenIsothermTemperaturesUIFigure  matlab.ui.Figure
         Compound               matlab.ui.control.DropDown
         CompoundDropDownLabel  matlab.ui.control.Label
         EoS                    matlab.ui.control.DropDown
         CubicEquationofStateDropDownLabel  matlab.ui.control.Label
         BackButton             matlab.ui.control.Button
-        PVTDiagramgivenIsothermTemperaturesLabel  matlab.ui.control.Label
+        PVTSurfacegivenIsothermTemperaturesLabel  matlab.ui.control.Label
         Image                  matlab.ui.control.Image
         CalculateButton        matlab.ui.control.Button
         Figure1                matlab.ui.control.UIAxes
@@ -35,7 +35,7 @@ classdef Volume3 < matlab.apps.AppBase
         % Code that executes after component creation
         function startupFcn(app)
             clc;
-            movegui(app.PVTDiagramgivenIsothermTemperaturesUIFigure,"north");
+            movegui(app.PVTSurfacegivenIsothermTemperaturesUIFigure,"north");
             % Compound
             data=readtable("Thermodynamic Data.xlsx","Sheet","Compounds");
             app.Compound.Items=table2cell(data(:,1));
@@ -53,12 +53,12 @@ classdef Volume3 < matlab.apps.AppBase
                 end
             end
             if tam>0
-                progressbar=uiprogressdlg(app.PVTDiagramgivenIsothermTemperaturesUIFigure,"Title","Status","Message","Calculating","Indeterminate","on","Cancelable","off");
+                progressbar=uiprogressdlg(app.PVTSurfacegivenIsothermTemperaturesUIFigure,"Title","Status","Message","Calculating","Indeterminate","on","Cancelable","off");
                 drawnow;
-                PVT_Diagram_given_Isotherm_Temperatures;
+                PVT_Surface_given_Isotherm_Temperatures;
                 close(progressbar);
             else
-                uialert(app.PVTDiagramgivenIsothermTemperaturesUIFigure,"Input isotherm temperatures not found.","Data Status","Icon","warning");
+                uialert(app.PVTSurfacegivenIsothermTemperaturesUIFigure,"Input isotherm temperatures not found.","Data Status","Icon","warning");
             end
         end
 
@@ -92,16 +92,16 @@ classdef Volume3 < matlab.apps.AppBase
             % Get the file path for locating images
             pathToMLAPP = fileparts(mfilename('fullpath'));
 
-            % Create PVTDiagramgivenIsothermTemperaturesUIFigure and hide until all components are created
-            app.PVTDiagramgivenIsothermTemperaturesUIFigure = uifigure('Visible', 'off');
-            app.PVTDiagramgivenIsothermTemperaturesUIFigure.Color = [1 1 1];
-            app.PVTDiagramgivenIsothermTemperaturesUIFigure.Position = [100 100 634 632];
-            app.PVTDiagramgivenIsothermTemperaturesUIFigure.Name = 'PVT Diagram given Isotherm Temperatures';
-            app.PVTDiagramgivenIsothermTemperaturesUIFigure.Icon = fullfile(pathToMLAPP, 'Logoico.png');
-            app.PVTDiagramgivenIsothermTemperaturesUIFigure.Resize = 'off';
+            % Create PVTSurfacegivenIsothermTemperaturesUIFigure and hide until all components are created
+            app.PVTSurfacegivenIsothermTemperaturesUIFigure = uifigure('Visible', 'off');
+            app.PVTSurfacegivenIsothermTemperaturesUIFigure.Color = [1 1 1];
+            app.PVTSurfacegivenIsothermTemperaturesUIFigure.Position = [100 100 634 632];
+            app.PVTSurfacegivenIsothermTemperaturesUIFigure.Name = 'PVT Surface given Isotherm Temperatures';
+            app.PVTSurfacegivenIsothermTemperaturesUIFigure.Icon = fullfile(pathToMLAPP, 'Logoico.png');
+            app.PVTSurfacegivenIsothermTemperaturesUIFigure.Resize = 'off';
 
             % Create Figure1
-            app.Figure1 = uiaxes(app.PVTDiagramgivenIsothermTemperaturesUIFigure);
+            app.Figure1 = uiaxes(app.PVTSurfacegivenIsothermTemperaturesUIFigure);
             title(app.Figure1, 'EoS - Compound')
             xlabel(app.Figure1, 'T [K]')
             ylabel(app.Figure1, 'V [m^3/kg]')
@@ -115,7 +115,7 @@ classdef Volume3 < matlab.apps.AppBase
             app.Figure1.Position = [50 57 532 394];
 
             % Create CalculateButton
-            app.CalculateButton = uibutton(app.PVTDiagramgivenIsothermTemperaturesUIFigure, 'push');
+            app.CalculateButton = uibutton(app.PVTSurfacegivenIsothermTemperaturesUIFigure, 'push');
             app.CalculateButton.ButtonPushedFcn = createCallbackFcn(app, @CalculateButtonPushed, true);
             app.CalculateButton.BackgroundColor = [0.8588 0.9608 0.9608];
             app.CalculateButton.FontWeight = 'bold';
@@ -124,21 +124,21 @@ classdef Volume3 < matlab.apps.AppBase
             app.CalculateButton.Text = 'Calculate';
 
             % Create Image
-            app.Image = uiimage(app.PVTDiagramgivenIsothermTemperaturesUIFigure);
+            app.Image = uiimage(app.PVTSurfacegivenIsothermTemperaturesUIFigure);
             app.Image.Position = [50 467 127 103];
             app.Image.ImageSource = fullfile(pathToMLAPP, 'Logoico.png');
 
-            % Create PVTDiagramgivenIsothermTemperaturesLabel
-            app.PVTDiagramgivenIsothermTemperaturesLabel = uilabel(app.PVTDiagramgivenIsothermTemperaturesUIFigure);
-            app.PVTDiagramgivenIsothermTemperaturesLabel.HorizontalAlignment = 'center';
-            app.PVTDiagramgivenIsothermTemperaturesLabel.FontSize = 20;
-            app.PVTDiagramgivenIsothermTemperaturesLabel.FontWeight = 'bold';
-            app.PVTDiagramgivenIsothermTemperaturesLabel.FontColor = [0.1412 0.302 0.4784];
-            app.PVTDiagramgivenIsothermTemperaturesLabel.Position = [44 583 548 26];
-            app.PVTDiagramgivenIsothermTemperaturesLabel.Text = 'PVT Diagram given Isotherm Temperatures';
+            % Create PVTSurfacegivenIsothermTemperaturesLabel
+            app.PVTSurfacegivenIsothermTemperaturesLabel = uilabel(app.PVTSurfacegivenIsothermTemperaturesUIFigure);
+            app.PVTSurfacegivenIsothermTemperaturesLabel.HorizontalAlignment = 'center';
+            app.PVTSurfacegivenIsothermTemperaturesLabel.FontSize = 20;
+            app.PVTSurfacegivenIsothermTemperaturesLabel.FontWeight = 'bold';
+            app.PVTSurfacegivenIsothermTemperaturesLabel.FontColor = [0.1412 0.302 0.4784];
+            app.PVTSurfacegivenIsothermTemperaturesLabel.Position = [44 583 548 26];
+            app.PVTSurfacegivenIsothermTemperaturesLabel.Text = 'PVT Surface given Isotherm Temperatures';
 
             % Create BackButton
-            app.BackButton = uibutton(app.PVTDiagramgivenIsothermTemperaturesUIFigure, 'push');
+            app.BackButton = uibutton(app.PVTSurfacegivenIsothermTemperaturesUIFigure, 'push');
             app.BackButton.ButtonPushedFcn = createCallbackFcn(app, @BackButtonPushed, true);
             app.BackButton.BackgroundColor = [0.8588 0.9608 0.9608];
             app.BackButton.FontWeight = 'bold';
@@ -147,7 +147,7 @@ classdef Volume3 < matlab.apps.AppBase
             app.BackButton.Text = 'Back';
 
             % Create CubicEquationofStateDropDownLabel
-            app.CubicEquationofStateDropDownLabel = uilabel(app.PVTDiagramgivenIsothermTemperaturesUIFigure);
+            app.CubicEquationofStateDropDownLabel = uilabel(app.PVTSurfacegivenIsothermTemperaturesUIFigure);
             app.CubicEquationofStateDropDownLabel.HorizontalAlignment = 'right';
             app.CubicEquationofStateDropDownLabel.FontWeight = 'bold';
             app.CubicEquationofStateDropDownLabel.FontColor = [0.1412 0.302 0.4784];
@@ -155,7 +155,7 @@ classdef Volume3 < matlab.apps.AppBase
             app.CubicEquationofStateDropDownLabel.Text = 'Cubic Equation of State';
 
             % Create EoS
-            app.EoS = uidropdown(app.PVTDiagramgivenIsothermTemperaturesUIFigure);
+            app.EoS = uidropdown(app.PVTSurfacegivenIsothermTemperaturesUIFigure);
             app.EoS.Items = {'van der Waals', 'Redlich-Kwong', 'Soave-Redlich-Kwong', 'Peng-Robinson'};
             app.EoS.ValueChangedFcn = createCallbackFcn(app, @EoSValueChanged, true);
             app.EoS.BackgroundColor = [0.8588 0.9608 0.9608];
@@ -163,7 +163,7 @@ classdef Volume3 < matlab.apps.AppBase
             app.EoS.Value = 'van der Waals';
 
             % Create CompoundDropDownLabel
-            app.CompoundDropDownLabel = uilabel(app.PVTDiagramgivenIsothermTemperaturesUIFigure);
+            app.CompoundDropDownLabel = uilabel(app.PVTSurfacegivenIsothermTemperaturesUIFigure);
             app.CompoundDropDownLabel.HorizontalAlignment = 'right';
             app.CompoundDropDownLabel.FontWeight = 'bold';
             app.CompoundDropDownLabel.FontColor = [0.1412 0.302 0.4784];
@@ -171,7 +171,7 @@ classdef Volume3 < matlab.apps.AppBase
             app.CompoundDropDownLabel.Text = 'Compound';
 
             % Create Compound
-            app.Compound = uidropdown(app.PVTDiagramgivenIsothermTemperaturesUIFigure);
+            app.Compound = uidropdown(app.PVTSurfacegivenIsothermTemperaturesUIFigure);
             app.Compound.Items = {};
             app.Compound.ValueChangedFcn = createCallbackFcn(app, @CompoundValueChanged, true);
             app.Compound.BackgroundColor = [0.8588 0.9608 0.9608];
@@ -179,7 +179,7 @@ classdef Volume3 < matlab.apps.AppBase
             app.Compound.Value = {};
 
             % Show the figure after all components are created
-            app.PVTDiagramgivenIsothermTemperaturesUIFigure.Visible = 'on';
+            app.PVTSurfacegivenIsothermTemperaturesUIFigure.Visible = 'on';
         end
     end
 
@@ -207,7 +207,7 @@ classdef Volume3 < matlab.apps.AppBase
         function delete(app)
 
             % Delete UIFigure when app is deleted
-            delete(app.PVTDiagramgivenIsothermTemperaturesUIFigure)
+            delete(app.PVTSurfacegivenIsothermTemperaturesUIFigure)
         end
     end
 end
