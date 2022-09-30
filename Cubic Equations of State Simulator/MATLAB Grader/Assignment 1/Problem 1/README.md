@@ -36,7 +36,7 @@ When opening the simulator folder, different types of files are shown (**Figure 
 + Exported Results and Macros: The folder includes the results of a simulator task exported in Excel files. It also contains two Excel macros to organize the simulation results of a component in one phase or two phases at equilibrium in thermodynamic tables, in addition to performing interpolations and calculating other thermodynamic properties.
 + Logo Pictures: The program logo in png and ico format. These are used in the visual design of the simulator.
 + **Database:** Excel file that collects experimental data and thermodynamic properties of each compound available to perform the requested thermodynamic calculations and plot the diagrams/surfaces.
-+ MATLAB Apps and MATLAB Codes (**Figure 3**): MATLAB files that perform various simulator functions. The app type files (.mlapp) contain the graphic design and programming of its components. Code files (.m) contain the implementation of the thermodynamic calculations.
++ MATLAB Apps and MATLAB Codes (**Figure 3**): MATLAB files that perform various simulator functions. The app type files (.mlapp) contain the graphic design and programming of its components. Code files (.m) contain the implementation of the thermodynamic calculations ([Code Documentation](https://github.com/IMClick-Project/IQ/tree/main/Cubic%20Equations%20of%20State%20Simulator/Code%20Documentation)).
 
 <img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/Problem%201/codes.jpg" width="986" height="698">
 
