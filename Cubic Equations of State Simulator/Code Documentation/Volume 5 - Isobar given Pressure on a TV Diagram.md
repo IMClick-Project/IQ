@@ -1030,8 +1030,8 @@ if checkNaN==false
 end
 app.Table1.Data=[phase;Tp;Zp;Vp]';
 % Notify if the case is thermodynamically not possible
-% Test Fugacity
+% Fugacity Test
 if checkNaN==true
-    uialert(app.IsobargivenPressureonaTVDiagramUIFigure,"Test Fugacity: Thermodynamically not possible case because Psat is not between the Psat calculated from Tt and close to Tc = NaN (Not a Number).","Error","Icon","error");
+    uialert(app.IsobargivenPressureonaTVDiagramUIFigure,"Fugacity Test: Thermodynamically not possible case because Psat is not between the Psat calculated from Tt and close to Tc = NaN (Not a Number).","Error","Icon","error");
 end
 ```

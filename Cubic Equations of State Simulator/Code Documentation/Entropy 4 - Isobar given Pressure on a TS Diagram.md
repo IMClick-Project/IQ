@@ -752,7 +752,7 @@ end
 app.TriplePressure.Value=string(Pbracket(1));
 app.CriticalPressure.Value=string(Pbracket(2));
 % Find Tsat, Zliquid, Zvapor, Sliquid, and Svapor given P
-% Fugacity test method
+% Fugacity Test method
 % Case not thermodynamically possible: Psat is not between the Psat calculated from Tt and close to Tc = NaN (Not a Number)
 Sfug=zeros(1,2);
 Tfug=zeros(1,2);
@@ -1220,8 +1220,8 @@ if checkNaN==false
 end
 app.Table1.Data=[phase;Tp;Zp;Sp]';
 % Notify if the case is thermodynamically not possible
-% Test Fugacity
+% Fugacity Test
 if checkNaN==true
-    uialert(app.IsobargivenPressureonaTSDiagramUIFigure,"Test Fugacity: Thermodynamically not possible case because Psat is not between the Psat calculated from Tt and close to Tc = NaN (Not a Number).","Error","Icon","error");
+    uialert(app.IsobargivenPressureonaTSDiagramUIFigure,"Fugacity Test: Thermodynamically not possible case because Psat is not between the Psat calculated from Tt and close to Tc = NaN (Not a Number).","Error","Icon","error");
 end
 ```
