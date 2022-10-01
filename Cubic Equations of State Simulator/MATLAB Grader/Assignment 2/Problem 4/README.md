@@ -50,7 +50,7 @@ The third option of the entropy menu allows generating on a PST surface the isot
 
 *Figure 8. Mode of use and example of results executing the third option of the entropy menu: PST Surface given Isotherm Temperatures.*
 
-## 4. Isobar given Pressure on a TH Diagram
+## 4. Isobar given Pressure on a TS Diagram
 
 The fourth option of the entropy menu allows generating on a TS diagram the isobar of a substance given a pressure, a reference state, and a cubic equation of state ([documented code](https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/Code%20Documentation/Entropy%204%20-%20Isobar%20given%20Pressure%20on%20a%20TS%20Diagram.md)). **Figure 9** illustrates the access mode and parts of the window for this option: **section a)** allows selecting the compound (which defines the corresponding reference state recorded in the database), the cubic equation of state, and the isobar pressure to perform the calculations; and **section b)** graphs and shows the results of the computed isobar on a TS diagram.
 
@@ -62,7 +62,7 @@ The fourth option of the entropy menu allows generating on a TS diagram the isob
 
 <img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%202/Problem%204/s4-2.jpg" width="768" height="1299">
 
-*Figure 10. Mode of use and example of results executing the fourth option of the entropy menu: Isobar given Pressure on a TH Diagram.*
+*Figure 10. Mode of use and example of results executing the fourth option of the entropy menu: Isobar given Pressure on a TS Diagram.*
 
 <img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%202/Problem%204/s4-3.jpg" width="506" height="574">
 
