@@ -298,7 +298,7 @@ classdef Entropy3 < matlab.apps.AppBase
             createComponents(app)
 
             % Register the app with App Designer
-            registerApp(app, app.PSTDiagramgivenIsothermTemperaturesUIFigure)
+            registerApp(app, app.PSTSurfacegivenIsothermTemperaturesUIFigure)
 
             % Execute the startup function
             runStartupFcn(app, @startupFcn)

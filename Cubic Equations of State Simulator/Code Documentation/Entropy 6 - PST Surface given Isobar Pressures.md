@@ -298,7 +298,7 @@ classdef Entropy6 < matlab.apps.AppBase
             createComponents(app)
 
             % Register the app with App Designer
-            registerApp(app, app.PSTDiagramgivenIsobarPressuresUIFigure)
+            registerApp(app, app.PSTSurfacegivenIsobarPressuresUIFigure)
 
             % Execute the startup function
             runStartupFcn(app, @startupFcn)
