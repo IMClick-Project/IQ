@@ -298,7 +298,7 @@ classdef Enthalpy6 < matlab.apps.AppBase
             createComponents(app)
 
             % Register the app with App Designer
-            registerApp(app, app.PHTDiagramgivenIsobarPressuresUIFigure)
+            registerApp(app, app.PHTSurfacegivenIsobarPressuresUIFigure)
 
             % Execute the startup function
             runStartupFcn(app, @startupFcn)

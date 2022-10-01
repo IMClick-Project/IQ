@@ -298,7 +298,7 @@ classdef Enthalpy3 < matlab.apps.AppBase
             createComponents(app)
 
             % Register the app with App Designer
-            registerApp(app, app.PHTDiagramgivenIsothermTemperaturesUIFigure)
+            registerApp(app, app.PHTSurfacegivenIsothermTemperaturesUIFigure)
 
             % Execute the startup function
             runStartupFcn(app, @startupFcn)
