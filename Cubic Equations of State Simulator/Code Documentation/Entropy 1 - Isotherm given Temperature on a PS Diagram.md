@@ -194,7 +194,7 @@ classdef Entropy1 < matlab.apps.AppBase
             writematrix(str2double({app.ReferencePressure.Value}),"./Results/Isotherm given Temperature on a PS Diagram.xlsx","Sheet","Isotherm given Temperature","Range","B6");
             writematrix(str2double({app.ReferenceEntropy.Value}),"./Results/Isotherm given Temperature on a PS Diagram.xlsx","Sheet","Isotherm given Temperature","Range","B7");
             for i=1:height(table1)
-                if string(table2cell(table1(i,1)))=="Satured Liquid (Experimental Data)" 
+                if string(table2cell(table1(i,1)))=="Saturated Liquid (Experimental Data)" 
                     index=i+8;
                     break;
                 end
@@ -830,22 +830,22 @@ end
 % Saturated Liquid-Vapor
 % Test Fugacity: Choice of thermodynamically possible cases
 if Pfug(1)<Pt
-    phase(k)="*Satured Liquid (Fugacity Test)";
+    phase(k)="*Saturated Liquid (Fugacity Test)";
 elseif Pfug(1)>Pc
-    phase(k)="**Satured Liquid (Fugacity Test)";
+    phase(k)="**Saturated Liquid (Fugacity Test)";
 else
-    phase(k)="Satured Liquid (Fugacity Test)";
+    phase(k)="Saturated Liquid (Fugacity Test)";
 end
 Pp(k)=string(Pfug(1));
 Zp(k)=string(Zliquid);
 Sp(k)=string(Sfug(1));
 k=k+1;
 if Pfug(1)<Pt
-    phase(k)="*Satured Vapor (Fugacity Test)";
+    phase(k)="*Saturated Vapor (Fugacity Test)";
 elseif Pfug(1)>Pc
-    phase(k)="**Satured Vapor (Fugacity Test)";
+    phase(k)="**Saturated Vapor (Fugacity Test)";
 else
-    phase(k)="Satured Vapor (Fugacity Test)";
+    phase(k)="Saturated Vapor (Fugacity Test)";
 end
 Pp(k)=string(Pfug(1));
 Zp(k)=string(Zvapor);
@@ -853,22 +853,22 @@ Sp(k)=string(Sfug(2));
 k=k+1;
 % Antoine Equation: Choice of thermodynamically possible cases
 if Pant(1)<Pt
-    phase(k)="*Satured Liquid (Antoine Equation)";
+    phase(k)="*Saturated Liquid (Antoine Equation)";
 elseif Pant(1)>Pc
-    phase(k)="**Satured Liquid (Antoine Equation)";
+    phase(k)="**Saturated Liquid (Antoine Equation)";
 else
-    phase(k)="Satured Liquid (Antoine Equation)";
+    phase(k)="Saturated Liquid (Antoine Equation)";
 end
 Pp(k)=string(Pant(1));
 Zp(k)=string(Zant(1));
 Sp(k)=string(Sant(1));
 k=k+1;
 if Pant(1)<Pt
-    phase(k)="*Satured Vapor (Antoine Equation)";
+    phase(k)="*Saturated Vapor (Antoine Equation)";
 elseif Pant(1)>Pc
-    phase(k)="**Satured Vapor (Antoine Equation)";
+    phase(k)="**Saturated Vapor (Antoine Equation)";
 else
-    phase(k)="Satured Vapor (Antoine Equation)";
+    phase(k)="Saturated Vapor (Antoine Equation)";
 end
 Pp(k)=string(Pant(1));
 Zp(k)=string(Zant(2));
@@ -890,12 +890,12 @@ if ~isnan(Sexp(2))
 else
     Sexv="NA";
 end
-phase(k)="Satured Liquid (Experimental Data)";
+phase(k)="Saturated Liquid (Experimental Data)";
 Pp(k)=Pex;
 Zp(k)=Zexl;
 Sp(k)=Sexl;
 k=k+1;
-phase(k)="Satured Vapor (Experimental Data)";
+phase(k)="Saturated Vapor (Experimental Data)";
 Pp(k)=Pex;
 Zp(k)=Zexv;
 Sp(k)=Sexv;
