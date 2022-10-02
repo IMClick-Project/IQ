@@ -107,3 +107,15 @@ The sixth option of the enthalpy menu allows generating on a PHT surface the iso
 *Figure 17. Mode of use and example of results executing the sixth option of the enthalpy menu: PHT Surface given Isobar Pressures.*
 
 ## 7. Exercises
+
+Using the data provided for the ten compounds proposed in this course and the Fugacity Test results, answer the following questions:
+
++ Task_1: What is the temperature of ammonia at a pressure of 3.81 bar and enthalpy of 758.5853 kJ/kg, in K? Use Peng-Robinson as cubic equation of state.
++ Task_2: What is the enthalpy of chlorine at a saturation temperature of 373.15 K and quality of 0.84, in kJ/kg? Use Soave-Redlich-Kwong as cubic equation of state.
++ Task_3: What is the enthalpy of saturated liquid carbon dioxide at a temperature of 255 K, in kJ/kg? Use van der Waals as cubic equation of state.
++ Task_4: What is the pressure of nitrogen at a temperature of 120 K and enthalpy of -12.747 kJ/kg, in bar? Use Redlich-Kwong as cubic equation of state.
++ Task_5 (**Challenge** - Problem 5-48 in Çengel et al., 2019 (**Figure 18**) - Use Peng-Robinson as cubic equation of state and pressure as a state property. Answer in MW): Steam flows steadily through an adiabatic turbine. The inlet conditions of the steam are 4 MPa, 500°C, and 80 m/s, and the exit conditions are 30 kPa, 92 percent quality, and 50 m/s. The mass flow rate of the steam is 12 kg/s. Determine the power output.
+
+<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%202/Problem%203/challenge.jpg" width="268" height="425">
+
+*Figure 18. Problem 5-48 in Çengel et al., 2019*.
