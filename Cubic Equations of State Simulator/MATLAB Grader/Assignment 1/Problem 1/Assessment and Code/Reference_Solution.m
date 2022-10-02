@@ -17,5 +17,5 @@ Task_7=0.253 % Ammonia - w
 Task_8=0.0015 % Oxygen - Pt [bar]
 % Task_9: What is the experimental data of the entropy in saturated liquid of water at 353.15 K, in J/kmol·K?
 Task_9=1.0756*18.015*1000 % Water - sf [J/kmol·K] @ Tsat=353.15 bar
-% Task_10: What is the experimental data of the enthalpy of vaporization (or latent heat of vaporization) of Refrigerant 134a at 2.1708 bar, in kJ/kg?
+% Task_10: What is the experimental data of the enthalpy of vaporization (or latent heat of vaporization) of refrigerant 134a at 2.1708 bar, in kJ/kg?
 Task_10=245.76-41.17 % Refrigerant 134a - hfg [kJ/kg] @ Psat=2.1708 bar
