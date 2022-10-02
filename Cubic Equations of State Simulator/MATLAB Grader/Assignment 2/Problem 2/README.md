@@ -107,3 +107,16 @@ The seventh option of the volume menu allows generating on a PVT surface the iso
 *Figure 17. Mode of use and example of results executing the seventh option of the volume menu: PVT Surface given Isobar Pressures.*
 
 ## 7. Exercises
+
+Using the data provided for the ten compounds proposed in this course and the Fugacity Test results, answer the following questions:
+
++ Task_1: What is the temperature of chlorine at a pressure of 32.17 bar and volume of 0.00068788 m3/kg, in K? Use Soave-Redlich-Kwong as cubic equation of state.
++ Task_2: What is the volume of saturated liquid water at a temperature of 368.15 K, in m3/kg? Use Redlich-Kwong as cubic equation of state.
++ Task_3: What is the density of nitrogen at a temperature of 95 K and pressure of 181.2434 bar, in kg/m3? Use Soave-Redlich-Kwong as cubic equation of state.
++ Task_4: What is the pressure of oxygen at a temperature of 70 K and volume of 7.243 m3/kg, in bar? Use Redlich-Kwong as cubic equation of state.
++ Task_5: What is the saturation temperature of hydrogen at a pressure of 4.8 bar? Use van der Waals as cubic equation of state.
++ Task_6: What is the value of Z of saturated vapor methane at a pressure of 23.81 bar? Use Peng-Robinson as cubic equation of state.
++ Task_7: What is the volume of carbon dioxide at a temperature of 275 K and pressure of 84.078 bar, in m3/kg? Use van der Waals as cubic equation of state.
++ Task_8: What is the saturation pressure of argon at a temperature of 120 K, in bar? Use Soave-Redlich-Kwong as cubic equation of state.
++ Task_9: What is the value of Z of refrigerant 134a at a pressure of 2.0074 bar and temperature of 316.631 K? Use Peng-Robinson as cubic equation of state. 
++ Task_10 (**Challenge** - Problem 3.73 in Smith et al., 2017 - Use Peng-Robinson as cubic equation of state and temperature as a state property. Answer in m3/kg): Estimate the volume change of vaporization for ammonia at 20°C. At this temperature the vapor pressure of ammonia is 857 kPa.

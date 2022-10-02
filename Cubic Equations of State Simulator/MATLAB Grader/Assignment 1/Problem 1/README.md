@@ -117,4 +117,4 @@ All compound data from this problem will be used in future exercises and explana
 + Task_7: What is the acentric factor of ammonia?
 + Task_8: What is the triple pressure of oxygen, in bar?
 + Task_9: What is the experimental data of the entropy in saturated liquid of water at 353.15 K, in J/kmol·K?
-+ Task_10: What is the experimental data of the enthalpy of vaporization (or latent heat of vaporization) of Refrigerant 134a at 2.1708 bar, in kJ/kg?
++ Task_10: What is the experimental data of the enthalpy of vaporization (or latent heat of vaporization) of refrigerant 134a at 2.1708 bar, in kJ/kg?
