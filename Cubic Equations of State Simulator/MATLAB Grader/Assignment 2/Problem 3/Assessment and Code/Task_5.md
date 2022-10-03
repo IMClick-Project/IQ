@@ -29,8 +29,8 @@ The values ​​of $\mathbf{h_1}$ and $\mathbf{h_2}$ can be calculated entering
 
 <img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%202/Problem%203/Assessment%20and%20Code/T3-5-2.jpg" width="770" height="992">
 
-*Figure 26. Data to calculate $h_1$ using "Isobar given Pressure on a TH Diagram" option.*
+*Figure 26. Data to calculate* $h_1$ *using "Isobar given Pressure on a TH Diagram" option.*
 
 <img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%202/Problem%203/Assessment%20and%20Code/T3-5-3.jpg" width="768" height="896">
 
-*Figure 27. Data to calculate $h_2$ using "Isobar given Pressure on a TH Diagram" option.*
+*Figure 27. Data to calculate* $h_2$ *using "Isobar given Pressure on a TH Diagram" option.*
