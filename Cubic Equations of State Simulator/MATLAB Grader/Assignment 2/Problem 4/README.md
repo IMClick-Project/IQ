@@ -107,3 +107,15 @@ The sixth option of the entropy menu allows generating on a PST surface the isob
 *Figure 17. Mode of use and example of results executing the sixth option of the entropy menu: PST Surface given Isobar Pressures.*
 
 ## 7. Exercises
+
+Using the data provided for the ten compounds proposed in this course and the Fugacity Test results, answer the following questions:
+
++ Task_1: Check that methane at a pressure of 1.919 bar and entropy of 6 kJ/kg·K is in the saturated liquid-vapor mixture and calculate its quality. Use Redlich-Kwong as cubic equation of state.
++ Task_2: What is the pressure of hydrogen at a temperature of 25 K and entropy of 47.2908 kJ/kg·K, in bar? Use Soave-Redlich-Kwong as cubic equation of state.
++ Task_3: What is the temperature of argon at a pressure of 9.107 bar and entropy of 1.3897 kJ/kg·K, in K? Use Peng-Robinson as cubic equation of state.
++ Task_4: What is the entropy of saturated vapor oxygen at a pressure of 34.45 bar, in kJ/kg·K? Use van der Waals as cubic equation of state.
++ Task_5 (**Challenge** - Example 7-3 in Çengel et al., 2019 (**Figure 18**) - Use Peng-Robinson as cubic equation of state and pressure as a state property. Answer in kJ/K): A rigid tank contains 5 kg of refrigerant-134a initially at 20°C and 140 kPa. The refrigerant is now cooled while being stirred until its pressure drops to 100 kPa. Determine the entropy change of the refrigerant during this process.
+
+<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%202/Problem%204/challenge.jpg" width="349" height="596">
+
+*Figure 18. Example 7-3 in Çengel et al., 2019.*
