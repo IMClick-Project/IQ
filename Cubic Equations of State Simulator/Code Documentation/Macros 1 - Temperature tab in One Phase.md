@@ -6,7 +6,7 @@ This spreadsheet allows performing calculations with the simulator results or ex
 
 <img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/Code%20Documentation/macros1-1.jpg" width="1074" height="338">
 
-*Figure 1. Spreadsheet Design of "Temperature" tab in "One Phase.xlsm".
+*Figure 1. Spreadsheet Design of "Temperature" tab in "One Phase.xlsm".*
 
 <img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/Code%20Documentation/macros1-2.jpg" width="948" height="474">
 

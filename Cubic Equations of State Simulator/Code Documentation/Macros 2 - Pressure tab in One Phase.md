@@ -1,539 +1,830 @@
-# PVT Surface given Isobar Pressures
+# "Pressure" tab in "One Phase.xlsm" file
 
-This is the seventh option in the volume menu. Its interface is programmed in "Volume7.mlapp" and it uses the function called "PVT_Surface_given_Isobar_Pressures.m" for thermodynamic calculations.
+This spreadsheet allows performing calculations with the simulator results or experimental data of the thermodynamic properties in the liquid or vapor phase of an isobar.
 
-## 1. MATLAB App
+## 1. Spreadsheet Design
 
-### 1.1. Design View
+<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/Code%20Documentation/macros2-1.jpg" width="1074" height="338">
 
-<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/Code%20Documentation/volume7.jpg" width="571" height="571">
+*Figure 1. Spreadsheet Design of "Pressure" tab in "One Phase.xlsm".*
 
-*Figure 1. Design View in Volume7.mlapp.*
+<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/Code%20Documentation/macros2-2.jpg" width="948" height="474">
 
-### 1.2. Code View
+*Figure 2. Controls properties.*
 
-```Matlab
-classdef Volume7 < matlab.apps.AppBase
+## 2. Excel Macro Code
 
-    % Properties that correspond to app components
-    properties (Access = public)
-        PVTSurfacegivenIsobarPressuresUIFigure  matlab.ui.Figure
-        Compound               matlab.ui.control.DropDown
-        CompoundDropDownLabel  matlab.ui.control.Label
-        EoS                    matlab.ui.control.DropDown
-        CubicEquationofStateDropDownLabel  matlab.ui.control.Label
-        BackButton             matlab.ui.control.Button
-        PVTSurfacegivenIsobarPressuresLabel  matlab.ui.control.Label
-        Image                  matlab.ui.control.Image
-        CalculateButton        matlab.ui.control.Button
-        Figure1                matlab.ui.control.UIAxes
-    end
+```vbscript
+Private Sub CLEAN_4_Click()
+    Dim row As Integer ' Helper to pass rows
+    FUGACITY_TEST_4.Enabled = True
+    FUGACITY_TEST_4.Value = True
+    EXPERIMENTAL_DATA_4.Enabled = True
+    COMPUTE_4.Enabled = True
+    CLEAN_4.Enabled = False
+    With Workbooks("One Phase.xlsm").Worksheets("Pressure")
+        .Range("B3:B10").Value = ""
+        .Range("G16").Value = ""
+        .Range("R16").Value = ""
+        .Range("H4").Value = "T [K]"
+        .Range("G16").Select
+        With Selection.Validation
+            .Delete
+            .Add Type:=xlValidateCustom, AlertStyle:=xlValidAlertStop, Operator:= _
+            xlBetween, Formula1:="=ISBLANK(G16)"
+            .IgnoreBlank = True
+            .InCellDropdown = True
+            .InputTitle = ""
+            .ErrorTitle = ""
+            .InputMessage = ""
+            .ErrorMessage = ""
+            .ShowInput = True
+            .ShowError = True
+        End With
+        .Range("R16").Select
+        With Selection.Validation
+            .Delete
+            .Add Type:=xlValidateCustom, AlertStyle:=xlValidAlertStop, Operator:= _
+            xlBetween, Formula1:="=ISBLANK(R16)"
+            .IgnoreBlank = True
+            .InCellDropdown = True
+            .InputTitle = ""
+            .ErrorTitle = ""
+            .InputMessage = ""
+            .ErrorMessage = ""
+            .ShowInput = True
+            .ShowError = True
+        End With
+        row = 0
+        While .Cells(14 + row, 1).Value <> ""
+            .Range(Cells(14 + row, 1), Cells(14 + row, 5)).Value = ""
+            .Range(Cells(14 + row, 1), Cells(14 + row, 5)).Select
+            Selection.Borders(xlDiagonalDown).LineStyle = xlNone
+            Selection.Borders(xlDiagonalUp).LineStyle = xlNone
+            Selection.Borders(xlEdgeLeft).LineStyle = xlNone
+            Selection.Borders(xlEdgeBottom).LineStyle = xlNone
+            Selection.Borders(xlEdgeRight).LineStyle = xlNone
+            Selection.Borders(xlInsideVertical).LineStyle = xlNone
+            Selection.Borders(xlInsideHorizontal).LineStyle = xlNone
+            row = row + 1
+        Wend
+        row = 0
+        While .Cells(14 + row, 12).Value <> ""
+            .Range(Cells(14 + row, 12), Cells(14 + row, 16)).Value = ""
+            .Range(Cells(14 + row, 12), Cells(14 + row, 16)).Select
+            Selection.Borders(xlDiagonalDown).LineStyle = xlNone
+            Selection.Borders(xlDiagonalUp).LineStyle = xlNone
+            Selection.Borders(xlEdgeLeft).LineStyle = xlNone
+            Selection.Borders(xlEdgeBottom).LineStyle = xlNone
+            Selection.Borders(xlEdgeRight).LineStyle = xlNone
+            Selection.Borders(xlInsideVertical).LineStyle = xlNone
+            Selection.Borders(xlInsideHorizontal).LineStyle = xlNone
+            row = row + 1
+        Wend
+        .Range("A13:E13").Value = ""
+        .Range("L13:P13").Value = ""
+        .Range("G14:J14").Value = ""
+        .Range("R14:U14").Value = ""
+        .Range("G15").Formula2R1C1 = "=IF(R[1]C[0]="""",""-"",MAX(IF(R[-1]C[-6]:R[-1]C[-6]<=R[1]C[0],R[-1]C[-6]:R[-1]C[-6])))"
+        .Range("H15").Formula2R1C1 = "=IF(R[0]C[-1]<>""-"",VLOOKUP(R[0]C[-1],R[-1]C[-7]:R[-1]C[-3],3,FALSE),""-"")"
+        .Range("I15").Formula2R1C1 = "=IF(R[0]C[-2]<>""-"",VLOOKUP(R[0]C[-2],R[-1]C[-8]:R[-1]C[-4],4,FALSE),""-"")"
+        .Range("J15").Formula2R1C1 = "=IF(R[0]C[-3]<>""-"",VLOOKUP(R[0]C[-3],R[-1]C[-9]:R[-1]C[-5],5,FALSE),""-"")"
+        .Range("G17").Formula2R1C1 = "=IF(R[-1]C[0]="""",""-"",MAX(IF(R[-3]C[-6]:R[-3]C[-6]<=R[-1]C[0],R[-3]C[-6]:R[-3]C[-6])))"
+        .Range("H17").Formula2R1C1 = "=IF(R[0]C[-1]<>""-"",VLOOKUP(R[0]C[-1],R[-3]C[-7]:R[-3]C[-3],3,FALSE),""-"")"
+        .Range("I17").Formula2R1C1 = "=IF(R[0]C[-2]<>""-"",VLOOKUP(R[0]C[-2],R[-3]C[-8]:R[-3]C[-4],4,FALSE),""-"")"
+        .Range("J17").Formula2R1C1 = "=IF(R[0]C[-3]<>""-"",VLOOKUP(R[0]C[-3],R[-3]C[-9]:R[-3]C[-5],5,FALSE),""-"")"
+        .Range("R15").Formula2R1C1 = "=IF(R[1]C[0]="""",""-"",MAX(IF(R[-1]C[-6]:R[-1]C[-6]<=R[1]C[0],R[-1]C[-6]:R[-1]C[-6])))"
+        .Range("S15").Formula2R1C1 = "=IF(R[0]C[-1]<>""-"",VLOOKUP(R[0]C[-1],R[-1]C[-7]:R[-1]C[-3],3,FALSE),""-"")"
+        .Range("T15").Formula2R1C1 = "=IF(R[0]C[-2]<>""-"",VLOOKUP(R[0]C[-2],R[-1]C[-8]:R[-1]C[-4],4,FALSE),""-"")"
+        .Range("U15").Formula2R1C1 = "=IF(R[0]C[-3]<>""-"",VLOOKUP(R[0]C[-3],R[-1]C[-9]:R[-1]C[-5],5,FALSE),""-"")"
+        .Range("R17").Formula2R1C1 = "=IF(R[-1]C[0]="""",""-"",MAX(IF(R[-3]C[-6]:R[-3]C[-6]<=R[-1]C[0],R[-3]C[-6]:R[-3]C[-6])))"
+        .Range("S17").Formula2R1C1 = "=IF(R[0]C[-1]<>""-"",VLOOKUP(R[0]C[-1],R[-3]C[-7]:R[-3]C[-3],3,FALSE),""-"")"
+        .Range("T17").Formula2R1C1 = "=IF(R[0]C[-2]<>""-"",VLOOKUP(R[0]C[-2],R[-3]C[-8]:R[-3]C[-4],4,FALSE),""-"")"
+        .Range("U17").Formula2R1C1 = "=IF(R[0]C[-3]<>""-"",VLOOKUP(R[0]C[-3],R[-3]C[-9]:R[-3]C[-5],5,FALSE),""-"")"
+        .Columns("A:U").EntireColumn.AutoFit
+        .Columns("B:C").ColumnWidth = 9.71
+        .Columns("E:E").ColumnWidth = 9.71
+        .Columns("I:U").ColumnWidth = 9.71
+        .Range("A3").Select
+    End With
+End Sub
 
-    % Callbacks that handle component events
-    methods (Access = private)
-
-        % Code that executes after component creation
-        function startupFcn(app)
-            clc;
-            movegui(app.PVTSurfacegivenIsobarPressuresUIFigure,"north");
-            % Compound
-            data=readtable("Thermodynamic Data.xlsx","Sheet","Compounds");
-            app.Compound.Items=table2cell(data(:,1));
-        end
-
-        % Button pushed function: BackButton
-        function BackButtonPushed(app, event)
-            Volume;
-            delete(app);
-        end
-
-        % Button pushed function: CalculateButton
-        function CalculateButtonPushed(app, event)
-            % Isobar Pressures
-            data2=readtable("Thermodynamic Data.xlsx","Sheet",convertCharsToStrings(app.Compound.Value));
-            tam=0;
-            for i=1:height(data2)
-                if ~ismissing(table2array(data2(i,2))) && string(table2array(data2(i,2)))~="NaN"
-                    tam=tam+1;
-                    break;
-                end
-            end
-            if tam>0
-                progressbar=uiprogressdlg(app.PVTSurfacegivenIsobarPressuresUIFigure,"Title","Status","Message","Calculating","Indeterminate","on","Cancelable","off");
-                drawnow;
-                PVT_Surface_given_Isobar_Pressures;
-                close(progressbar);
-            else
-                uialert(app.PVTSurfacegivenIsobarPressuresUIFigure,"Input isobar pressures not found.","Data Status","Icon","warning");
-            end
-        end
-
-        % Value changed function: Compound
-        function CompoundValueChanged(app, event)
-            clc;
-            title(app.Figure1,"EoS - Compound");
-            cla(app.Figure1);
-        end
-
-        % Value changed function: EoS
-        function EoSValueChanged(app, event)
-            clc;
-            title(app.Figure1,"EoS - Compound");
-            cla(app.Figure1);
-        end
-    end
-
-    % Component initialization
-    methods (Access = private)
-
-        % Create UIFigure and components
-        function createComponents(app)
-
-            % Get the file path for locating images
-            pathToMLAPP = fileparts(mfilename('fullpath'));
-
-            % Create PVTSurfacegivenIsobarPressuresUIFigure and hide until all components are created
-            app.PVTSurfacegivenIsobarPressuresUIFigure = uifigure('Visible', 'off');
-            app.PVTSurfacegivenIsobarPressuresUIFigure.Color = [1 1 1];
-            app.PVTSurfacegivenIsobarPressuresUIFigure.Position = [100 100 634 632];
-            app.PVTSurfacegivenIsobarPressuresUIFigure.Name = 'PVT Surface given Isobar Pressures';
-            app.PVTSurfacegivenIsobarPressuresUIFigure.Icon = fullfile(pathToMLAPP, 'Logoico.png');
-            app.PVTSurfacegivenIsobarPressuresUIFigure.Resize = 'off';
-
-            % Create Figure1
-            app.Figure1 = uiaxes(app.PVTSurfacegivenIsobarPressuresUIFigure);
-            title(app.Figure1, 'EoS - Compound')
-            xlabel(app.Figure1, 'T [K]')
-            ylabel(app.Figure1, 'V [m^3/kg]')
-            zlabel(app.Figure1, 'P [bar]')
-            app.Figure1.XDir = 'reverse';
-            app.Figure1.YScale = 'log';
-            app.Figure1.YMinorTick = 'on';
-            app.Figure1.XGrid = 'on';
-            app.Figure1.YGrid = 'on';
-            app.Figure1.YMinorGrid = 'on';
-            app.Figure1.ZGrid = 'on';
-            app.Figure1.Position = [43 58 532 394];
-
-            % Create CalculateButton
-            app.CalculateButton = uibutton(app.PVTSurfacegivenIsobarPressuresUIFigure, 'push');
-            app.CalculateButton.ButtonPushedFcn = createCallbackFcn(app, @CalculateButtonPushed, true);
-            app.CalculateButton.BackgroundColor = [0.8588 0.9608 0.9608];
-            app.CalculateButton.FontWeight = 'bold';
-            app.CalculateButton.FontColor = [0.1412 0.302 0.4784];
-            app.CalculateButton.Position = [471 468 103 22];
-            app.CalculateButton.Text = 'Calculate';
-
-            % Create Image
-            app.Image = uiimage(app.PVTSurfacegivenIsobarPressuresUIFigure);
-            app.Image.Position = [43 468 127 103];
-            app.Image.ImageSource = fullfile(pathToMLAPP, 'Logoico.png');
-
-            % Create PVTSurfacegivenIsobarPressuresLabel
-            app.PVTSurfacegivenIsobarPressuresLabel = uilabel(app.PVTSurfacegivenIsobarPressuresUIFigure);
-            app.PVTSurfacegivenIsobarPressuresLabel.HorizontalAlignment = 'center';
-            app.PVTSurfacegivenIsobarPressuresLabel.FontSize = 20;
-            app.PVTSurfacegivenIsobarPressuresLabel.FontWeight = 'bold';
-            app.PVTSurfacegivenIsobarPressuresLabel.FontColor = [0.1412 0.302 0.4784];
-            app.PVTSurfacegivenIsobarPressuresLabel.Position = [37 584 548 26];
-            app.PVTSurfacegivenIsobarPressuresLabel.Text = 'PVT Surface given Isobar Pressures';
-
-            % Create BackButton
-            app.BackButton = uibutton(app.PVTSurfacegivenIsobarPressuresUIFigure, 'push');
-            app.BackButton.ButtonPushedFcn = createCallbackFcn(app, @BackButtonPushed, true);
-            app.BackButton.BackgroundColor = [0.8588 0.9608 0.9608];
-            app.BackButton.FontWeight = 'bold';
-            app.BackButton.FontColor = [0.1412 0.302 0.4784];
-            app.BackButton.Position = [512 21 100 22];
-            app.BackButton.Text = 'Back';
-
-            % Create CubicEquationofStateDropDownLabel
-            app.CubicEquationofStateDropDownLabel = uilabel(app.PVTSurfacegivenIsobarPressuresUIFigure);
-            app.CubicEquationofStateDropDownLabel.HorizontalAlignment = 'right';
-            app.CubicEquationofStateDropDownLabel.FontWeight = 'bold';
-            app.CubicEquationofStateDropDownLabel.FontColor = [0.1412 0.302 0.4784];
-            app.CubicEquationofStateDropDownLabel.Position = [175 504 141 22];
-            app.CubicEquationofStateDropDownLabel.Text = 'Cubic Equation of State';
-
-            % Create EoS
-            app.EoS = uidropdown(app.PVTSurfacegivenIsobarPressuresUIFigure);
-            app.EoS.Items = {'van der Waals', 'Redlich-Kwong', 'Soave-Redlich-Kwong', 'Peng-Robinson'};
-            app.EoS.ValueChangedFcn = createCallbackFcn(app, @EoSValueChanged, true);
-            app.EoS.BackgroundColor = [0.8588 0.9608 0.9608];
-            app.EoS.Position = [332 504 241 22];
-            app.EoS.Value = 'van der Waals';
-
-            % Create CompoundDropDownLabel
-            app.CompoundDropDownLabel = uilabel(app.PVTSurfacegivenIsobarPressuresUIFigure);
-            app.CompoundDropDownLabel.HorizontalAlignment = 'right';
-            app.CompoundDropDownLabel.FontWeight = 'bold';
-            app.CompoundDropDownLabel.FontColor = [0.1412 0.302 0.4784];
-            app.CompoundDropDownLabel.Position = [176 540 140 22];
-            app.CompoundDropDownLabel.Text = 'Compound';
-
-            % Create Compound
-            app.Compound = uidropdown(app.PVTSurfacegivenIsobarPressuresUIFigure);
-            app.Compound.Items = {};
-            app.Compound.ValueChangedFcn = createCallbackFcn(app, @CompoundValueChanged, true);
-            app.Compound.BackgroundColor = [0.8588 0.9608 0.9608];
-            app.Compound.Position = [331 540 242 22];
-            app.Compound.Value = {};
-
-            % Show the figure after all components are created
-            app.PVTSurfacegivenIsobarPressuresUIFigure.Visible = 'on';
-        end
-    end
-
-    % App creation and deletion
-    methods (Access = public)
-
-        % Construct app
-        function app = Volume7
-
-            % Create UIFigure and components
-            createComponents(app)
-
-            % Register the app with App Designer
-            registerApp(app, app.PVTSurfacegivenIsobarPressuresUIFigure)
-
-            % Execute the startup function
-            runStartupFcn(app, @startupFcn)
-
-            if nargout == 0
-                clear app
-            end
-        end
-
-        % Code that executes before app deletion
-        function delete(app)
-
-            % Delete UIFigure when app is deleted
-            delete(app.PVTSurfacegivenIsobarPressuresUIFigure)
-        end
-    end
-end
-```
-
-## 2. MATLAB Code
-
-```Matlab
-% Assignment of parameter values depending on the input and through the database
-clc;
-cla(app.Figure1);
-format long;
-options=optimset("Display","off");
-warning("off","all");
-% Compound
-data=readtable("Thermodynamic Data.xlsx","Sheet","Compounds","ReadRowNames",1);
-MM=table2array(data(app.Compound.Value,1)); % Molar Mass [g/mol]
-Tt=table2array(data(app.Compound.Value,2)); % Triple Temperature [K]
-Pt=table2array(data(app.Compound.Value,3)); % Triple Pressure [bar]
-Tc=table2array(data(app.Compound.Value,4)); % Critical Temperature [K]
-Pc=table2array(data(app.Compound.Value,5)); % Critical Pressure [bar]
-w=table2array(data(app.Compound.Value,6)); % Acentric factor
-% Antoine parameters
-A=table2array(data(app.Compound.Value,8));
-B=table2array(data(app.Compound.Value,9));
-C=table2array(data(app.Compound.Value,10));
-% Cubic Equation of State
-if app.EoS.Value=="van der Waals"
-    eos=1;
-elseif app.EoS.Value=="Redlich-Kwong"
-    eos=2;
-elseif app.EoS.Value=="Soave-Redlich-Kwong"
-    eos=3;
-else 
-    eos=4;
-end
-if eos==1
-    epsilon=0;
-    sigma=0;
-    omega=1/8;
-    psi=27/64;
-    alpha=1;
-elseif eos==2 || eos==3
-    epsilon=0;
-    sigma=1;
-    omega=0.08664;
-    psi=0.42748;
-else
-    epsilon=1-2^(1/2);
-    sigma=1+2^(1/2);
-    omega=0.07780;
-    psi=0.45724;
-end
-% Available pressures
-data2=readtable("Thermodynamic Data.xlsx","Sheet",convertCharsToStrings(app.Compound.Value));
-tam=0;
-aux=strings;
-Pindex=[];
-for i=1:height(data2)
-    if ~ismissing(table2array(data2(i,2))) && string(table2array(data2(i,2)))~="NaN"
-        tam=tam+1;
-        aux(tam)=string(table2array(data2(i,2)));
-    end
-end
-% Variables and Constants
-R=83.14; % Ideal Gas Constant [cm3*bar/mol/K]
-b=omega*R*Tc/Pc;
-Er=0.00001;
-Tbracket=[Tt Tc-0.1];
-Pbracket=zeros(1,2);
-% Fugacity Test to predict Psat for Tt and close to Tc
-for i=1:2
-    Ti=Tbracket(i);
-    Tr=Ti/Tc;
-    if eos==2
-        alpha=Tr^(-1/2);
-    elseif eos==3
-        alpha=(1+(0.480+1.574*w-0.176*w^2)*(1-Tr^(1/2)))^2;
-    elseif eos==4
-        alpha=(1+(0.37464+1.54226*w-0.26992*w^2)*(1-Tr^(1/2)))^2;
-    end
-    a=psi*alpha*(R*Tc)^2/Pc;
-    Vstart=b+1;
-    Vnext=b+2;
-    Paux=R*Ti/(Vstart-b)-a/((Vstart+epsilon*b)*(Vstart+sigma*b));
-    Paux2=R*Ti/(Vnext-b)-a/((Vnext+epsilon*b)*(Vnext+sigma*b));
-    while Paux>Paux2
-        Paux=Paux2;
-        Vnext=Vnext+1;
-        Paux2=R*Ti/(Vnext-b)-a/((Vnext+epsilon*b)*(Vnext+sigma*b));
-    end
-    while Paux<Paux2
-        Paux=Paux2;
-        Vnext=Vnext+1;
-        Paux2=R*Ti/(Vnext-b)-a/((Vnext+epsilon*b)*(Vnext+sigma*b));
-    end
-    Paux=Paux2;
-    q=a/(b*R*Ti);
-    while true
-        beta=Paux*b/(R*Ti);
-        liquid=@(V) (b+(V+epsilon*b)*(V+sigma*b)*(R*Ti+Paux*(b-V))/a)-V;
-        Vliquid=fsolve(liquid,b,options);
-        Zliquid=Paux*Vliquid/(R*Ti);
-        if eos==1
-            I=beta/(Zliquid+epsilon*beta);
-        else
-            I=log((Zliquid+sigma*beta)/(Zliquid+epsilon*beta))/(sigma-epsilon);
-        end
-        fliquid=Paux*exp(Zliquid-1-log(Zliquid-beta)-q*I);
-        vapor=@(V) (R*Ti/Paux+b-a/Paux*(V-b)/((V+epsilon*b)*(V+sigma*b)))-V;
-        Vvapor=fsolve(vapor,R*Ti/Paux,options);
-        Zvapor=Paux*Vvapor/(R*Ti);
-        if eos==1
-            I=beta/(Zvapor+epsilon*beta);
-        else
-            I=log((Zvapor+sigma*beta)/(Zvapor+epsilon*beta))/(sigma-epsilon);
-        end
-        fvapor=Paux*exp(Zvapor-1-log(Zvapor-beta)-q*I);
-        if abs(1-fliquid/fvapor)<Er
-            break;
-        end
-        Paux=Paux*fliquid/fvapor;
-    end
-    Pbracket(i)=Paux;
-end
-% For each P in the compound database: Plot isobar
-hold(app.Figure1,"on");
-Vsatmax=0;
-Vsatmin=-1;
-for i=1:tam
-    Pi=str2double(aux(i));
-    if Pi<Pbracket(1) || Pi>Pbracket(2)
-        continue;
-    else 
-        T=[];
-        V=[];
-        Pstart=Pbracket(1)-Pi;
-        Pfinal=Pbracket(2)-Pi;
-        Tstart=Tbracket(1);
-        Tfinal=Tbracket(2);
-        ite=0;
-        % Pegasus method
-        while abs(Pfinal)>Er && abs(Pstart)>Er && abs(Tstart-Tfinal)>Er
-            Ti=Tfinal-(Tfinal-Tstart)*Pfinal/(Pfinal-Pstart);
-            Tr=Ti/Tc;
-            if eos==2
-                alpha=Tr^(-1/2);
-            elseif eos==3
-                alpha=(1+(0.480+1.574*w-0.176*w^2)*(1-Tr^(1/2)))^2;
-            elseif eos==4
-                alpha=(1+(0.37464+1.54226*w-0.26992*w^2)*(1-Tr^(1/2)))^2;
-            end
-            a=psi*alpha*(R*Tc)^2/Pc;
-            Vstart=b+1;
-            Vnext=b+2;
-            Paux=R*Ti/(Vstart-b)-a/((Vstart+epsilon*b)*(Vstart+sigma*b));
-            Paux2=R*Ti/(Vnext-b)-a/((Vnext+epsilon*b)*(Vnext+sigma*b));
-            while Paux>Paux2
-                Paux=Paux2;
-                Vnext=Vnext+1;
-                Paux2=R*Ti/(Vnext-b)-a/((Vnext+epsilon*b)*(Vnext+sigma*b));
-            end
-            while Paux<Paux2
-                Paux=Paux2;
-                Vnext=Vnext+1;
-                Paux2=R*Ti/(Vnext-b)-a/((Vnext+epsilon*b)*(Vnext+sigma*b));
-            end
-            Paux=Paux2;
-            q=a/(b*R*Ti);
-            while true
-                beta=Paux*b/(R*Ti);
-                liquid=@(V) (b+(V+epsilon*b)*(V+sigma*b)*(R*Ti+Paux*(b-V))/a)-V;
-                Vliquid=fsolve(liquid,b,options);
-                Zliquid=Paux*Vliquid/(R*Ti);
-                if eos==1
-                    I=beta/(Zliquid+epsilon*beta);
-                else
-                    I=log((Zliquid+sigma*beta)/(Zliquid+epsilon*beta))/(sigma-epsilon);
-                end
-                fliquid=Paux*exp(Zliquid-1-log(Zliquid-beta)-q*I);
-                vapor=@(V) (R*Ti/Paux+b-a/Paux*(V-b)/((V+epsilon*b)*(V+sigma*b)))-V;
-                Vvapor=fsolve(vapor,R*Ti/Paux,options);
-                Zvapor=Paux*Vvapor/(R*Ti);
-                if eos==1
-                    I=beta/(Zvapor+epsilon*beta);
-                else
-                    I=log((Zvapor+sigma*beta)/(Zvapor+epsilon*beta))/(sigma-epsilon);
-                end
-                fvapor=Paux*exp(Zvapor-1-log(Zvapor-beta)-q*I);
-                if abs(1-fliquid/fvapor)<Er
-                    break;
-                end
-                Paux=Paux*fliquid/fvapor;
-            end
-            if (Paux-Pi)*Pfinal<0 
-                Tstart=Tfinal;  
-                Pstart=Pfinal;
-            else 
-                Pstart=Pstart*Pfinal/(Pfinal+Paux-Pi);
-            end
-            Tfinal=Ti;  
-            Pfinal=Paux-Pi;
-        end
-        Tsat=Ti;
-        if Vsatmin==-1
-            Vsatmin=Vliquid/1000/MM;
-        else
-            Vsatmin=min([Vsatmin Vliquid/1000/MM]);
-        end
-        Vsatmax=max([Vsatmax Vvapor/1000/MM]);
-        % Save data to graph the loop of the EoS: Liquid 
-        % Find first V (with Z<=1)
-        Vstart=b+1;
-        if eos==1
-            Tfunction=@(T) ((Pi+psi*(R*Tc)^2/Pc/((Vstart+epsilon*b)*(Vstart+sigma*b)))*(Vstart-b)/R)-T;
-        elseif eos==2
-            Tfunction=@(T) ((Pi+psi*(T/Tc)^(-1/2)*(R*Tc)^2/Pc/((Vstart+epsilon*b)*(Vstart+sigma*b)))*(Vstart-b)/R)-T;
-        elseif eos==3
-            Tfunction=@(T) ((Pi+psi*(1+(0.480+1.574*w-0.176*w^2)*(1-(T/Tc)^(1/2)))^2*(R*Tc)^2/Pc/((Vstart+epsilon*b)*(Vstart+sigma*b)))*(Vstart-b)/R)-T;
-        else
-            Tfunction=@(T) ((Pi+psi*(1+(0.37464+1.54226*w-0.26992*w^2)*(1-(T/Tc)^(1/2)))^2*(R*Tc)^2/Pc/((Vstart+epsilon*b)*(Vstart+sigma*b)))*(Vstart-b)/R)-T;
-        end
-        Tstart=fsolve(Tfunction,Ti,options);
-        if Pi*Vstart/(R*Tstart)>1
-            Zstart=Pi*Vstart/(R*Tstart)-1;
-            Tfinal=Ti;
-            Vfinal=Vliquid;
-            Zfinal=Pi*Vfinal/(R*Tfinal)-1;
-            while abs(Zfinal)>Er && abs(Zstart)>Er && abs(Tstart-Tfinal)>Er
-                Tm=Tfinal-(Tfinal-Tstart)*Zfinal/(Zfinal-Zstart);
-                Tr=Tm/Tc;
-                if eos==2
-                    alpha=Tr^(-1/2);
-                elseif eos==3
-                    alpha=(1+(0.480+1.574*w-0.176*w^2)*(1-Tr^(1/2)))^2;
-                elseif eos==4
-                    alpha=(1+(0.37464+1.54226*w-0.26992*w^2)*(1-Tr^(1/2)))^2;
-                end
-                a=psi*alpha*(R*Tc)^2/Pc;
-                liquid=@(V) (b+(V+epsilon*b)*(V+sigma*b)*(R*Tm+Pi*(b-V))/a)-V;
-                Vm=fsolve(liquid,b,options);
-                Zm=Pi*Vm/(R*Tm);
-                if (Zm-1)*Zfinal<0 
-                    Tstart=Tfinal;  
-                    Zstart=Zfinal;
-                else 
-                    Zstart=Zstart*Zfinal/(Zfinal+Zm-1);
-                end
-                Tfinal=Tm;  
-                Zfinal=Zm-1;
-            end
-            Vstart=R*Tm*Zm/Pi;
-        end
-        if eos==1
-            Tfunction=@(T) (Pi+psi*(R*Tc)^2/Pc/((Vstart+epsilon*b)*(Vstart+sigma*b)))*(Vstart-b)/R-T;
-        elseif eos==2
-            Tfunction=@(T) ((Pi+psi*(T/Tc)^(-1/2)*(R*Tc)^2/Pc/((Vstart+epsilon*b)*(Vstart+sigma*b)))*(Vstart-b)/R)-T;
-        elseif eos==3
-            Tfunction=@(T) ((Pi+psi*(1+(0.480+1.574*w-0.176*w^2)*(1-(T/Tc)^(1/2)))^2*(R*Tc)^2/Pc/((Vstart+epsilon*b)*(Vstart+sigma*b)))*(Vstart-b)/R)-T;
-        else
-            Tfunction=@(T) ((Pi+psi*(1+(0.37464+1.54226*w-0.26992*w^2)*(1-(T/Tc)^(1/2)))^2*(R*Tc)^2/Pc/((Vstart+epsilon*b)*(Vstart+sigma*b)))*(Vstart-b)/R)-T;
-        end
-        % Liquid
-        T(1)=fsolve(Tfunction,Ti,options);
-        V(1)=Vstart/1000/MM;
-        step=(Vliquid-Vstart)/100;
-        Vnext=Vstart+step;
-        j=2;
-        while Vnext<Vliquid
-            if eos==1
-                Tfunction=@(T) ((Pi+psi*(R*Tc)^2/Pc/((Vnext+epsilon*b)*(Vnext+sigma*b)))*(Vnext-b)/R)-T;
-            elseif eos==2
-                Tfunction=@(T) ((Pi+psi*(T/Tc)^(-1/2)*(R*Tc)^2/Pc/((Vnext+epsilon*b)*(Vnext+sigma*b)))*(Vnext-b)/R)-T;
-            elseif eos==3
-                Tfunction=@(T) ((Pi+psi*(1+(0.480+1.574*w-0.176*w^2)*(1-(T/Tc)^(1/2)))^2*(R*Tc)^2/Pc/((Vnext+epsilon*b)*(Vnext+sigma*b)))*(Vnext-b)/R)-T;
-            else
-                Tfunction=@(T) ((Pi+psi*(1+(0.37464+1.54226*w-0.26992*w^2)*(1-(T/Tc)^(1/2)))^2*(R*Tc)^2/Pc/((Vnext+epsilon*b)*(Vnext+sigma*b)))*(Vnext-b)/R)-T;
-            end
-            T(j)=fsolve(Tfunction,Ti,options);
-            V(j)=Vnext/1000/MM;
-            Vnext=Vnext+step;
-            j=j+1;
-        end
-        % Saturated Liquid-Vapor
-        jl=j-1;
-        T(j)=Tsat;
-        V(j)=Vliquid/1000/MM;
-        j=j+1;
-        T(j)=Tsat;
-        V(j)=Vvapor/1000/MM;
-        % Vapor
-        Vnext=Vvapor+1;
-        Vmax=Vvapor+5000;
-        step=(Vmax-Vnext)/100;
-        while Vnext<Vmax
-            j=j+1;
-            if eos==1
-                Tfunction=@(T) ((Pi+psi*(R*Tc)^2/Pc/((Vnext+epsilon*b)*(Vnext+sigma*b)))*(Vnext-b)/R)-T;
-            elseif eos==2
-                Tfunction=@(T) ((Pi+psi*(T/Tc)^(-1/2)*(R*Tc)^2/Pc/((Vnext+epsilon*b)*(Vnext+sigma*b)))*(Vnext-b)/R)-T;
-            elseif eos==3
-                Tfunction=@(T) ((Pi+psi*(1+(0.480+1.574*w-0.176*w^2)*(1-(T/Tc)^(1/2)))^2*(R*Tc)^2/Pc/((Vnext+epsilon*b)*(Vnext+sigma*b)))*(Vnext-b)/R)-T;
-            else
-                Tfunction=@(T) ((Pi+psi*(1+(0.37464+1.54226*w-0.26992*w^2)*(1-(T/Tc)^(1/2)))^2*(R*Tc)^2/Pc/((Vnext+epsilon*b)*(Vnext+sigma*b)))*(Vnext-b)/R)-T;
-            end
-            T(j)=fsolve(Tfunction,Ti,options);
-            V(j)=Vnext/1000/MM;
-            Vnext=Vnext+step;
-        end
-        plot3(app.Figure1,T,V,ones(j)*Pi);
-    end
-end
-hold(app.Figure1,"off");
-view(app.Figure1,[45,45,45]);
-ylim(app.Figure1,[0.95*Vsatmin Vsatmax+0.1/MM]);
-zlim(app.Figure1,[max([0 Pt-10]) Pc*1.1]);
-xlim(app.Figure1,[Tt-10 Tc*1.1]);
-if eos==1
-    aux=strcat("van der Waals - ",app.Compound.Value);
-elseif eos==2
-    aux=strcat("Redlich-Kwong - ",app.Compound.Value);
-elseif eos==3
-    aux=strcat("Soave-Redlich-Kwong - ",app.Compound.Value);
-else
-    aux=strcat("Peng-Robinson - ",app.Compound.Value);
-end
-title(app.Figure1,aux);
+Private Sub COMPUTE_4_Click()
+    Dim row_liquid As Integer ' Number of rows of liquid data
+    Dim row_vapor As Integer ' Number of rows of vapor data
+    If FUGACITY_TEST_4.Value = True Then
+        ' Check if it is possible to export results
+        If Workbooks("One Phase.xlsm").Worksheets("Pressure").Range("A14") <> "" Or Workbooks("One Phase.xlsm").Worksheets("Pressure").Range("L14") <> "" Then
+            MsgBox "Information is found in the data area.", vbExclamation
+            Exit Sub
+        End If
+        If Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Range("B1") <> Workbooks("Isobar given Pressure on a TH Diagram.xlsm").Worksheets("Isobar given Pressure").Range("B1") Or Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Range("B1") <> Workbooks("Isobar given Pressure on a TS Diagram.xlsm").Worksheets("Isobar given Pressure").Range("B1") Or Workbooks("Isobar given Pressure on a TH Diagram.xlsm").Worksheets("Isobar given Pressure").Range("B1") <> Workbooks("Isobar given Pressure on a TS Diagram.xlsm").Worksheets("Isobar given Pressure").Range("B1") Then
+            MsgBox "The value of COMPOUND does not match between spreadsheets.", vbExclamation
+            Exit Sub
+        End If
+        If Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Range("B2") <> Workbooks("Isobar given Pressure on a TH Diagram.xlsm").Worksheets("Isobar given Pressure").Range("B2") Or Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Range("B2") <> Workbooks("Isobar given Pressure on a TS Diagram.xlsm").Worksheets("Isobar given Pressure").Range("B2") Or Workbooks("Isobar given Pressure on a TH Diagram.xlsm").Worksheets("Isobar given Pressure").Range("B2") <> Workbooks("Isobar given Pressure on a TS Diagram.xlsm").Worksheets("Isobar given Pressure").Range("B2") Then
+            MsgBox "The value of CUBIC EQUATION OF STATE does not match between spreadsheets.", vbExclamation
+            Exit Sub
+        End If
+        If Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Range("B3") <> Workbooks("Isobar given Pressure on a TH Diagram.xlsm").Worksheets("Isobar given Pressure").Range("B3") Or Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Range("B2") <> Workbooks("Isobar given Pressure on a TS Diagram.xlsm").Worksheets("Isobar given Pressure").Range("B2") Or Workbooks("Isobar given Pressure on a TH Diagram.xlsm").Worksheets("Isobar given Pressure").Range("B2") <> Workbooks("Isobar given Pressure on a TS Diagram.xlsm").Worksheets("Isobar given Pressure").Range("B2") Then
+            MsgBox "The value of ISOBAR PRESSURE [BAR] does not match between spreadsheets.", vbExclamation
+            Exit Sub
+        End If
+        If Workbooks("Isobar given Pressure on a TH Diagram.xlsm").Worksheets("Isobar given Pressure").Range("B4") <> Workbooks("Isobar given Pressure on a TS Diagram.xlsm").Worksheets("Isobar given Pressure").Range("B4") Then
+            MsgBox "The value of REFERENCE STATE does not match between spreadsheets.", vbExclamation
+            Exit Sub
+        End If
+        If Workbooks("Isobar given Pressure on a TH Diagram.xlsm").Worksheets("Isobar given Pressure").Range("B5") <> Workbooks("Isobar given Pressure on a TS Diagram.xlsm").Worksheets("Isobar given Pressure").Range("B5") Then
+            MsgBox "The value of REFERENCE TEMPERATURE [K] does not match between spreadsheets.", vbExclamation
+            Exit Sub
+        End If
+        If Workbooks("Isobar given Pressure on a TH Diagram.xlsm").Worksheets("Isobar given Pressure").Range("B6") <> Workbooks("Isobar given Pressure on a TS Diagram.xlsm").Worksheets("Isobar given Pressure").Range("B6") Then
+            MsgBox "The value of REFERENCE PRESSURE [BAR] does not match between spreadsheets.", vbExclamation
+            Exit Sub
+        End If
+        If Workbooks("Isobar given Pressure on a TH Diagram.xlsm").Worksheets("Isobar given Pressure").Range("A13") <> "Liquid" Or Workbooks("Isobar given Pressure on a TS Diagram.xlsm").Worksheets("Isobar given Pressure").Range("A13") <> "Liquid" Then
+            MsgBox "Case thermodynamically not possible and there are no results in enthalpy and entropy calculations.", vbExclamation
+            Exit Sub
+        End If
+        With Workbooks("One Phase.xlsm").Worksheets("Pressure")
+            ' Export results
+            .Range("B3:B9").Value = Workbooks("Isobar given Pressure on a TH Diagram.xlsm").Worksheets("Isobar given Pressure").Range("B1:B7").Value
+            .Range("B10").Value = Workbooks("Isobar given Pressure on a TS Diagram.xlsm").Worksheets("Isobar given Pressure").Range("B7").Value
+            ' Liquid
+            row_liquid = 0
+            While Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(5 + row_liquid, 1).Value = "Liquid"
+                If .Range("H4").Value = "T [K]" Then
+                    .Cells(14 + row_liquid, 1).Value = Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(5 + row_liquid, 2).Value
+                    .Cells(14 + row_liquid, 2).Value = Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(5 + row_liquid, 3).Value
+                    .Cells(14 + row_liquid, 3).Value = Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(5 + row_liquid, 4).Value
+                    .Cells(14 + row_liquid, 4).Value = Workbooks("Isobar given Pressure on a TH Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(13 + row_liquid, 4).Value
+                    .Cells(14 + row_liquid, 5).Value = Workbooks("Isobar given Pressure on a TS Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(13 + row_liquid, 4).Value
+                ElseIf .Range("H4").Value = "V [m3/kg]" Then
+                    .Cells(14 + row_liquid, 3).Value = Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(5 + row_liquid, 2).Value
+                    .Cells(14 + row_liquid, 2).Value = Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(5 + row_liquid, 3).Value
+                    .Cells(14 + row_liquid, 1).Value = Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(5 + row_liquid, 4).Value
+                    .Cells(14 + row_liquid, 4).Value = Workbooks("Isobar given Pressure on a TH Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(13 + row_liquid, 4).Value
+                    .Cells(14 + row_liquid, 5).Value = Workbooks("Isobar given Pressure on a TS Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(13 + row_liquid, 4).Value
+                ElseIf .Range("H4").Value = "H [kJ/kg]" Then
+                    .Cells(14 + row_liquid, 4).Value = Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(5 + row_liquid, 2).Value
+                    .Cells(14 + row_liquid, 2).Value = Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(5 + row_liquid, 3).Value
+                    .Cells(14 + row_liquid, 3).Value = Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(5 + row_liquid, 4).Value
+                    .Cells(14 + row_liquid, 1).Value = Workbooks("Isobar given Pressure on a TH Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(13 + row_liquid, 4).Value
+                    .Cells(14 + row_liquid, 5).Value = Workbooks("Isobar given Pressure on a TS Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(13 + row_liquid, 4).Value
+                ElseIf .Range("H4").Value = "S [kJ/kg/K]" Then
+                    .Cells(14 + row_liquid, 5).Value = Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(5 + row_liquid, 2).Value
+                    .Cells(14 + row_liquid, 2).Value = Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(5 + row_liquid, 3).Value
+                    .Cells(14 + row_liquid, 3).Value = Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(5 + row_liquid, 4).Value
+                    .Cells(14 + row_liquid, 4).Value = Workbooks("Isobar given Pressure on a TH Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(13 + row_liquid, 4).Value
+                    .Cells(14 + row_liquid, 1).Value = Workbooks("Isobar given Pressure on a TS Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(13 + row_liquid, 4).Value
+                End If
+                row_liquid = row_liquid + 1
+            Wend
+            ' Vapor
+            row_vapor = 0
+            While Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(11 + row_liquid + row_vapor, 1).Value = "Vapor"
+                If .Range("H4").Value = "T [K]" Then
+                    .Cells(14 + row_vapor, 12).Value = Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(11 + row_liquid + row_vapor, 2).Value
+                    .Cells(14 + row_vapor, 13).Value = Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(11 + row_liquid + row_vapor, 3).Value
+                    .Cells(14 + row_vapor, 14).Value = Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(11 + row_liquid + row_vapor, 4).Value
+                    .Cells(14 + row_vapor, 15).Value = Workbooks("Isobar given Pressure on a TH Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(19 + row_liquid + row_vapor, 4).Value
+                    .Cells(14 + row_vapor, 16).Value = Workbooks("Isobar given Pressure on a TS Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(19 + row_liquid + row_vapor, 4).Value
+                ElseIf .Range("H4").Value = "V [m3/kg]" Then
+                    .Cells(14 + row_vapor, 14).Value = Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(11 + row_liquid + row_vapor, 2).Value
+                    .Cells(14 + row_vapor, 13).Value = Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(11 + row_liquid + row_vapor, 3).Value
+                    .Cells(14 + row_vapor, 12).Value = Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(11 + row_liquid + row_vapor, 4).Value
+                    .Cells(14 + row_vapor, 15).Value = Workbooks("Isobar given Pressure on a TH Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(19 + row_liquid + row_vapor, 4).Value
+                    .Cells(14 + row_vapor, 16).Value = Workbooks("Isobar given Pressure on a TS Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(19 + row_liquid + row_vapor, 4).Value
+                ElseIf .Range("H4").Value = "H [kJ/kg]" Then
+                    .Cells(14 + row_vapor, 15).Value = Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(11 + row_liquid + row_vapor, 2).Value
+                    .Cells(14 + row_vapor, 13).Value = Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(11 + row_liquid + row_vapor, 3).Value
+                    .Cells(14 + row_vapor, 14).Value = Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(11 + row_liquid + row_vapor, 4).Value
+                    .Cells(14 + row_vapor, 12).Value = Workbooks("Isobar given Pressure on a TH Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(19 + row_liquid + row_vapor, 4).Value
+                    .Cells(14 + row_vapor, 16).Value = Workbooks("Isobar given Pressure on a TS Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(19 + row_liquid + row_vapor, 4).Value
+                ElseIf .Range("H4").Value = "S [kJ/kg/K]" Then
+                    .Cells(14 + row_vapor, 16).Value = Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(11 + row_liquid + row_vapor, 2).Value
+                    .Cells(14 + row_vapor, 13).Value = Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(11 + row_liquid + row_vapor, 3).Value
+                    .Cells(14 + row_vapor, 14).Value = Workbooks("Isobar given Pressure on a TV Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(11 + row_liquid + row_vapor, 4).Value
+                    .Cells(14 + row_vapor, 15).Value = Workbooks("Isobar given Pressure on a TH Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(19 + row_liquid + row_vapor, 4).Value
+                    .Cells(14 + row_vapor, 12).Value = Workbooks("Isobar given Pressure on a TS Diagram.xlsm").Worksheets("Isobar given Pressure").Cells(19 + row_liquid + row_vapor, 4).Value
+                End If
+                row_vapor = row_vapor + 1
+            Wend
+            If .Range("H4").Value = "T [K]" Then
+                .Range("D6:H6").Select
+            ElseIf .Range("H4").Value = "V [m3/kg]" Then
+                .Range("D7:H7").Select
+            ElseIf .Range("H4").Value = "H [kJ/kg]" Then
+                .Range("D8:H8").Select
+            ElseIf .Range("H4").Value = "S [kJ/kg/K]" Then
+                .Range("D9:H9").Select
+            End If
+            Selection.Copy
+            .Range("A13").Select
+            .Paste
+            .Range("L13").Select
+            .Paste
+            If .Range("H4").Value = "T [K]" Then
+                .Range("F6:H6").Select
+            ElseIf .Range("H4").Value = "V [m3/kg]" Then
+                .Range("F7:H7").Select
+            ElseIf .Range("H4").Value = "H [kJ/kg]" Then
+                .Range("F8:H8").Select
+            ElseIf .Range("H4").Value = "S [kJ/kg/K]" Then
+                .Range("F9:H9").Select
+            End If
+            Selection.Copy
+            .Range("H14").Select
+            .Paste
+            .Range("S14").Select
+            .Paste
+            If .Range("H4").Value = "T [K]" Then
+                .Range("D6").Select
+            ElseIf .Range("H4").Value = "V [m3/kg]" Then
+                .Range("D7").Select
+            ElseIf .Range("H4").Value = "H [kJ/kg]" Then
+                .Range("D8").Select
+            ElseIf .Range("H4").Value = "S [kJ/kg/K]" Then
+                .Range("D9").Select
+            End If
+            Selection.Copy
+            .Range("G14").Select
+            .Paste
+            .Range("R14").Select
+            .Paste
+            ' Format
+            ' Liquid
+            .Range(Cells(14, 1), Cells(13 + row_liquid, 5)).Select
+            With Selection
+                .HorizontalAlignment = xlCenter
+                .VerticalAlignment = xlBottom
+                .WrapText = False
+                .Orientation = 0
+                .AddIndent = False
+                .IndentLevel = 0
+                .ShrinkToFit = False
+                .ReadingOrder = xlContext
+                .MergeCells = False
+            End With
+            With Selection
+                .HorizontalAlignment = xlCenter
+                .VerticalAlignment = xlCenter
+                .WrapText = False
+                .Orientation = 0
+                .AddIndent = False
+                .IndentLevel = 0
+                .ShrinkToFit = False
+                .ReadingOrder = xlContext
+                .MergeCells = False
+            End With
+            Selection.Borders(xlDiagonalDown).LineStyle = xlNone
+            Selection.Borders(xlDiagonalUp).LineStyle = xlNone
+            With Selection.Borders(xlEdgeLeft)
+                .LineStyle = xlContinuous
+                .Color = -8762076
+                .TintAndShade = 0
+                .Weight = xlMedium
+            End With
+            With Selection.Borders(xlEdgeTop)
+                .LineStyle = xlContinuous
+                .Color = -8762076
+                .TintAndShade = 0
+                .Weight = xlMedium
+            End With
+            With Selection.Borders(xlEdgeBottom)
+                .LineStyle = xlContinuous
+                .Color = -8762076
+                .TintAndShade = 0
+                .Weight = xlMedium
+            End With
+            With Selection.Borders(xlEdgeRight)
+                .LineStyle = xlContinuous
+                .Color = -8762076
+                .TintAndShade = 0
+                .Weight = xlMedium
+            End With
+            With Selection.Borders(xlInsideVertical)
+                .LineStyle = xlContinuous
+                .Color = -8762076
+                .TintAndShade = 0
+                .Weight = xlThin
+            End With
+            With Selection.Borders(xlInsideHorizontal)
+                .LineStyle = xlContinuous
+                .Color = -8762076
+                .TintAndShade = 0
+                .Weight = xlThin
+            End With
+            .Range(Cells(13, 1), Cells(13 + row_liquid, 1)).Select
+            Selection.Borders(xlDiagonalDown).LineStyle = xlNone
+            Selection.Borders(xlDiagonalUp).LineStyle = xlNone
+            With Selection.Borders(xlEdgeLeft)
+                .LineStyle = xlContinuous
+                .Color = -8762076
+                .TintAndShade = 0
+                .Weight = xlMedium
+            End With
+            With Selection.Borders(xlEdgeTop)
+                .LineStyle = xlContinuous
+                .Color = -8762076
+                .TintAndShade = 0
+                .Weight = xlMedium
+            End With
+            With Selection.Borders(xlEdgeBottom)
+                .LineStyle = xlContinuous
+                .Color = -8762076
+                .TintAndShade = 0
+                .Weight = xlMedium
+            End With
+            With Selection.Borders(xlEdgeRight)
+                .LineStyle = xlContinuous
+                .Color = -8762076
+                .TintAndShade = 0
+                .Weight = xlMedium
+            End With
+            Selection.Borders(xlInsideVertical).LineStyle = xlNone
+            ' Vapor
+            .Range(Cells(14, 12), Cells(13 + row_vapor, 16)).Select
+            With Selection
+                .HorizontalAlignment = xlCenter
+                .VerticalAlignment = xlBottom
+                .WrapText = False
+                .Orientation = 0
+                .AddIndent = False
+                .IndentLevel = 0
+                .ShrinkToFit = False
+                .ReadingOrder = xlContext
+                .MergeCells = False
+            End With
+            With Selection
+                .HorizontalAlignment = xlCenter
+                .VerticalAlignment = xlCenter
+                .WrapText = False
+                .Orientation = 0
+                .AddIndent = False
+                .IndentLevel = 0
+                .ShrinkToFit = False
+                .ReadingOrder = xlContext
+                .MergeCells = False
+            End With
+            Selection.Borders(xlDiagonalDown).LineStyle = xlNone
+            Selection.Borders(xlDiagonalUp).LineStyle = xlNone
+            With Selection.Borders(xlEdgeLeft)
+                .LineStyle = xlContinuous
+                .Color = -8762076
+                .TintAndShade = 0
+                .Weight = xlMedium
+            End With
+            With Selection.Borders(xlEdgeTop)
+                .LineStyle = xlContinuous
+                .Color = -8762076
+                .TintAndShade = 0
+                .Weight = xlMedium
+            End With
+            With Selection.Borders(xlEdgeBottom)
+                .LineStyle = xlContinuous
+                .Color = -8762076
+                .TintAndShade = 0
+                .Weight = xlMedium
+            End With
+            With Selection.Borders(xlEdgeRight)
+                .LineStyle = xlContinuous
+                .Color = -8762076
+                .TintAndShade = 0
+                .Weight = xlMedium
+            End With
+            With Selection.Borders(xlInsideVertical)
+                .LineStyle = xlContinuous
+                .Color = -8762076
+                .TintAndShade = 0
+                .Weight = xlThin
+            End With
+            With Selection.Borders(xlInsideHorizontal)
+                .LineStyle = xlContinuous
+                .Color = -8762076
+                .TintAndShade = 0
+                .Weight = xlThin
+            End With
+            .Range(Cells(13, 12), Cells(13 + row_vapor, 12)).Select
+            Selection.Borders(xlDiagonalDown).LineStyle = xlNone
+            Selection.Borders(xlDiagonalUp).LineStyle = xlNone
+            With Selection.Borders(xlEdgeLeft)
+                .LineStyle = xlContinuous
+                .Color = -8762076
+                .TintAndShade = 0
+                .Weight = xlMedium
+            End With
+            With Selection.Borders(xlEdgeTop)
+                .LineStyle = xlContinuous
+                .Color = -8762076
+                .TintAndShade = 0
+                .Weight = xlMedium
+            End With
+            With Selection.Borders(xlEdgeBottom)
+                .LineStyle = xlContinuous
+                .Color = -8762076
+                .TintAndShade = 0
+                .Weight = xlMedium
+            End With
+            With Selection.Borders(xlEdgeRight)
+                .LineStyle = xlContinuous
+                .Color = -8762076
+                .TintAndShade = 0
+                .Weight = xlMedium
+            End With
+            Selection.Borders(xlInsideVertical).LineStyle = xlNone
+            ' Formulas of "EXACT DATA OR LINEAR INTERPOLATION" section
+            ' Liquid
+            .Range("G15").Formula2R1C1 = "=IF(R[1]C[0]="""",""-"",MAX(IF(R[-1]C[-6]:R[" & row_liquid - 2 & "]C[-6]<=R[1]C[0],R[-1]C[-6]:R[" & row_liquid - 2 & "]C[-6])))"
+            .Range("H15").Formula2R1C1 = "=IF(R[0]C[-1]<>""-"",VLOOKUP(R[0]C[-1],R[-1]C[-7]:R[" & row_liquid - 2 & "]C[-3],3,FALSE),""-"")"
+            .Range("I15").Formula2R1C1 = "=IF(R[0]C[-2]<>""-"",VLOOKUP(R[0]C[-2],R[-1]C[-8]:R[" & row_liquid - 2 & "]C[-4],4,FALSE),""-"")"
+            .Range("J15").Formula2R1C1 = "=IF(R[0]C[-3]<>""-"",VLOOKUP(R[0]C[-3],R[-1]C[-9]:R[" & row_liquid - 2 & "]C[-5],5,FALSE),""-"")"
+            .Range("G17").Formula2R1C1 = "=IF(R[-1]C[0]="""",""-"",MIN(IF(R[-3]C[-6]:R[" & row_liquid - 4 & "]C[-6]>=R[-1]C[0],R[-3]C[-6]:R[" & row_liquid - 4 & "]C[-6])))"
+            .Range("H17").Formula2R1C1 = "=IF(R[0]C[-1]<>""-"",VLOOKUP(R[0]C[-1],R[-3]C[-7]:R[" & row_liquid - 4 & "]C[-3],3,FALSE),""-"")"
+            .Range("I17").Formula2R1C1 = "=IF(R[0]C[-2]<>""-"",VLOOKUP(R[0]C[-2],R[-3]C[-8]:R[" & row_liquid - 4 & "]C[-4],4,FALSE),""-"")"
+            .Range("J17").Formula2R1C1 = "=IF(R[0]C[-3]<>""-"",VLOOKUP(R[0]C[-3],R[-3]C[-9]:R[" & row_liquid - 4 & "]C[-5],5,FALSE),""-"")"
+            .Range("G16").Select
+            With Selection.Validation
+                .Delete
+                .Add Type:=xlValidateDecimal, AlertStyle:=xlValidAlertStop, Operator _
+                :=xlBetween, Formula1:="=MIN(A14:A" & 13 + row_liquid & ")", Formula2:="=MAX(A14:A" & 13 + row_liquid & ")"
+                .IgnoreBlank = True
+                .InCellDropdown = True
+                .InputTitle = ""
+                .ErrorTitle = ""
+                .InputMessage = ""
+                .ErrorMessage = ""
+                .ShowInput = True
+                .ShowError = True
+            End With
+            ' Vapor
+            .Range("R15").Formula2R1C1 = "=IF(R[1]C[0]="""",""-"",MAX(IF(R[-1]C[-6]:R[" & row_vapor - 2 & "]C[-6]<=R[1]C[0],R[-1]C[-6]:R[" & row_vapor - 2 & "]C[-6])))"
+            .Range("S15").Formula2R1C1 = "=IF(R[0]C[-1]<>""-"",VLOOKUP(R[0]C[-1],R[-1]C[-7]:R[" & row_vapor - 2 & "]C[-3],3,FALSE),""-"")"
+            .Range("T15").Formula2R1C1 = "=IF(R[0]C[-2]<>""-"",VLOOKUP(R[0]C[-2],R[-1]C[-8]:R[" & row_vapor - 2 & "]C[-4],4,FALSE),""-"")"
+            .Range("U15").Formula2R1C1 = "=IF(R[0]C[-3]<>""-"",VLOOKUP(R[0]C[-3],R[-1]C[-9]:R[" & row_vapor - 2 & "]C[-5],5,FALSE),""-"")"
+            .Range("R17").Formula2R1C1 = "=IF(R[-1]C[0]="""",""-"",MIN(IF(R[-3]C[-6]:R[" & row_vapor - 4 & "]C[-6]>=R[-1]C[0],R[-3]C[-6]:R[" & row_vapor - 4 & "]C[-6])))"
+            .Range("S17").Formula2R1C1 = "=IF(R[0]C[-1]<>""-"",VLOOKUP(R[0]C[-1],R[-3]C[-7]:R[" & row_vapor - 4 & "]C[-3],3,FALSE),""-"")"
+            .Range("T17").Formula2R1C1 = "=IF(R[0]C[-2]<>""-"",VLOOKUP(R[0]C[-2],R[-3]C[-8]:R[" & row_vapor - 4 & "]C[-4],4,FALSE),""-"")"
+            .Range("U17").Formula2R1C1 = "=IF(R[0]C[-3]<>""-"",VLOOKUP(R[0]C[-3],R[-3]C[-9]:R[" & row_vapor - 4 & "]C[-5],5,FALSE),""-"")"
+            .Range("R16").Select
+            With Selection.Validation
+                .Delete
+                .Add Type:=xlValidateDecimal, AlertStyle:=xlValidAlertStop, Operator _
+                :=xlBetween, Formula1:="=MIN(L14:L" & 13 + row_vapor & ")", Formula2:="=MAX(L14:L" & 13 + row_vapor & ")"
+                .IgnoreBlank = True
+                .InCellDropdown = True
+                .InputTitle = ""
+                .ErrorTitle = ""
+                .InputMessage = ""
+                .ErrorMessage = ""
+                .ShowInput = True
+                .ShowError = True
+            End With
+            .Columns("A:U").EntireColumn.AutoFit
+            .Columns("C:C").ColumnWidth = 9.71
+            .Columns("E:E").ColumnWidth = 9.71
+            .Columns("I:U").ColumnWidth = 9.71
+            .Range("A3").Select
+        End With
+    Else
+        With Workbooks("One Phase.xlsm").Worksheets("Pressure")
+            ' Check if it is possible to use experimental data
+            If .Range("B3") = "" Then
+                MsgBox "The value of COMPOUND is empty.", vbExclamation
+                Exit Sub
+            End If
+            If .Range("B5") = "" Then
+                MsgBox "The value of ISOBAR PRESSURE [BAR] is empty.", vbExclamation
+                Exit Sub
+            End If
+            If .Range("A14") = "" And .Range("L14") = "" Then
+                MsgBox "No experimental data presented.", vbExclamation
+                Exit Sub
+            End If
+            .Range("B4").Value = "-"
+            .Range("B6:B10").Value = "-"
+            ' Liquid
+            If .Range("A14") <> "" Then
+                row_liquid = 0
+                While .Cells(14 + row_liquid, 1) <> ""
+                    row_liquid = row_liquid + 1
+                Wend
+                ' Format
+                .Range(Cells(14, 1), Cells(13 + row_liquid, 5)).Select
+                With Selection
+                    .HorizontalAlignment = xlCenter
+                    .VerticalAlignment = xlBottom
+                    .WrapText = False
+                    .Orientation = 0
+                    .AddIndent = False
+                    .IndentLevel = 0
+                    .ShrinkToFit = False
+                    .ReadingOrder = xlContext
+                    .MergeCells = False
+                End With
+                With Selection
+                    .HorizontalAlignment = xlCenter
+                    .VerticalAlignment = xlCenter
+                    .WrapText = False
+                    .Orientation = 0
+                    .AddIndent = False
+                    .IndentLevel = 0
+                    .ShrinkToFit = False
+                    .ReadingOrder = xlContext
+                    .MergeCells = False
+                End With
+                Selection.Borders(xlDiagonalDown).LineStyle = xlNone
+                Selection.Borders(xlDiagonalUp).LineStyle = xlNone
+                With Selection.Borders(xlEdgeLeft)
+                    .LineStyle = xlContinuous
+                    .Color = -8762076
+                    .TintAndShade = 0
+                    .Weight = xlMedium
+                End With
+                With Selection.Borders(xlEdgeTop)
+                    .LineStyle = xlContinuous
+                    .Color = -8762076
+                    .TintAndShade = 0
+                    .Weight = xlMedium
+                End With
+                With Selection.Borders(xlEdgeBottom)
+                    .LineStyle = xlContinuous
+                    .Color = -8762076
+                    .TintAndShade = 0
+                    .Weight = xlMedium
+                End With
+                With Selection.Borders(xlEdgeRight)
+                    .LineStyle = xlContinuous
+                    .Color = -8762076
+                    .TintAndShade = 0
+                    .Weight = xlMedium
+                End With
+                With Selection.Borders(xlInsideVertical)
+                    .LineStyle = xlContinuous
+                    .Color = -8762076
+                    .TintAndShade = 0
+                    .Weight = xlThin
+                End With
+                With Selection.Borders(xlInsideHorizontal)
+                    .LineStyle = xlContinuous
+                    .Color = -8762076
+                    .TintAndShade = 0
+                    .Weight = xlThin
+                End With
+                .Range(Cells(13, 1), Cells(13 + row_liquid, 1)).Select
+                Selection.Borders(xlDiagonalDown).LineStyle = xlNone
+                Selection.Borders(xlDiagonalUp).LineStyle = xlNone
+                With Selection.Borders(xlEdgeLeft)
+                    .LineStyle = xlContinuous
+                    .Color = -8762076
+                    .TintAndShade = 0
+                    .Weight = xlMedium
+                End With
+                With Selection.Borders(xlEdgeTop)
+                    .LineStyle = xlContinuous
+                    .Color = -8762076
+                    .TintAndShade = 0
+                    .Weight = xlMedium
+                End With
+                With Selection.Borders(xlEdgeBottom)
+                    .LineStyle = xlContinuous
+                    .Color = -8762076
+                    .TintAndShade = 0
+                    .Weight = xlMedium
+                End With
+                With Selection.Borders(xlEdgeRight)
+                    .LineStyle = xlContinuous
+                    .Color = -8762076
+                    .TintAndShade = 0
+                    .Weight = xlMedium
+                End With
+                Selection.Borders(xlInsideVertical).LineStyle = xlNone
+                ' Formulas of "EXACT DATA OR LINEAR INTERPOLATION" section
+                .Range("G15").Formula2R1C1 = "=IF(R[1]C[0]="""",""-"",MAX(IF(R[-1]C[-6]:R[" & row_liquid - 2 & "]C[-6]<=R[1]C[0],R[-1]C[-6]:R[" & row_liquid - 2 & "]C[-6])))"
+                .Range("H15").Formula2R1C1 = "=IF(R[0]C[-1]<>""-"",VLOOKUP(R[0]C[-1],R[-1]C[-7]:R[" & row_liquid - 2 & "]C[-3],3,FALSE),""-"")"
+                .Range("I15").Formula2R1C1 = "=IF(R[0]C[-2]<>""-"",VLOOKUP(R[0]C[-2],R[-1]C[-8]:R[" & row_liquid - 2 & "]C[-4],4,FALSE),""-"")"
+                .Range("J15").Formula2R1C1 = "=IF(R[0]C[-3]<>""-"",VLOOKUP(R[0]C[-3],R[-1]C[-9]:R[" & row_liquid - 2 & "]C[-5],5,FALSE),""-"")"
+                .Range("G17").Formula2R1C1 = "=IF(R[-1]C[0]="""",""-"",MIN(IF(R[-3]C[-6]:R[" & row_liquid - 4 & "]C[-6]>=R[-1]C[0],R[-3]C[-6]:R[" & row_liquid - 4 & "]C[-6])))"
+                .Range("H17").Formula2R1C1 = "=IF(R[0]C[-1]<>""-"",VLOOKUP(R[0]C[-1],R[-3]C[-7]:R[" & row_liquid - 4 & "]C[-3],3,FALSE),""-"")"
+                .Range("I17").Formula2R1C1 = "=IF(R[0]C[-2]<>""-"",VLOOKUP(R[0]C[-2],R[-3]C[-8]:R[" & row_liquid - 4 & "]C[-4],4,FALSE),""-"")"
+                .Range("J17").Formula2R1C1 = "=IF(R[0]C[-3]<>""-"",VLOOKUP(R[0]C[-3],R[-3]C[-9]:R[" & row_liquid - 4 & "]C[-5],5,FALSE),""-"")"
+                .Range("G16").Select
+                With Selection.Validation
+                    .Delete
+                    .Add Type:=xlValidateDecimal, AlertStyle:=xlValidAlertStop, Operator _
+                    :=xlBetween, Formula1:="=MIN(A14:A" & 13 + row_liquid & ")", Formula2:="=MAX(A14:A" & 13 + row_liquid & ")"
+                    .IgnoreBlank = True
+                    .InCellDropdown = True
+                    .InputTitle = ""
+                    .ErrorTitle = ""
+                    .InputMessage = ""
+                    .ErrorMessage = ""
+                    .ShowInput = True
+                    .ShowError = True
+                End With
+                If .Range("H4").Value = "T [K]" Then
+                    .Range("D6:H6").Select
+                ElseIf .Range("H4").Value = "V [m3/kg]" Then
+                    .Range("D7:H7").Select
+                ElseIf .Range("H4").Value = "H [kJ/kg]" Then
+                    .Range("D8:H8").Select
+                ElseIf .Range("H4").Value = "S [kJ/kg/K]" Then
+                    .Range("D9:H9").Select
+                End If
+                Selection.Copy
+                .Range("A13").Select
+                .Paste
+                If .Range("H4").Value = "T [K]" Then
+                    .Range("F6:H6").Select
+                ElseIf .Range("H4").Value = "V [m3/kg]" Then
+                    .Range("F7:H7").Select
+                ElseIf .Range("H4").Value = "H [kJ/kg]" Then
+                    .Range("F8:H8").Select
+                ElseIf .Range("H4").Value = "S [kJ/kg/K]" Then
+                    .Range("F9:H9").Select
+                End If
+                Selection.Copy
+                .Range("H14").Select
+                .Paste
+                If .Range("H4").Value = "T [K]" Then
+                    .Range("D6").Select
+                ElseIf .Range("H4").Value = "V [m3/kg]" Then
+                    .Range("D7").Select
+                ElseIf .Range("H4").Value = "H [kJ/kg]" Then
+                    .Range("D8").Select
+                ElseIf .Range("H4").Value = "S [kJ/kg/K]" Then
+                    .Range("D9").Select
+                End If
+                Selection.Copy
+                .Range("G14").Select
+                .Paste
+            End If
+            ' Vapor
+            If .Range("L14") <> "" Then
+                row_vapor = 0
+                While .Cells(14 + row_vapor, 12) <> ""
+                    row_vapor = row_vapor + 1
+                Wend
+                ' Format
+                .Range(Cells(14, 12), Cells(13 + row_vapor, 16)).Select
+                With Selection
+                    .HorizontalAlignment = xlCenter
+                    .VerticalAlignment = xlBottom
+                    .WrapText = False
+                    .Orientation = 0
+                    .AddIndent = False
+                    .IndentLevel = 0
+                    .ShrinkToFit = False
+                    .ReadingOrder = xlContext
+                    .MergeCells = False
+                End With
+                With Selection
+                    .HorizontalAlignment = xlCenter
+                    .VerticalAlignment = xlCenter
+                    .WrapText = False
+                    .Orientation = 0
+                    .AddIndent = False
+                    .IndentLevel = 0
+                    .ShrinkToFit = False
+                    .ReadingOrder = xlContext
+                    .MergeCells = False
+                End With
+                Selection.Borders(xlDiagonalDown).LineStyle = xlNone
+                Selection.Borders(xlDiagonalUp).LineStyle = xlNone
+                With Selection.Borders(xlEdgeLeft)
+                    .LineStyle = xlContinuous
+                    .Color = -8762076
+                    .TintAndShade = 0
+                    .Weight = xlMedium
+                End With
+                With Selection.Borders(xlEdgeTop)
+                    .LineStyle = xlContinuous
+                    .Color = -8762076
+                    .TintAndShade = 0
+                    .Weight = xlMedium
+                End With
+                With Selection.Borders(xlEdgeBottom)
+                    .LineStyle = xlContinuous
+                    .Color = -8762076
+                    .TintAndShade = 0
+                    .Weight = xlMedium
+                End With
+                With Selection.Borders(xlEdgeRight)
+                    .LineStyle = xlContinuous
+                    .Color = -8762076
+                    .TintAndShade = 0
+                    .Weight = xlMedium
+                End With
+                With Selection.Borders(xlInsideVertical)
+                    .LineStyle = xlContinuous
+                    .Color = -8762076
+                    .TintAndShade = 0
+                    .Weight = xlThin
+                End With
+                With Selection.Borders(xlInsideHorizontal)
+                    .LineStyle = xlContinuous
+                    .Color = -8762076
+                    .TintAndShade = 0
+                    .Weight = xlThin
+                End With
+                .Range(Cells(13, 12), Cells(13 + row_vapor, 12)).Select
+                Selection.Borders(xlDiagonalDown).LineStyle = xlNone
+                Selection.Borders(xlDiagonalUp).LineStyle = xlNone
+                With Selection.Borders(xlEdgeLeft)
+                    .LineStyle = xlContinuous
+                    .Color = -8762076
+                    .TintAndShade = 0
+                    .Weight = xlMedium
+                End With
+                With Selection.Borders(xlEdgeTop)
+                    .LineStyle = xlContinuous
+                    .Color = -8762076
+                    .TintAndShade = 0
+                    .Weight = xlMedium
+                End With
+                With Selection.Borders(xlEdgeBottom)
+                    .LineStyle = xlContinuous
+                    .Color = -8762076
+                    .TintAndShade = 0
+                    .Weight = xlMedium
+                End With
+                With Selection.Borders(xlEdgeRight)
+                    .LineStyle = xlContinuous
+                    .Color = -8762076
+                    .TintAndShade = 0
+                    .Weight = xlMedium
+                End With
+                Selection.Borders(xlInsideVertical).LineStyle = xlNone
+                ' Formulas of "EXACT DATA OR LINEAR INTERPOLATION" section
+                .Range("R15").Formula2R1C1 = "=IF(R[1]C[0]="""",""-"",MAX(IF(R[-1]C[-6]:R[" & row_vapor - 2 & "]C[-6]<=R[1]C[0],R[-1]C[-6]:R[" & row_vapor - 2 & "]C[-6])))"
+                .Range("S15").Formula2R1C1 = "=IF(R[0]C[-1]<>""-"",VLOOKUP(R[0]C[-1],R[-1]C[-7]:R[" & row_vapor - 2 & "]C[-3],3,FALSE),""-"")"
+                .Range("T15").Formula2R1C1 = "=IF(R[0]C[-2]<>""-"",VLOOKUP(R[0]C[-2],R[-1]C[-8]:R[" & row_vapor - 2 & "]C[-4],4,FALSE),""-"")"
+                .Range("U15").Formula2R1C1 = "=IF(R[0]C[-3]<>""-"",VLOOKUP(R[0]C[-3],R[-1]C[-9]:R[" & row_vapor - 2 & "]C[-5],5,FALSE),""-"")"
+                .Range("R17").Formula2R1C1 = "=IF(R[-1]C[0]="""",""-"",MIN(IF(R[-3]C[-6]:R[" & row_vapor - 4 & "]C[-6]>=R[-1]C[0],R[-3]C[-6]:R[" & row_vapor - 4 & "]C[-6])))"
+                .Range("S17").Formula2R1C1 = "=IF(R[0]C[-1]<>""-"",VLOOKUP(R[0]C[-1],R[-3]C[-7]:R[" & row_vapor - 4 & "]C[-3],3,FALSE),""-"")"
+                .Range("T17").Formula2R1C1 = "=IF(R[0]C[-2]<>""-"",VLOOKUP(R[0]C[-2],R[-3]C[-8]:R[" & row_vapor - 4 & "]C[-4],4,FALSE),""-"")"
+                .Range("U17").Formula2R1C1 = "=IF(R[0]C[-3]<>""-"",VLOOKUP(R[0]C[-3],R[-3]C[-9]:R[" & row_vapor - 4 & "]C[-5],5,FALSE),""-"")"
+                .Range("R16").Select
+                With Selection.Validation
+                    .Delete
+                    .Add Type:=xlValidateDecimal, AlertStyle:=xlValidAlertStop, Operator _
+                    :=xlBetween, Formula1:="=MIN(L14:L" & 13 + row_vapor & ")", Formula2:="=MAX(L14:L" & 13 + row_vapor & ")"
+                    .IgnoreBlank = True
+                    .InCellDropdown = True
+                    .InputTitle = ""
+                    .ErrorTitle = ""
+                    .InputMessage = ""
+                    .ErrorMessage = ""
+                    .ShowInput = True
+                    .ShowError = True
+                End With
+                If .Range("H4").Value = "T [K]" Then
+                    .Range("D6:H6").Select
+                ElseIf .Range("H4").Value = "V [m3/kg]" Then
+                    .Range("D7:H7").Select
+                ElseIf .Range("H4").Value = "H [kJ/kg]" Then
+                    .Range("D8:H8").Select
+                ElseIf .Range("H4").Value = "S [kJ/kg/K]" Then
+                    .Range("D9:H9").Select
+                End If
+                Selection.Copy
+                .Range("L13").Select
+                .Paste
+                If .Range("H4").Value = "T [K]" Then
+                    .Range("F6:H6").Select
+                ElseIf .Range("H4").Value = "V [m3/kg]" Then
+                    .Range("F7:H7").Select
+                ElseIf .Range("H4").Value = "H [kJ/kg]" Then
+                    .Range("F8:H8").Select
+                ElseIf .Range("H4").Value = "S [kJ/kg/K]" Then
+                    .Range("F9:H9").Select
+                End If
+                Selection.Copy
+                .Range("S14").Select
+                .Paste
+                If .Range("H4").Value = "T [K]" Then
+                    .Range("D6").Select
+                ElseIf .Range("H4").Value = "V [m3/kg]" Then
+                    .Range("D7").Select
+                ElseIf .Range("H4").Value = "H [kJ/kg]" Then
+                    .Range("D8").Select
+                ElseIf .Range("H4").Value = "S [kJ/kg/K]" Then
+                    .Range("D9").Select
+                End If
+                Selection.Copy
+                .Range("R14").Select
+                .Paste
+            End If
+            .Columns("A:U").EntireColumn.AutoFit
+            .Columns("C:C").ColumnWidth = 9.71
+            .Columns("E:E").ColumnWidth = 9.71
+            .Columns("I:U").ColumnWidth = 9.71
+            .Range("A3").Select
+        End With
+    End If
+    FUGACITY_TEST_4.Enabled = False
+    EXPERIMENTAL_DATA_4.Enabled = False
+    COMPUTE_4.Enabled = False
+    CLEAN_4.Enabled = True
+End Sub
 ```
