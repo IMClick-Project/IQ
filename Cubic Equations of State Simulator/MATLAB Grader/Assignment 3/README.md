@@ -42,7 +42,7 @@ At the end of using the thermodynamic table of all properties, it is possible to
 
 In the "Two Phases in Equilibrium.xlsm" file there are two spreadsheets (**Figure 6**) to perform calculations with the results of the thermodynamic properties in saturated liquid–vapor mixture based on temperature ("Temperature" tab - [documented code](https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/Code%20Documentation/Macros%203%20-%20Temperature%20tab%20in%20Two%20Phases%20in%20Equilibrium.md)) or pressure ("Pressure" tab - [documented code](https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/Code%20Documentation/Macros%204%20-%20Pressure%20tab%20in%20Two%20Phases%20in%20Equilibrium.md)). Each spreadsheet has three sections: **section a)** shows the general data of the final thermodynamic table, such as the name of the compound, the cubic equation of state used in the Fugacity Test, and reference state data for estimates related to $\mathbf{H}$ or $\mathbf{S}$ (this state must be the same in both properties); **section b)** contains the options to run the macro and the buttons to perform the macro operations and clear the work area; and **section c)** displays the thermodynamic table with all the simulator results or experimantal data, and it is possible to perform linear interpolation calculations or search for the exact data required, as well as to estimate other thermodynamic properties. To do this, the value entered in cell L14 must be a numerical value between the minimum and maximum of the base property of the macro. Through the selection of the second property in cell O18 and assigning a numerical value in cell P18 it is possible to define a state in saturated liquid–vapor mixture. In case this second property defines a state in a single phase, cell P20 shows the corresponding state as a guide for further calculations.
 
-<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%203/one_phase_5.jpg" width="1040" height="869">
+<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%203/two_phases.jpg" width="1040" height="869">
 
 *Figure 6. Parts of "Temperature" tab and "Pressure" tab in "Two Phases in Equilibrium.xlsm".*
 
@@ -52,21 +52,21 @@ Pressing "Compute" organizes all the data obtained by the simulator into one the
 
 At the end of using the thermodynamic table of all properties, it is possible to clean the results in the spreadsheet through the "Clean" button.
 
-<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%203/one_phase_6.jpg" width="1112" height="749">
+<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%203/two_phases_1.jpg" width="1112" height="749">
 
 *Figure 7. Example of using the macro of the "Temperature" tab and "Fugacity Test" option in "Two Phases in Equilibrium.xlsm".*
 
-<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%203/one_phase_7.jpg" width="1105" height="753">
+<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%203/two_phases_2.jpg" width="1105" height="753">
 
 *Figure 8. Example of using the macro of the "Pressure" tab and "Fugacity Test" option in "Two Phases in Equilibrium.xlsm".*
 
 **Figures 9-10** illustrate how both macros are used to execute calculations related to experimental data. In both examples the experimental data of ammonia were used. As a second property, enthalpy and entropy were selected, respectively. Pressing "Compute" organizes all the data in one thermodynamic table to carry out searches or linear interpolations of these data and estimate other thermodynamic properties. This macro is not executed if the compound is unknown or if there is no information from the cells A12. It is not necessary to fill in the Z values. At the end of using the thermodynamic table of all properties, it also is possible to clean the results in the spreadsheet through the "Clean" button.
 
-<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%203/one_phase_8.jpg" width="1082" height="810">
+<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%203/two_phases_3.jpg" width="1082" height="810">
 
 *Figure 9. Example of using the macro of the "Temperature" tab and "Experimental Data" option in "Two Phases in Equilibrium.xlsm".*
 
-<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%203/one_phase_9.jpg" width="1079" height="809">
+<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%203/two_phases_4.jpg" width="1079" height="809">
 
 *Figure 10. Example of using the macro of the "Pressure" tab and "Experimental Data" option in "Two Phases in Equilibrium.xlsm".*
 
@@ -74,6 +74,6 @@ At the end of using the thermodynamic table of all properties, it is possible to
 
 Both Excel files have a tab called "Extra" (**Figure 11** - for a more detailed description, see its [documentation](https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/Code%20Documentation/Macros%205%20-%20Extra%20tab.md)). In this spreadsheet, it is possible to carry out three options: **a)** manually write the data to perform linear interpolations of up to ten properties; **b)** shows some important constants to solve problems related to the thermodynamic properties discussed in this course; and **c)** it has twenty forms to perform unit conversions. The last two options are based on information provided by Çengel *et al.* (2019).
 
-<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%203/one_phase_10.jpg" width="1009" height="409">
+<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%203/extra.jpg" width="1009" height="409">
 
 *Figure 11. Parts of "Extra" tab in "One Phase.xlsm" and "Two Phases in Equilibrium.xlsm".*
