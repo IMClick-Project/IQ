@@ -28,11 +28,11 @@ The values ​​of $\mathbf{h_1}$ and $\mathbf{h_2}$ can be calculated using th
 
 <img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%203/Problem%205/Assessment%20and%20Code/T5-2-2.jpg" width="1084" height="873">
 
-*Figure 6. Data to calculate $h_1$ using "Pressure" tab and "Experimental Data" option in "One Phase.xlsm".*
+*Figure 6. Data to calculate* $h_1$ *using "Pressure" tab and "Experimental Data" option in "One Phase.xlsm".*
 
 <img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%203/Problem%205/Assessment%20and%20Code/T5-2-3.jpg" width="1100" height="824">
 
-*Figure 7. Data to calculate $h_2$ using "Pressure" tab and "Experimental Data" option in "Two Phases in Equilibrium.xlsm".*
+*Figure 7. Data to calculate* $h_2$ *using "Pressure" tab and "Experimental Data" option in "Two Phases in Equilibrium.xlsm".*
 
 <img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%203/Problem%205/Assessment%20and%20Code/T5-2-4.jpg" width="540" height="217">
 

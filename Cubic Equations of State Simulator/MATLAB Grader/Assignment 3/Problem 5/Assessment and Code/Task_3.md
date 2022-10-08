@@ -8,11 +8,11 @@ Consider that the volume of the tank is constant and thus $\mathbf{v=v_1=v_2}$. 
 
 <img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%203/Problem%205/Assessment%20and%20Code/T5-3-2.jpg" width="1100" height="810">
 
-*Figure 10. Data to calculate $s_1$ and $v$ using "Pressure" tab and "Experimental Data" option in "One Phase.xlsm".*
+*Figure 10. Data to calculate* $s_1$ *and* $v$ *using "Pressure" tab and "Experimental Data" option in "One Phase.xlsm".*
 
 <img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%203/Problem%205/Assessment%20and%20Code/T5-3-3.jpg" width="1100" height="848">
 
-*Figure 11. Data to calculate $s_2$ using "Pressure" tab and "Experimental Data" option in "Two Phases in Equilibrium.xlsm".*
+*Figure 11. Data to calculate* $s_2$ *using "Pressure" tab and "Experimental Data" option in "Two Phases in Equilibrium.xlsm".*
 
 <img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%203/Problem%205/Assessment%20and%20Code/T5-3-4.jpg" width="551" height="218">
 
