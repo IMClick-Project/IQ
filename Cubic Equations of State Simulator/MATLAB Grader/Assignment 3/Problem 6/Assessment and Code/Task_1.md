@@ -8,4 +8,4 @@ Pressure unit conversion to bar can be done in the "Extra" tab. The pressure can
 
 <img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%203/Problem%206/Assessment%20and%20Code/T6-1.jpg" width="599" height="1088">
 
-*Figure 2. Guide to the use of "EoS_Simulator" to calculate the thermodynamic properties necessary to solve Task 1.*
+*Figure 2. Guide to the use of "EoS_Simulator" to calculate the thermodynamic properties necessary to solve Task 1.* 
