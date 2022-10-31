@@ -22,15 +22,15 @@ $$
 
 The values ​​of $\mathbf{h_1}$ and $\mathbf{h_2}$ can be calculated using the "Pressure" tab in "Two Phases in Equilibrium.xlsm" and "One Phase.xlsm" (**Figure 5-7**) option. Unit conversions can be done in the "Extra" tab (**Figure 8**). With this result, it can be determined that using the predictions with the Peng-Robinson cubic equation of state we obtain a percentage error of less than 1% compared to using experimental values, concluding that the result with the simulator is very close to the expected real experimental behavior.
 
-<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%203/Problem%205/Assessment%20and%20Code/T5-2-1.jpg" width="1100" height="843">
+<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%203/Problem%205/Assessment%20and%20Code/T5-2-1.jpg" width="1091" height="683">
 
 *Figure 5. Data to know state phase 1 using "Pressure" tab and "Experimental Data" option in "Two Phases in Equilibrium.xlsm".*
 
-<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%203/Problem%205/Assessment%20and%20Code/T5-2-2.jpg" width="1084" height="873">
+<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%203/Problem%205/Assessment%20and%20Code/T5-2-2.jpg" width="894" height="585">
 
 *Figure 6. Data to calculate* $h_1$ *using "Pressure" tab and "Experimental Data" option in "One Phase.xlsm".*
 
-<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%203/Problem%205/Assessment%20and%20Code/T5-2-3.jpg" width="1100" height="859">
+<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%203/Problem%205/Assessment%20and%20Code/T5-2-3.jpg" width="1091" height="683">
 
 *Figure 7. Data to calculate* $h_2$ *using "Pressure" tab and "Experimental Data" option in "Two Phases in Equilibrium.xlsm".*
 

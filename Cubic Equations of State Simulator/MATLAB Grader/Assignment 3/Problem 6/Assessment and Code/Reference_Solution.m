@@ -12,7 +12,7 @@ u_1=471.1748261 % [kJ/kg]
 u_2=2484.934305 % [kJ/kg]
 Task_1=m_water*(u_2-u_1) % Problem 6.31 in Smith et al., 2017 [kJ]
 % Task_2 (Example 16-7 in Çengel et al., 2019 - Answer in BTU/lbm): Calculate the value of the Gibbs function for saturated refrigerant-134a at −30°F as a mixture of liquid and vapor with a quality of 30 percent.
-Task_2=-0.709398887*0.429922614 % Example 16-7 in Çengel et al., 2019 [BTU/lbm]
+Task_2=-0.304986272 % Example 16-7 in Çengel et al., 2019 [BTU/lbm]
 % Task_3 (Example 10-1 in Çengel et al., 2019 (Figure 1)): Consider a steam power plant operating on the simple ideal Rankine cycle. Steam enters the turbine at 3 MPa and 350°C and is condensed in the condenser at a pressure of 75 kPa. Determine the thermal efficiency of this cycle.
 h1=286.8413 % [kJ/kg]
 s1=0.99441 % [kJ/kg/K]

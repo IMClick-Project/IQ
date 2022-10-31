@@ -4,6 +4,6 @@ It will be assumed that steady operating conditions exist and kinetic and potent
 
 Pressure and temperature unit conversions to bar and K, respectively, and energy unit conversion factor can be found in the "Extra" tab. The pressures can be registered in the simulator database so that the properties of the liquid, vapor, and saturated state are obtained through the simulator with the options "Isobar given Pressure on a TV Diagram", "Isobar given Pressure on a TH Diagram", "Isobar given Pressure on a TS Diagram", "Two-Phase Envelope on a TV Diagram", "Two-Phase Envelope on a TH Diagram", and "Two-Phase Envelope on a TS Diagram". These results can be used in the "Pressure" tab and "Fugacity Test" option in "Two Phases in Equilibrium.xlsm" and "One Phase.xlsm". **Figure 4** shows a guide to the use of "EoS_Simulator" to calculate the thermodynamic properties necessary to solve this problem.
 
-<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%203/Problem%206/Assessment%20and%20Code/T6-3.jpg" width="1021" height="2152">
+<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%203/Problem%206/Assessment%20and%20Code/T6-3.jpg" width="1083" height="2130">
 
 *Figure 4. Guide to the use of "EoS_Simulator" to calculate the thermodynamic properties necessary to solve Task 3.*
