@@ -4,7 +4,7 @@ This spreadsheet allows performing calculations with the simulator results or ex
 
 ## 1. Spreadsheet Design
 
-<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/Code%20Documentation/macros3-1.jpg" width="1038" height="433">
+<img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/Code%20Documentation/macros3-1.jpg" width="1100" height="433">
 
 *Figure 1. Spreadsheet Design of "Temperature" tab in "Two Phases in Equilibrium.xlsm".*
 
@@ -26,6 +26,75 @@ Private Sub CLEAN_Click()
         .Range("B3:B9").Value = ""
         .Range("L14").Value = ""
         .Range("P18").Value = ""
+        .Range("A6").Value = "Reference Temperature"
+        .Range("A7").Value = "Reference Pressure"
+        .Range("A8").Value = "Reference Enthalpy"
+        .Range("A9").Value = "Reference Entropy"
+        .Range("I4").Value = "EoS Simulator"
+        .Range("A11:J11").Value = ""
+        .Range("L12:S12").Value = ""
+        .Range("O24").Value = "V"
+        .Range("O25").Value = "H"
+        .Range("O26").Value = "S"
+        .Range("O27").Value = "U"
+        .Range("O28").Value = "A"
+        .Range("O29").Value = "G"
+        .Range("O22").Value = "Tsat"
+        .Range("O22").Select
+        With ActiveCell.Characters(Start:=2, Length:=3).Font
+            .Name = "Calibri"
+            .FontStyle = "Regular"
+            .Size = 11
+            .Strikethrough = False
+            .Superscript = False
+            .Subscript = True
+            .OutlineFont = False
+            .Shadow = False
+            .Underline = xlUnderlineStyleNone
+            .ThemeColor = xlThemeColorLight1
+            .TintAndShade = 0
+            .ThemeFont = xlThemeFontMinor
+        End With
+        With Selection.Font
+            .Color = -8762076
+            .TintAndShade = 0
+        End With
+        Selection.Font.Bold = True
+        .Range("O23").Value = "Psat"
+        .Range("O23").Select
+        With ActiveCell.Characters(Start:=2, Length:=3).Font
+            .Name = "Calibri"
+            .FontStyle = "Regular"
+            .Size = 11
+            .Strikethrough = False
+            .Superscript = False
+            .Subscript = True
+            .OutlineFont = False
+            .Shadow = False
+            .Underline = xlUnderlineStyleNone
+            .ThemeColor = xlThemeColorLight1
+            .TintAndShade = 0
+            .ThemeFont = xlThemeFontMinor
+        End With
+        With Selection.Font
+            .Color = -8762076
+            .TintAndShade = 0
+        End With
+        Selection.Font.Bold = True
+        .Range("O18").Select
+        With Selection.Validation
+            .Delete
+            .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+            xlBetween, Formula1:="x,P,V,H,S"
+            .IgnoreBlank = False
+            .InCellDropdown = True
+            .InputTitle = ""
+            .ErrorTitle = ""
+            .InputMessage = ""
+            .ErrorMessage = ""
+            .ShowInput = True
+            .ShowError = True
+        End With
         .Range("O18").Value = "x"
         .Range("L14").Select
         With Selection.Validation
@@ -85,8 +154,7 @@ Private Sub CLEAN_Click()
         .Range("R15").Formula2R1C1 = "=IF(R[0]C[-6]<>""-"",VLOOKUP(R[0]C[-6],R[-3]C[-17]:R[-3]C[-8],9,FALSE),""-"")"
         .Range("S15").Formula2R1C1 = "=IF(R[0]C[-7]<>""-"",VLOOKUP(R[0]C[-7],R[-3]C[-18]:R[-3]C[-9],10,FALSE),""-"")"
         .Columns("A:S").EntireColumn.AutoFit
-        .Columns("B:D").ColumnWidth = 9.71
-        .Columns("K:M").ColumnWidth = 9.71
+        .Columns("B:S").ColumnWidth = 16.71
         .Range("A3").Select
     End With
 End Sub
@@ -94,6 +162,11 @@ End Sub
 Private Sub COMPUTE_Click()
     Dim row As Integer ' Helper to pass rows
     Dim row_data As Integer ' Number of rows of data
+    Dim Tfactor As Double ' Temperature conversion factor
+    Dim Pfactor As Double ' Pressure conversion factor
+    Dim Vfactor As Double ' Volume conversion factor
+    Dim Hfactor As Double ' Enthalpy conversion factor
+    Dim Sfactor As Double ' Entropy conversion factor
     If FUGACITY_TEST.Value = True Then
         ' Check if it is possible to export results
         If Workbooks("Two Phases in Equilibrium.xlsm").Worksheets("Temperature").Range("A12") <> "" Then
@@ -122,20 +195,192 @@ Private Sub COMPUTE_Click()
         End If
         With Workbooks("Two Phases in Equilibrium.xlsm").Worksheets("Temperature")
             ' Export results
-            .Range("B3:B8").Value = Workbooks("Two-Phase Envelope on a PH Diagram.xlsm").Worksheets("PH Diagram").Range("B1:B6").Value
-            .Range("B9").Value = Workbooks("Two-Phase Envelope on a PS Diagram.xlsm").Worksheets("PS Diagram").Range("B6").Value
+            If .Range("I4").Value = "EoS Simulator" Then
+                Tfactor = 1
+                Pfactor = 1
+                Vfactor = 1
+                Hfactor = 1
+                Sfactor = 1
+                .Range("A6").Value = "Reference Temperature [K]"
+                .Range("A7").Value = "Reference Pressure [bar]"
+                .Range("A8").Value = "Reference Enthalpy [kJ/kg]"
+                .Range("A9").Value = "Reference Entropy [kJ/kg/K]"
+                .Range("O24").Value = "V [m3/kg]"
+                .Range("O24").Select
+                With ActiveCell.Characters(Start:=5, Length:=1).Font
+                    .Name = "Calibri"
+                    .FontStyle = "Regular"
+                    .Size = 11
+                    .Strikethrough = False
+                    .Superscript = True
+                    .Subscript = False
+                    .OutlineFont = False
+                    .Shadow = False
+                    .Underline = xlUnderlineStyleNone
+                    .ThemeColor = xlThemeColorLight1
+                    .TintAndShade = 0
+                    .ThemeFont = xlThemeFontMinor
+                End With
+                With Selection.Font
+                    .Color = -8762076
+                    .TintAndShade = 0
+                End With
+                Selection.Font.Bold = True
+                .Range("O25").Value = "H [kJ/kg]"
+                .Range("O26").Value = "S [kJ/kg/K]"
+                .Range("O27").Value = "U [kJ/kg]"
+                .Range("O28").Value = "A [kJ/kg]"
+                .Range("O29").Value = "G [kJ/kg]"
+                .Range("O22").Value = "Tsat [K]"
+                .Range("O23").Value = "Psat [bar]"
+                .Range("D6:M6").Select
+                Selection.Copy
+                .Range("A11").Select
+                ActiveSheet.Paste
+                .Range("D6:E6").Select
+                Selection.Copy
+                .Range("L12").Select
+                ActiveSheet.Paste
+                .Range("H6:M6").Select
+                Selection.Copy
+                .Range("N12").Select
+                ActiveSheet.Paste
+                .Range("O18").Select
+                With Selection.Validation
+                    .Delete
+                    .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+                    xlBetween, Formula1:="x,P [bar],V [m3/kg],H [kJ/kg],S [kJ/kg/K]"
+                    .IgnoreBlank = False
+                    .InCellDropdown = True
+                    .InputTitle = ""
+                    .ErrorTitle = ""
+                    .InputMessage = ""
+                    .ErrorMessage = ""
+                    .ShowInput = True
+                    .ShowError = True
+                End With
+            Else
+                Tfactor = 1.8
+                Pfactor = 14.50377377
+                Vfactor = 16.01846337
+                Hfactor = 0.429922614
+                Sfactor = 0.238845897
+                .Range("A6").Value = "Reference Temperature [R]"
+                .Range("A7").Value = "Reference Pressure [psia]"
+                .Range("A8").Value = "Reference Enthalpy [BTU/lbm]"
+                .Range("A9").Value = "Reference Entropy [BTU/lbm/R]"
+                .Range("O24").Value = "V [ft3/lbm]"
+                .Range("O24").Select
+                With ActiveCell.Characters(Start:=6, Length:=1).Font
+                    .Name = "Calibri"
+                    .FontStyle = "Regular"
+                    .Size = 11
+                    .Strikethrough = False
+                    .Superscript = True
+                    .Subscript = False
+                    .OutlineFont = False
+                    .Shadow = False
+                    .Underline = xlUnderlineStyleNone
+                    .ThemeColor = xlThemeColorLight1
+                    .TintAndShade = 0
+                    .ThemeFont = xlThemeFontMinor
+                End With
+                With Selection.Font
+                    .Color = -8762076
+                    .TintAndShade = 0
+                End With
+                Selection.Font.Bold = True
+                .Range("O25").Value = "H [BTU/lbm]"
+                .Range("O26").Value = "S [BTU/lbm/R]"
+                .Range("O27").Value = "U [BTU/lbm]"
+                .Range("O28").Value = "A [BTU/lbm]"
+                .Range("O29").Value = "G [BTU/lbm]"
+                .Range("O22").Value = "Tsat [R]"
+                .Range("O23").Value = "Psat [psia]"
+                .Range("D7:M7").Select
+                Selection.Copy
+                .Range("A11").Select
+                ActiveSheet.Paste
+                .Range("D7:E7").Select
+                Selection.Copy
+                .Range("L12").Select
+                ActiveSheet.Paste
+                .Range("H7:M7").Select
+                Selection.Copy
+                .Range("N12").Select
+                ActiveSheet.Paste
+                .Range("O18").Select
+                With Selection.Validation
+                    .Delete
+                    .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+                    xlBetween, Formula1:="x,P [psia],V [ft3/lbm],H [BTU/lbm],S [BTU/lbm/R]"
+                    .IgnoreBlank = False
+                    .InCellDropdown = True
+                    .InputTitle = ""
+                    .ErrorTitle = ""
+                    .InputMessage = ""
+                    .ErrorMessage = ""
+                    .ShowInput = True
+                    .ShowError = True
+                End With
+            End If
+            .Range("O22").Select
+            With ActiveCell.Characters(Start:=2, Length:=3).Font
+                .Name = "Calibri"
+                .FontStyle = "Regular"
+                .Size = 11
+                .Strikethrough = False
+                .Superscript = False
+                .Subscript = True
+                .OutlineFont = False
+                .Shadow = False
+                .Underline = xlUnderlineStyleNone
+                .ThemeColor = xlThemeColorLight1
+                .TintAndShade = 0
+                .ThemeFont = xlThemeFontMinor
+            End With
+            With Selection.Font
+                .Color = -8762076
+                .TintAndShade = 0
+            End With
+            Selection.Font.Bold = True
+            .Range("O23").Select
+            With ActiveCell.Characters(Start:=2, Length:=3).Font
+                .Name = "Calibri"
+                .FontStyle = "Regular"
+                .Size = 11
+                .Strikethrough = False
+                .Superscript = False
+                .Subscript = True
+                .OutlineFont = False
+                .Shadow = False
+                .Underline = xlUnderlineStyleNone
+                .ThemeColor = xlThemeColorLight1
+                .TintAndShade = 0
+                .ThemeFont = xlThemeFontMinor
+            End With
+            With Selection.Font
+                .Color = -8762076
+                .TintAndShade = 0
+            End With
+            Selection.Font.Bold = True
+            .Range("B3:B5").Value = Workbooks("Two-Phase Envelope on a PH Diagram.xlsm").Worksheets("PH Diagram").Range("B1:B3").Value
+            .Range("B6") = CDbl(Workbooks("Two-Phase Envelope on a PH Diagram.xlsm").Worksheets("PH Diagram").Range("B4").Value) * Tfactor
+            .Range("B7").Value = CDbl(Workbooks("Two-Phase Envelope on a PH Diagram.xlsm").Worksheets("PH Diagram").Range("B5").Value) * Pfactor
+            .Range("B8").Value = CDbl(Workbooks("Two-Phase Envelope on a PH Diagram.xlsm").Worksheets("PH Diagram").Range("B6").Value) * Hfactor
+            .Range("B9").Value = CDbl(Workbooks("Two-Phase Envelope on a PS Diagram.xlsm").Worksheets("PS Diagram").Range("B6").Value) * Sfactor
             row = 0
             While Workbooks("Two-Phase Envelope on a PV Diagram.xlsm").Worksheets("PV Diagram").Cells(6 + 3 * row, 1).Value <> ""
-                .Cells(12 + row, 1).Value = Workbooks("Two-Phase Envelope on a PV Diagram.xlsm").Worksheets("PV Diagram").Cells(6 + 3 * row, 2).Value
-                .Cells(12 + row, 2).Value = Workbooks("Two-Phase Envelope on a PV Diagram.xlsm").Worksheets("PV Diagram").Cells(6 + 3 * row, 3).Value
+                .Cells(12 + row, 1).Value = CDbl(Workbooks("Two-Phase Envelope on a PV Diagram.xlsm").Worksheets("PV Diagram").Cells(6 + 3 * row, 2).Value) * Tfactor
+                .Cells(12 + row, 2).Value = CDbl(Workbooks("Two-Phase Envelope on a PV Diagram.xlsm").Worksheets("PV Diagram").Cells(6 + 3 * row, 3).Value) * Pfactor
                 .Cells(12 + row, 3).Value = Workbooks("Two-Phase Envelope on a PV Diagram.xlsm").Worksheets("PV Diagram").Cells(6 + 3 * row, 4).Value
                 .Cells(12 + row, 4).Value = Workbooks("Two-Phase Envelope on a PV Diagram.xlsm").Worksheets("PV Diagram").Cells(6 + 3 * row, 5).Value
-                .Cells(12 + row, 5).Value = Workbooks("Two-Phase Envelope on a PV Diagram.xlsm").Worksheets("PV Diagram").Cells(6 + 3 * row, 6).Value
-                .Cells(12 + row, 6).Value = Workbooks("Two-Phase Envelope on a PV Diagram.xlsm").Worksheets("PV Diagram").Cells(6 + 3 * row, 7).Value
-                .Cells(12 + row, 7).Value = Workbooks("Two-Phase Envelope on a PH Diagram.xlsm").Worksheets("PH Diagram").Cells(10 + 3 * row, 6).Value
-                .Cells(12 + row, 8).Value = Workbooks("Two-Phase Envelope on a PH Diagram.xlsm").Worksheets("PH Diagram").Cells(10 + 3 * row, 7).Value
-                .Cells(12 + row, 9).Value = Workbooks("Two-Phase Envelope on a PS Diagram.xlsm").Worksheets("PS Diagram").Cells(10 + 3 * row, 6).Value
-                .Cells(12 + row, 10).Value = Workbooks("Two-Phase Envelope on a PS Diagram.xlsm").Worksheets("PS Diagram").Cells(10 + 3 * row, 7).Value
+                .Cells(12 + row, 5).Value = CDbl(Workbooks("Two-Phase Envelope on a PV Diagram.xlsm").Worksheets("PV Diagram").Cells(6 + 3 * row, 6).Value) * Vfactor
+                .Cells(12 + row, 6).Value = CDbl(Workbooks("Two-Phase Envelope on a PV Diagram.xlsm").Worksheets("PV Diagram").Cells(6 + 3 * row, 7).Value) * Vfactor
+                .Cells(12 + row, 7).Value = CDbl(Workbooks("Two-Phase Envelope on a PH Diagram.xlsm").Worksheets("PH Diagram").Cells(10 + 3 * row, 6).Value) * Hfactor
+                .Cells(12 + row, 8).Value = CDbl(Workbooks("Two-Phase Envelope on a PH Diagram.xlsm").Worksheets("PH Diagram").Cells(10 + 3 * row, 7).Value) * Hfactor
+                .Cells(12 + row, 9).Value = CDbl(Workbooks("Two-Phase Envelope on a PS Diagram.xlsm").Worksheets("PS Diagram").Cells(10 + 3 * row, 6).Value) * Sfactor
+                .Cells(12 + row, 10).Value = CDbl(Workbooks("Two-Phase Envelope on a PS Diagram.xlsm").Worksheets("PS Diagram").Cells(10 + 3 * row, 7).Value) * Sfactor
                 row = row + 1
             Wend
             row_data = row
@@ -275,8 +520,7 @@ Private Sub COMPUTE_Click()
                 .ShowError = True
             End With
             .Columns("A:S").EntireColumn.AutoFit
-            .Columns("C:D").ColumnWidth = 9.71
-            .Columns("K:K").ColumnWidth = 9.71
+            .Columns("C:S").ColumnWidth = 16.71
             .Range("A3").Select
         End With
     Else
@@ -290,6 +534,165 @@ Private Sub COMPUTE_Click()
                 MsgBox "No experimental data presented.", vbExclamation
                 Exit Sub
             End If
+            If .Range("I4").Value = "EoS Simulator" Then
+                .Range("A6").Value = "Reference Temperature [K]"
+                .Range("A7").Value = "Reference Pressure [bar]"
+                .Range("A8").Value = "Reference Enthalpy [kJ/kg]"
+                .Range("A9").Value = "Reference Entropy [kJ/kg/K]"
+                .Range("O24").Value = "V [m3/kg]"
+                .Range("O24").Select
+                With ActiveCell.Characters(Start:=5, Length:=1).Font
+                    .Name = "Calibri"
+                    .FontStyle = "Regular"
+                    .Size = 11
+                    .Strikethrough = False
+                    .Superscript = True
+                    .Subscript = False
+                    .OutlineFont = False
+                    .Shadow = False
+                    .Underline = xlUnderlineStyleNone
+                    .ThemeColor = xlThemeColorLight1
+                    .TintAndShade = 0
+                    .ThemeFont = xlThemeFontMinor
+                End With
+                With Selection.Font
+                    .Color = -8762076
+                    .TintAndShade = 0
+                End With
+                Selection.Font.Bold = True
+                .Range("O25").Value = "H [kJ/kg]"
+                .Range("O26").Value = "S [kJ/kg/K]"
+                .Range("O27").Value = "U [kJ/kg]"
+                .Range("O28").Value = "A [kJ/kg]"
+                .Range("O29").Value = "G [kJ/kg]"
+                .Range("O22").Value = "Tsat [K]"
+                .Range("O23").Value = "Psat [bar]"
+                .Range("D6:M6").Select
+                Selection.Copy
+                .Range("A11").Select
+                ActiveSheet.Paste
+                .Range("D6:E6").Select
+                Selection.Copy
+                .Range("L12").Select
+                ActiveSheet.Paste
+                .Range("H6:M6").Select
+                Selection.Copy
+                .Range("N12").Select
+                ActiveSheet.Paste
+                .Range("O18").Select
+                With Selection.Validation
+                    .Delete
+                    .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+                    xlBetween, Formula1:="x,P [bar],V [m3/kg],H [kJ/kg],S [kJ/kg/K]"
+                    .IgnoreBlank = False
+                    .InCellDropdown = True
+                    .InputTitle = ""
+                    .ErrorTitle = ""
+                    .InputMessage = ""
+                    .ErrorMessage = ""
+                    .ShowInput = True
+                    .ShowError = True
+                End With
+            Else
+                .Range("A6").Value = "Reference Temperature [R]"
+                .Range("A7").Value = "Reference Pressure [psia]"
+                .Range("A8").Value = "Reference Enthalpy [BTU/lbm]"
+                .Range("A9").Value = "Reference Entropy [BTU/lbm/R]"
+                .Range("O24").Value = "V [ft3/lbm]"
+                .Range("O24").Select
+                With ActiveCell.Characters(Start:=6, Length:=1).Font
+                    .Name = "Calibri"
+                    .FontStyle = "Regular"
+                    .Size = 11
+                    .Strikethrough = False
+                    .Superscript = True
+                    .Subscript = False
+                    .OutlineFont = False
+                    .Shadow = False
+                    .Underline = xlUnderlineStyleNone
+                    .ThemeColor = xlThemeColorLight1
+                    .TintAndShade = 0
+                    .ThemeFont = xlThemeFontMinor
+                End With
+                With Selection.Font
+                    .Color = -8762076
+                    .TintAndShade = 0
+                End With
+                Selection.Font.Bold = True
+                .Range("O25").Value = "H [BTU/lbm]"
+                .Range("O26").Value = "S [BTU/lbm/R]"
+                .Range("O27").Value = "U [BTU/lbm]"
+                .Range("O28").Value = "A [BTU/lbm]"
+                .Range("O29").Value = "G [BTU/lbm]"
+                .Range("O22").Value = "Tsat [R]"
+                .Range("O23").Value = "Psat [psia]"
+                .Range("D7:M7").Select
+                Selection.Copy
+                .Range("A11").Select
+                ActiveSheet.Paste
+                .Range("D7:E7").Select
+                Selection.Copy
+                .Range("L12").Select
+                ActiveSheet.Paste
+                .Range("H7:M7").Select
+                Selection.Copy
+                .Range("N12").Select
+                ActiveSheet.Paste
+                .Range("O18").Select
+                With Selection.Validation
+                    .Delete
+                    .Add Type:=xlValidateList, AlertStyle:=xlValidAlertStop, Operator:= _
+                    xlBetween, Formula1:="x,P [psia],V [ft3/lbm],H [BTU/lbm],S [BTU/lbm/R]"
+                    .IgnoreBlank = False
+                    .InCellDropdown = True
+                    .InputTitle = ""
+                    .ErrorTitle = ""
+                    .InputMessage = ""
+                    .ErrorMessage = ""
+                    .ShowInput = True
+                    .ShowError = True
+                End With
+            End If
+            .Range("O22").Select
+            With ActiveCell.Characters(Start:=2, Length:=3).Font
+                .Name = "Calibri"
+                .FontStyle = "Regular"
+                .Size = 11
+                .Strikethrough = False
+                .Superscript = False
+                .Subscript = True
+                .OutlineFont = False
+                .Shadow = False
+                .Underline = xlUnderlineStyleNone
+                .ThemeColor = xlThemeColorLight1
+                .TintAndShade = 0
+                .ThemeFont = xlThemeFontMinor
+            End With
+            With Selection.Font
+                .Color = -8762076
+                .TintAndShade = 0
+            End With
+            Selection.Font.Bold = True
+            .Range("O23").Select
+            With ActiveCell.Characters(Start:=2, Length:=3).Font
+                .Name = "Calibri"
+                .FontStyle = "Regular"
+                .Size = 11
+                .Strikethrough = False
+                .Superscript = False
+                .Subscript = True
+                .OutlineFont = False
+                .Shadow = False
+                .Underline = xlUnderlineStyleNone
+                .ThemeColor = xlThemeColorLight1
+                .TintAndShade = 0
+                .ThemeFont = xlThemeFontMinor
+            End With
+            With Selection.Font
+                .Color = -8762076
+                .TintAndShade = 0
+            End With
+            Selection.Font.Bold = True
             .Range("B4:B9").Value = "-"
             row = 0
             While .Cells(12 + row, 1) <> ""
@@ -432,8 +835,7 @@ Private Sub COMPUTE_Click()
                 .ShowError = True
             End With
             .Columns("A:S").EntireColumn.AutoFit
-            .Columns("C:D").ColumnWidth = 9.71
-            .Columns("K:K").ColumnWidth = 9.71
+            .Columns("C:S").ColumnWidth = 16.71
             .Range("A3").Select
         End With
     End If
