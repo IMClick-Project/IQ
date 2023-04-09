@@ -273,29 +273,29 @@ The constants of **Eq. (22)** of some compounds are (Chemours, 2018; Reklaitis &
 + **Refrigerant 134a (Tetrafluoroethane):** $\mathbf{A=1.94006E+01}$, $\mathbf{B=2.58531E-01}$, $\mathbf{C=-1.29665E-04}$, $\mathbf{D=0}$, and $\mathbf{E=0}$.
 + **Water:** $\mathbf{A=3.40471E+01}$, $\mathbf{B=-9.65064E-03}$, $\mathbf{C=3.29983E-05}$, $\mathbf{D=-2.04467E-08}$, and $\mathbf{E=4.30228E-12}$.
 
-Also, based on the cubic equation of state the residual enthalpy and entropy can be calculated using **Eqs. (25)-(26)**. It is easy to estimate that the value of $\mathbf{\frac{d\ln{\alpha(T_r)}}{d\ln{T_r}}}$ in the cubic equation of state of vdW and RK is $\mathbf{\frac{d\ln{1}}{d\ln{T_r}}=0}$ and $\mathbf{\frac{d\ln{T_r^{-1/2}}}{d\ln{T_r}}=\frac{-\frac{1}{2}d\ln{T_r}}{d\ln{T_r}}=-\frac{1}{2}}$, respectively. 
+Also, based on the cubic equation of state the residual enthalpy and entropy can be calculated using **Eqs. (25)-(26)**. It is easy to estimate that the value of $\mathbf{\frac{d\ln{\alpha(T_r,w)}}{d\ln{T_r}}}$ in the cubic equation of state of vdW and RK is $\mathbf{\frac{d\ln{1}}{d\ln{T_r}}=0}$ and $\mathbf{\frac{d\ln{T_r^{-1/2}}}{d\ln{T_r}}=\frac{-\frac{1}{2}d\ln{T_r}}{d\ln{T_r}}=-\frac{1}{2}}$, respectively. 
 
 $$
 \begin{aligned}
-\mathbf{(25) \quad H^R=RT\left[ Z-1+T\left(\frac{dq}{dT}\right)I\right]=RT\left[ Z-1+T_r\left(\frac{dq}{dT_r}\right)I\right]=RT\left[ Z-1+\left(\frac{d\ln{\alpha(T_r)}}{d\ln{T_r}}-1\right)qI\right]}
+\mathbf{(25) \quad H^R=RT\left[ Z-1+T\left(\frac{dq}{dT}\right)I\right]=RT\left[ Z-1+T_r\left(\frac{dq}{dT_r}\right)I\right]=RT\left[ Z-1+\left(\frac{d\ln{\alpha(T_r,w)}}{d\ln{T_r}}-1\right)qI\right]}
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
-\mathbf{(26) \quad S^R=R\left[ \ln{(Z-\beta)+\left(q+T\frac{dq}{dT}\right)I}\right]=R\left[ \ln{(Z-\beta)+\left(q+T_r\frac{dq}{dT_r}\right)I}\right]=R\left[ \ln{(Z-\beta)}+\frac{d\ln{\alpha(T_r)}}{d\ln{T_r}}qI \right]}
+\mathbf{(26) \quad S^R=R\left[ \ln{(Z-\beta)+\left(q+T\frac{dq}{dT}\right)I}\right]=R\left[ \ln{(Z-\beta)+\left(q+T_r\frac{dq}{dT_r}\right)I}\right]=R\left[ \ln{(Z-\beta)}+\frac{d\ln{\alpha(T_r,w)}}{d\ln{T_r}}qI \right]}
 \end{aligned}
 $$
 
-In the case of SRK and PR, $\mathbf{p=0.480+1.574\omega-0.176\omega^2}$ and $\mathbf{p=0.37464+1.54226\omega-0.26992\omega^2}$ can be defined, respectively, so:
+In the case of SRK and PR, $\mathbf{p=0.480+1.574w-0.176w^2}$ and $\mathbf{p=0.37464+1.54226w-0.26992w^2}$ can be defined, respectively, so:
 
 $$
 \begin{aligned}
-\mathbf{\alpha(T_r)=[1+p(1-T_r^{1/2})]^2 \quad \longleftrightarrow \quad exp[\ln{\alpha(T_r)}]=\left[1+p\left(1-exp\left(\frac{\ln{T_r}}{2}\right) \right)\right]^2}
+\mathbf{\alpha(T_r,w)=[1+p(1-T_r^{1/2})]^2 \quad \longleftrightarrow \quad exp[\ln{\alpha(T_r,w)}]=\left[1+p\left(1-exp\left(\frac{\ln{T_r}}{2}\right) \right)\right]^2}
 \end{aligned}
 $$
 
-With $\mathbf{y=\ln{\alpha(T_r)}}$ and $\mathbf{x=\ln{T_r}}$, then $\mathbf{\frac{d\ln{\alpha(T_r)}}{d\ln{T_r}}=\frac{dy}{dx}}$ and:
+With $\mathbf{y=\ln{\alpha(T_r,w)}}$ and $\mathbf{x=\ln{T_r}}$, then $\mathbf{\frac{d\ln{\alpha(T_r,w)}}{d\ln{T_r}}=\frac{dy}{dx}}$ and:
 
 $$
 \begin{aligned}
@@ -319,7 +319,7 @@ Substituting $\mathbf{x}$ and $\mathbf{y}$:
 
 $$
 \begin{aligned}
-\mathbf{(27) \quad \frac{d\ln{\alpha(T_r)}}{d\ln{T_r}}=-p\left[1+p\left(1-exp\left(\frac{\ln{T_r}}{2}\right) \right)\right]exp\left(\frac{\ln{T_r}}{2}-\ln{\alpha(T_r)} \right)}
+\mathbf{(27) \quad \frac{d\ln{\alpha(T_r,w)}}{d\ln{T_r}}=-p\left[1+p\left(1-exp\left(\frac{\ln{T_r}}{2}\right) \right)\right]exp\left(\frac{\ln{T_r}}{2}-\ln{\alpha(T_r,w)} \right)}
 \end{aligned}
 $$
 
