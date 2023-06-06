@@ -8,6 +8,7 @@ EoS Simulator (**Figure 1**) is a program developed in MATLAB<sup>&reg;</sup> R2
 
 + Operating System: Windows.
 + MATLAB Version: R2018a or higher. The Optimization Toolbox must be installed.
++ Excel Version: Microsoft 365/Excel 2019 or higher. 
 + Screen Resolution: 1366x768 or higher.
 
 <img src="https://github.com/IMClick-Project/IQ/blob/main/Cubic%20Equations%20of%20State%20Simulator/MATLAB%20Grader/Assignment%201/Problem%201/logo.jpg" width="402" height="219">
