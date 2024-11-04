@@ -1,0 +1,458 @@
+Version "39.0-0";
+Libraries "Modeler.acml", "Dynamics.acml", "SystemLibrary.acml";
+!ENCRYPTED! 152
+BKF1kGjLGi5+rG7HxmT4Fc0yvpWbiQUhutDsXS6dd+5xw/zuSJtDbtE8w/K8l3es6nxS9NBqpdqiyA4ixGaF3vm7SQx+HtZsnYNLVX/20ZyGSfJ1d6+4jJHie1aI40csMC87zVKhK198vXrfDizuuA==
+!END ENCRYPTED!
+!ENCRYPTED! 3224
+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
+!END ENCRYPTED!
+SystemData : Text
+globaldatasection
+EndText;
+SystemData : Text
+<FORMLIST DEFAULTFORM="AllGlobals">
+  <FORM NAME="AllGlobals" CLSID="{6BA76840-806B-11D0-BE51-0000C09984EF}">
+    { Version : 1
+SizeX : 4200
+SizeY : 3000
+ShowAllVariables : True
+ShowAllAttributes : False
+ExpandAll : True
+ShowRegistryAttributes : True
+VariablesPaths : [ ]
+AttributesPaths : [ ]
+ColumnWidths : [ ]
+}
+  </FORM>
+</FORMLIST>
+EndText;
+
+FLOWSHEET
+  Unafase as Unafase;
+
+CONSTRAINTS
+  // Flowsheet variables and equations...
+END
+
+
+//SYSTEM SECTION - WARNING: DO NOT EDIT
+SystemData : Text
+<FORMLIST DEFAULTFORM="AllVariables">
+  <FORM NAME="AllVariables" MODEL="Unafase">
+    { Version : 1
+SizeX : 5256
+SizeY : 3756
+ShowAllVariables : True
+ShowAllAttributes : False
+ExpandAll : True
+ShowRegistryAttributes : True
+VariablesPaths : [ ]
+AttributesPaths : [ ]
+ColumnWidths : [ ]
+}  </FORM>
+</FORMLIST>
+EndText;
+
+//SYSTEM SECTION END
+  ActiveTasks : [];
+  Unafase.ComponentList : "AW";
+  Graphics : TEXT CLSID {A0DFFFE6-908E-11CE-A964-0000C08C668E}
+# of PFS Objects = 2
+SIZE 0.366882 1.36688 -2.49988 -1.19988
+BLOCK
+ID: Unafase
+Version: 1
+ICON: "Unafase"
+Flag 0
+Section 
+At 0.866882 -1.849880
+Label At -0.004949 -0.150954
+Scale 1.000000 Modifier 0
+LEGEND
+Version: 2
+Dim: -4.07286 -3.2 -3.12096 -3.39043
+Size: 0.0031169
+Font: 1 0 =Times New Roman
+# of PFS Objects = 0
+VIEWPORT -1.493941 3.352839 -1.090160 -2.620558
+LAYOUT
+TableFormat 1
+Pages 1 1 1 1
+PAGESETUP
+PAPERSIZE 
+PAPERSOURCE 
+ORIENTATION -1
+PRINTPAGENO 1 1
+LEFTMARGIN 10mm
+RIGHTMARGIN 10mm
+TOPMARGIN 10mm
+BOTTOMMARGIN 10mm
+VISIBILITY 0.030000
+PFDFLAG 255 255
+PFDMODE 0
+SCALE 0.003117
+
+ENDTEXT;
+END
+
+Properties
+Package : "PropertiesPlus";
+DefinitionText : TEXT MM "39.0" FLAVOR "NO" VERSION "39.0" DATETIME "Wed Oct  9 07:46:57 2024" 
+MACHINE "WIN-NT/VC" 
+? SETUP MAIN ? \ "RUN-CLASS" RUN-CLASS = PROP \ \ SIMULATE INTERACTIVE = NO 
+\ ? SETUP GLOBAL ? ? SETUP "SIM-OPTIONS" ? ; "ENG_MOLE" ; ? DATABANKS ? \ 
+DATABANKS \ ? COMPONENTS MAIN ? \ COMPONENTS CID = WATER ANAME = H2O OUTNAME
+ = WATER DBNAME1 = "WATER" ANAME1 = "H2O" /  CID = AMMONIA ANAME = H3N 
+OUTNAME = AMMONIA DBNAME1 = "AMMONIA" ANAME1 = "H3N" \ ? COMPONENTS "ADA/PCS" 
+"LE-PROP-DATA" ? ; "ENG_MOLE" ; ? COMPONENTS "COMP-LIST" GLOBAL ? ? 
+COMPONENTS "UNIFAC-GROUP" ? ? PROPERTIES MAIN ? \ GPROPERTIES GPPROCTYPE = 
+ALL GBASEOPSET = REFPROP GOPSETNAME = REFPROP PARCON = -2 \ ? PROPERTIES 
+"OPTION-SETS" REFPROP ? \ PARAM BASE = REFPROP \ ? PROPERTIES "NC-PROPS" ? ? 
+PROPERTIES "MOLEC-STRUCT" AMMONIA ? ? PROPERTIES "MOLEC-STRUCT" WATER ? ? 
+PROPERTIES PARAMETERS BINARY SCALAR "MLQKIJ-1" ? ; "ENG_MOLE" ; \ PROP-LIST 
+PARAMNAME = MLQKIJ SETNO = 1 UNITROW = 0 \ ? PROPERTIES PARAMETERS BINARY 
+SCALAR "RKTKIJ-1" ? ; "ENG_MOLE" ; \ PROP-LIST PARAMNAME = RKTKIJ SETNO = 1 
+UNITROW = 0 \ ? PROPERTIES PARAMETERS BINARY "T-DEPENDENT" "ANDKIJ-1" ? ; 
+"ENG_MOLE" ; \ PROP-LIST PARAMNAME = ANDKIJ SETNO = 1 UNITROW = 0 TUNITROW = 
+22 TUNITLABEL = F NEL = 2 \ ? PROPERTIES PARAMETERS BINARY "T-DEPENDENT" 
+"ANDMIJ-1" ? ; "ENG_MOLE" ; \ PROP-LIST PARAMNAME = ANDMIJ SETNO = 1 UNITROW
+ = 0 TUNITROW = 22 TUNITLABEL = F NEL = 2 \ ? PROPERTIES PARAMETERS BINARY 
+"T-DEPENDENT" "MUKIJ-1" ? ; "ENG_MOLE" ; \ PROP-LIST PARAMNAME = MUKIJ SETNO
+ = 1 UNITROW = 0 TUNITROW = 22 TUNITLABEL = F NEL = 6 \ ? PROPERTIES 
+PARAMETERS BINARY "T-DEPENDENT" "MULIJ-1" ? ; "ENG_MOLE" ; \ PROP-LIST 
+PARAMNAME = MULIJ SETNO = 1 UNITROW = 0 TUNITROW = 22 TUNITLABEL = F NEL = 11 
+\ ? PROPERTIES "ATTR-COMPS" ? ? POLYMERS ? 
+
+ GRAPHICS_BACKUP
+PFS V NONE
+$CONFIG
+paramdata APV121 ENRTL-RK
+paramdata APV121 VLE-IG
+paramdata APV121 VLE-RK
+paramdata APV121 VLE-HOC
+paramdata APV121 LLE-LIT
+paramdata APV121 LLE-ASPEN
+paramdata APV121 VLE-LIT
+paramdata APV121 BINARY
+paramdata APV121 HENRY-AP
+paramdata APV121 PITZER
+paramdata APV121 EOS-LIT
+paramdata APV121 SRK-ASPEN
+paramdata APV121 PC-SAFT
+paramdata APV121 POLYPCSF
+paramdata APV121 HYSYS
+paramdata APESV121 AP-EOS
+paramdata NISTV121 NIST-HOC
+paramdata NISTV121 NIST-IG
+paramdata NISTV121 NIST-RK
+paramdata NISTV121 NIST-EOS
+purebank APV121 PURE39
+purebank APV121 AQUEOUS
+purebank APV121 SOLIDS
+purebank APV121 INORGANIC
+purebank APESV121 AP-EOS
+purebank NISTV121 NIST-TRC
+regdbank 0
+ftn_check 1
+autoblockid 1
+autostreamid 1
+showblockid 1
+showstreamid 1
+autoplacement 1
+grid 2
+gridresolution 0.100000
+scale 0
+streamprefix 
+blockprefix B
+labelscale 1.000000
+qwformat %.0f
+tempformat %.0f
+presformat %.0f
+flowformat %.0f
+strmqwformat %.0f
+vflowformat %.0f
+mflowformat %.0f
+vfracformat %.0f
+pseudobatch 0
+partial 1
+animation 1
+runanyway 0
+globalqw 0
+globaltemp 0
+globalpres 0
+globalflow 0
+globalstrmqw 0
+globalvflow 0
+globalmflow 0
+globalvfrac 0
+browserheight 6375
+browserwidth 9000
+browsertreewidth 2370
+polyplusenabled 1
+dynaplusenabled 1
+bfracenabled 1
+rtfenabled 1
+rspenabled 0
+pinchenabled 0
+linklimit 5000
+material_color 0
+material_style 0
+material_width 1
+heat_color 0
+heat_style 2
+heat_width 1
+heat_termid Q
+work_color 0
+work_style 1
+work_width 1
+work_termid W
+connections_color 9
+connections_style 3
+connections_width 1
+measurements_color 4
+measurements_style 3
+measurements_width 1
+displayeoconn 0
+displayeomeas 1
+displayeomeastype 2
+showeoviews 0
+eoautosave 1
+allow_system_userprops 0
+copy_estimation 1
+copy_retrieved 1
+purge_incomp_params 0
+set_default_biparams 0
+set_default_dataset1 0
+set_default_dataset0 1
+roottype 0
+exchangerfile 1
+streamformat 1
+runsettingfile 1
+usermodelfile 1
+fortranfile 0
+timeout 1000
+#
+#
+E_LINK
+
+$_SUMMARY_FILE
+ MMSUMMARY39.0                                                                  
+ IDSET RUNID (PROPERTIES) (114 *5)                                              
+ IDSET IT (PROPERTIES) (117 *6 119 *6 115 *1)                                   
+ LSET RUNID (%RUNID)                                                            
+ LSET IT (%IT)                                                                  
+ IDSET VERS (PROPERTIES) (345 *6 346 *6 347 *6 348 *6 355 *6)                   
+ LSET VERS (%VERS)                                                              
+ DSET RUN-STATUS VERS @VERS ( "39.0" "WIN-X64" "" "chuyi" "MARIOLA" )           
+ IDSET STRNAM (PROPERTIES) (1233 *6)                                            
+ LSET STRNAM (%STRNAM)                                                          
+ IDSET ID_STRPR (PROPERTIES) ( 454 *2 <119> 1236 *2 <125> 1237 *2 <29> 1238 *2  
+ <55> 1239 *2 <55> 1083 *6 1084 *6 )                                            
+ LSET L_STRPR (%ID_STRPR)                                                       
+ IDSET ID_GUID (PROPERTIES) ( 1270 *6 )                                         
+ LSET L_GUID (%ID_GUID)                                                         
+ IDSET STATUS (PROPERTIES) (125 *1 126 *1 127 *1 128 *1 129 *1 130 *1)          
+ LSET STATUS (%STATUS)                                                          
+ DSET RUN-STATUS STATUS @STATUS ( 8 * * * * * )                                 
+ DSET RUN-STATUS COMPSTAT @L_1 (0)                                              
+ DSET RUN-STATUS RUNID @RUNID ("_4649khg")                                      
+ DSET RUN-STATUS IT @IT ( "OCTOBER 9, 2024     7:46:54 A.M." "_4649khg.inm" 2)  
+
+ENDTEXT;
+TimeStamp : "31136337 -1248973606";
+
+Default as ComponentList; 
+
+AW as ComponentList; 
+Within AW
+  Components :["AMMONIA","WATER"];
+EndWithin
+End
+
+Options
+  AbsoluteSingularityTol: 1.e-004;
+  AbsPerturb: 1.e-005;
+  AbsTearTol: 1.e-005;
+  AbsTol: 1.e-005;
+  AssignmentWarningsEnabled: True;
+  ChangeTol: 1.e-005;
+  CheckProcDerivs: "Off";
+  Compression: True;
+  CurrentUOMSet: "Metric";
+  Decomposer.ProgID: "AspenTech.Decomposer";
+  Decomposition.MultipleGroup: True;
+  DerivAbsTol: 1.e-003;
+  DerivRelTol: 0.1;
+  EqnTol: 1.e-005;
+  EquationSensCheck: False;
+  EquationSensTol: 10000000000.;
+  EstimationPrintLevel: "Medium";
+  EstimationReturntoBestPoint: False;
+  EstimationSolver: 2;
+  Estimator: 1;
+  ExplicitEventTolerance: 1.e-005;
+  Feasopt.MaxAbsStep: 10.;
+  Feasopt.MaxEval: 100;
+  Feasopt.MaxRelStep: 10.;
+  Feasopt.OptTol: 1.e-004;
+  Homotopy.InitialStep: 0.1;
+  Homotopy.MaximumStep: 1.;
+  Homotopy.MinimumStep: 1.e-002;
+  Homotopy.StepDecrement: 0.5;
+  Homotopy.StepIncrement: 10;
+  Integration.AbsErrorTol: 1.e-005;
+  Integration.AbsTearTol: 1.e-005;
+  Integration.DiscontinuityEventTol: 1.e-005;
+  Integration.EnforceMinStep: False;
+  Integration.IncSensErrors: False;
+  Integration.InitStepSize: 5.e-003;
+  Integration.ItplToComTime: True;
+  Integration.LocateIEvents: False;
+  Integration.MaxOrder: 5;
+  Integration.MaxStepSize: 1.;
+  Integration.MinStepSize: 1.e-003;
+  Integration.ProgID: "AspenTech.UnifiedIntegrator";
+  Integration.RcvTornVars: False;
+  Integration.ReInitAfterEE: False;
+  Integration.ReInitAfterIE: False;
+  Integration.RelErrorTol: 1.e-005;
+  Integration.RelTearTol: 1.e-005;
+  Integration.RewindToLastConvStep: False;
+  Integration.ShowHIErrors: 0;
+  Integration.ShowHTIErrors: 0;
+  Integration.StepRedFact: 0.5;
+  Integration.StepSize: 1.e-002;
+  Integration.StepSizeType: "Variable";
+  Integration.TestSAndAVars: False;
+  Integration.UsePrevAfterEE: False;
+  Integrator: "ImplicitEuler";
+  KeepCompiledEvaluationFiles: False;
+  LinearSolver: "MA48";
+  ListEquivalenceVariables: True;
+  LogLikelihood.MaxIter: 100;
+  LogLikelihood.SolTol: 1.e-004;
+  MA48.DropTol: 0.;
+  MA48.EnableRefineIter: True;
+  MA48.MaxRefineIter: 10;
+  MA48.PivotSearch: 3;
+  MA48.PivotTol: 1.e-050;
+  MA48.Repivot: 0;
+  MA48.UseTranspose: 0;
+  MaxTearIter: 100;
+  Nl2sol.AbsFuncTol: 9.999999999999999e-021;
+  Nl2sol.FalseConvTol: 0.;
+  Nl2sol.MaxIter: 50;
+  Nl2sol.RelFuncTol: 1.e-004;
+  Nl2sol.SolTol: 1.e-004;
+  NLASolver: "Standard";
+  Nonlinear.AbsPert: 1.e-005;
+  Nonlinear.BestOnFail: True;
+  Nonlinear.BoundClip: 1.e-006;
+  Nonlinear.BoundFrac: 1.;
+  Nonlinear.ConvCrit: "Residual";
+  Nonlinear.CreepIter: 0;
+  Nonlinear.CreepSize: 0.1;
+  Nonlinear.Dogleg: False;
+  Nonlinear.HiResidual: 0;
+  Nonlinear.HiVarSteps: 0;
+  Nonlinear.MathsPrint: 0;
+  Nonlinear.MaxDivSteps: 10;
+  Nonlinear.MaxFastNewtonSteps: 5;
+  Nonlinear.MaxIter: 100;
+  Nonlinear.MaxStepRed: 10;
+  Nonlinear.MaxVarStep: 50.;
+  Nonlinear.Method: "Newton";
+  Nonlinear.RangeFrac: 0.;
+  Nonlinear.SingPert: 1.e-002;
+  OptimizationObjFun: "Minimize";
+  OptimizationPrintLevel: "Medium";
+  Optimizer: 1;
+  PrintLevel: 2;
+  PropInfo: -1;
+  RelativeSingularityCheck: True;
+  RelativeSingularityTol: 1.e-002;
+  RelPerturb: 1.e-005;
+  RelTearTol: 1.e-005;
+  RelTol: 1.e-005;
+  RunMode: "Initialization";
+  SaveFreeVariableValues: True;
+  Scaling: False;
+  SensErrorCheck: True;
+  SnapshotSettings.EnableDynInitialization: True;
+  SnapshotSettings.EnableFileSaved: False;
+  SnapshotSettings.EnableInitialization: True;
+  SnapshotSettings.EnableInitialSpec: True;
+  SnapshotSettings.EnableMaximum: True;
+  SnapshotSettings.EnableonReinitialization: False;
+  SnapshotSettings.EnableProblemEdit: True;
+  SnapshotSettings.EnableRegularSnapshot: False;
+  SnapshotSettings.EnableSteadyState: True;
+  SnapshotSettings.Interval: 2.;
+  SnapshotSettings.Maximum: 10;
+  SnapshotSettings.SaveConvergedOnly: True;
+  SnapshotSettings.TakeAutoSnapshots: True;
+  SyncSteps: "Full";
+  Tearing: "update";
+  TearUpdate: "Direct";
+  TimeSettings.CommunicationInterval: 1.e-002;
+  TimeSettings.CommunicationUnits: "Hours";
+  TimeSettings.DisplayUpdateInterval: 2000;
+  TimeSettings.EnablePauseAt: False;
+  TimeSettings.EnableStepFor: False;
+  TimeSettings.PauseAt: 0.;
+  TimeSettings.RealTimeSyncFactor: 0.;
+  TimeSettings.RecordHistory: False;
+  TimeSettings.StepFor: 0;
+  TimeSettings.TimeDisplayUnits: "Hours";
+  UseCompiledEvaluation: False;
+  UseSavedSnapshotOnLoad: False;
+  WatchGroup: 0;
+  WatchSubGroup: 0;
+  Wegstein.MaxAcceleration: 0.;
+  Wegstein.MinAcceleration: -5.;
+  OpenLASolver: "";
+  OpenNLASolver: "";
+  OpenOPTSolver: "";
+  OpenESTSolver: "";
+End
+Optimization
+  IsDynamic : FALSE;
+  ElementSizeBoundsAutomatic : TRUE;
+  EndTime : 1.000000000000000;
+  Control.FinalTime_Initial : 1.000000000000000;
+  Control.FinalTime_Upper : 2.000000000000000;
+  Control.FinalTime_Lower : 0.5000000000000000;
+  Control.FinalTime_IsFixed : TRUE;
+  Control.FinalTime_IsObjective : FALSE;
+  Control.Elements : 5;
+  Control.FixedInterval : TRUE;
+  Control.MovingElementsVarying : FALSE;
+  Control.PiecewiseLinear : FALSE;
+  Control(0) : 0.2000000000000000, 0.05000000000000000, 0.4000000000000000 ;
+  Control(1) : 0.2000000000000000, 0.05000000000000000, 0.4000000000000000 ;
+  Control(2) : 0.2000000000000000, 0.05000000000000000, 0.4000000000000000 ;
+  Control(3) : 0.2000000000000000, 0.05000000000000000, 0.4000000000000000 ;
+  Control(4) : 0.2000000000000000, 0.05000000000000000, 0.4000000000000000 ;
+End
+Estimation
+  CalcHeteroParams : TRUE;
+  ExperimentTimeUnit: "";
+End
+Homotopy
+ Enabled: FALSE;
+End
+SimulationAccessExtension
+  ENABLED: false;
+End
+OnLineLinks
+  Protocol: "OPC", 1;
+  //Server: "";
+  IO: Synchronous, Cached;
+  Bounds: Clip;
+  Quality: UseLast;
+  Update: 1000;
+  PrintLevel: 2;
+  Enabled: OFF;
+  Input Events : Before SS Run, After DYN Step, After INI Step, Before INI Run;
+  Output Events: After SS Run, After DYN Step, After INI Step, After INI Run;
+End
