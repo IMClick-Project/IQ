@@ -56,7 +56,7 @@ ax.plot(pvp,CV_TV1,r"*",color=colores[1]); ax.plot(pvp,CV_TV1_pred,r"--",color=c
 plt.text(0.002,85,r"$\bf{TV-1:}$$\:C_V=("+CV_max+r")\left[\dfrac{"+alpha+r"vp}{1+("+alpha+r"-1)vp}\right],\:R^2=$"+R2,color=colores[1],backgroundcolor=r"w"); alpha_TV1=popt[0];
 popt=curve_fit(lambda vp,alpha:CV_porcigual2(vp,alpha,CV_PV2[-1]),pvp,CV_PV2)[0]; CV_PV2_pred=CV_porcigual2(pvp,*popt,CV_PV2[-1]); R2_CV_PV2=r2_score(CV_PV2,CV_PV2_pred);
 ax.plot(pvp,CV_PV2,r"*",color=colores[2]); ax.plot(pvp,CV_PV2_pred,r"--",color=colores[2]); alpha=str(round(popt[0],4)); CV_max=str(round(CV_PV2[-1],4)); R2=str(round(R2_CV_PV2,4));
-plt.text(0.002,75,r"$\bf{PV-1:}$$\:C_V=("+CV_max+r")\left[\dfrac{"+alpha+r"vp}{1+("+alpha+r"-1)vp}\right],\:R^2=$"+R2,color=colores[2],backgroundcolor=r"w"); alpha_PV2=popt[0];
+plt.text(0.002,75,r"$\bf{PV-2:}$$\:C_V=("+CV_max+r")\left[\dfrac{"+alpha+r"vp}{1+("+alpha+r"-1)vp}\right],\:R^2=$"+R2,color=colores[2],backgroundcolor=r"w"); alpha_PV2=popt[0];
 popt=curve_fit(lambda vp,alpha:CV_porcigual2(vp,alpha,CV_FV1[-1]),pvp,CV_FV1)[0]; CV_FV1_pred=CV_porcigual2(pvp,*popt,CV_FV1[-1]); R2_CV_FV1=r2_score(CV_FV1,CV_FV1_pred);
 ax.plot(pvp,CV_FV1,r"*",color=colores[3]); ax.plot(pvp,CV_FV1_pred,r"--",color=colores[3]); alpha=str(round(popt[0],4)); CV_max=str(round(CV_FV1[-1],4)); R2=str(round(R2_CV_FV1,4));
 plt.text(0.002,65,r"$\bf{FV-1:}$$\:C_V=("+CV_max+r")\left[\dfrac{"+alpha+r"vp}{1+("+alpha+r"-1)vp}\right],\:R^2=$"+R2,color=colores[3],backgroundcolor=r"w"); alpha_FV1=popt[0];
