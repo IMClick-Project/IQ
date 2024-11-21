@@ -1,0 +1,647 @@
+Version "39.0-0";
+Libraries "Modeler.acml", "Dynamics.acml", "SystemLibrary.acml";
+!ENCRYPTED! 172
+U0pWUHRK3nide4B/NhmW0M4gYUB9CS/SIn6hfN7mMmXTDrFB3CNcHpeN0/IpjLGHHfSihAKnAkhMwKS64zwoMkurGeozS+b2ZaZ9pBPXeBWJq08BS0VY7ENXuJy0W/hW6FP0EeaVrSKWyCShUsi3KCd245ENDvnFikQoGQVCsR4=
+!END ENCRYPTED!
+!ENCRYPTED! 108
+yOJEpLIFQ/qx3muYKIJQyakYyh19DXm3eT9Ec2EvCOt3H/mo3NSWHfzJPdEKb+V+kWAr0+5Zig1NY3e7bFW4CYXbcxlLw2Ii9k502LYptbc=
+!END ENCRYPTED!
+!ENCRYPTED! 152
+yOJEpLIFQ/rhOa5J0FFr5Z5no8yUMsfSTBMhQ+hI3bJnpQa9gxD2th727r++5Amml0q9eJUd7hqSsS2ATGH41KAm6ZJseO7lIjHtKTsBOsI/0c4WHiWdvztQSAFHhtqwEikrf4ZiOM37Oxm6F63FlA==
+!END ENCRYPTED!
+!ENCRYPTED! 19532
+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
+!END ENCRYPTED!
+SystemData : Text
+globaldatasection
+EndText;
+SystemData : Text
+<FORMLIST DEFAULTFORM="AllGlobals">
+  <FORM NAME="AllGlobals" CLSID="{6BA76840-806B-11D0-BE51-0000C09984EF}">
+    { Version : 1
+SizeX : 4200
+SizeY : 3000
+ShowAllVariables : True
+ShowAllAttributes : False
+ExpandAll : True
+ShowRegistryAttributes : True
+VariablesPaths : [ ]
+AttributesPaths : [ ]
+ColumnWidths : [ ]
+}
+  </FORM>
+</FORMLIST>
+EndText;
+
+FLOWSHEET
+  Thermosiphon as Thermosiphon;
+  Liq_s_ps1pps2m3 as Connection;
+  R_CF_out as Connection;
+  QR as Connection;
+  E_HF_in as Connection;
+  R_HF_in as Connection;
+  R_HF_out as Connection;
+  Connect Thermosiphon.Liq_s_ps1pps2m3 with Liq_s_ps1pps2m3;
+  Connect Thermosiphon.R_CF_out with R_CF_out;
+  Connect Thermosiphon.QR with QR;
+  Connect Thermosiphon.E_HF_in with E_HF_in;
+  Connect Thermosiphon.R_HF_in with R_HF_in;
+  Connect Thermosiphon.R_HF_out with R_HF_out;
+
+CONSTRAINTS
+  // Flowsheet variables and equations...
+END
+
+//SYSTEM SECTION - WARNING: DO NOT EDIT
+SystemData : Text
+<FORMLIST DEFAULTFORM="AllVariables">
+  <FORM NAME="AllVariables" MODEL="Thermosiphon">
+    { Version : 1
+SizeX : 6600
+SizeY : 5364
+ShowAllVariables : True
+ShowAllAttributes : False
+ExpandAll : True
+ShowRegistryAttributes : True
+VariablesPaths : [ ]
+AttributesPaths : [ ]
+ColumnWidths : [ ]
+}
+  </FORM>
+  <FORM NAME="AllVariables" MODEL="Liq_s_ps1pps2m3">
+    { Version : 1
+SizeX : 5256
+SizeY : 3756
+ShowAllVariables : True
+ShowAllAttributes : False
+ExpandAll : True
+ShowRegistryAttributes : True
+VariablesPaths : [ ]
+AttributesPaths : [ ]
+ColumnWidths : [ ]
+}  </FORM>
+  <FORM NAME="AllVariables" MODEL="R_CF_out">
+    { Version : 1
+SizeX : 5256
+SizeY : 3756
+ShowAllVariables : True
+ShowAllAttributes : False
+ExpandAll : True
+ShowRegistryAttributes : True
+VariablesPaths : [ ]
+AttributesPaths : [ ]
+ColumnWidths : [ ]
+}  </FORM>
+  <FORM NAME="AllVariables" MODEL="E_HF_in">
+    { Version : 1
+SizeX : 5256
+SizeY : 3756
+ShowAllVariables : True
+ShowAllAttributes : False
+ExpandAll : True
+ShowRegistryAttributes : True
+VariablesPaths : [ ]
+AttributesPaths : [ ]
+ColumnWidths : [ ]
+}  </FORM>
+  <FORM NAME="AllVariables" MODEL="R_HF_in">
+    { Version : 1
+SizeX : 5256
+SizeY : 3756
+ShowAllVariables : True
+ShowAllAttributes : False
+ExpandAll : True
+ShowRegistryAttributes : True
+VariablesPaths : [ ]
+AttributesPaths : [ ]
+ColumnWidths : [ ]
+}  </FORM>
+  <FORM NAME="AllVariables" MODEL="R_HF_out">
+    { Version : 1
+SizeX : 23040
+SizeY : 9504
+ShowAllVariables : True
+ShowAllAttributes : False
+ExpandAll : True
+ShowRegistryAttributes : True
+VariablesPaths : [ ]
+AttributesPaths : [ ]
+ColumnWidths : [ ]
+}  </FORM>
+</FORMLIST>
+EndText;
+
+//SYSTEM SECTION END
+  ActiveTasks : [];
+  Thermosiphon.ComponentList : "AW";
+  Thermosiphon.E_HF_in.F.spec : Fixed;
+  Thermosiphon.E_HF_in.F : 37.8246676531301;
+  Thermosiphon.E_HF_in.P.spec : Free;
+  Thermosiphon.E_HF_in.P : 14.817082087892;
+  Thermosiphon.E_HF_in.T.spec : Free;
+  Thermosiphon.E_HF_in.T : 197.3093665297355;
+  Thermosiphon.E_HF_in.z("AMMONIA").spec : Free;
+  Thermosiphon.E_HF_in.z("AMMONIA") : 1.177641715545551e-005;
+  Thermosiphon.E_HF_in.z("WATER") : 0.9999882235828447;
+  Thermosiphon.hE_HF_in : -0.2725823339488824;
+  Thermosiphon.hgCF : -0.2374450322067139;
+  Thermosiphon.hgS : -0.2374450322067139;
+  Thermosiphon.hlCF : -0.2725505515263705;
+  Thermosiphon.hLiq_s_ps1pps2m2 : -0.2725823339488824;
+  Thermosiphon.hLiq_s_ps1pps2m3 : -0.2725823339488829;
+  Thermosiphon.hlS : -0.2725823339488824;
+  Thermosiphon.hR_CF_out : -0.2374450322067138;
+  Thermosiphon.hR_HF_in : 0.1163775043017402;
+  Thermosiphon.hR_HF_out : 0.1127889828374088;
+  Thermosiphon.Liq_s_ps1pps2m2F.spec : Free;
+  Thermosiphon.Liq_s_ps1pps2m2F : 29.59954836559393;
+  Thermosiphon.Liq_s_ps1pps2m2P : 14.817082087892;
+  Thermosiphon.Liq_s_ps1pps2m2T : 197.3093665297355;
+  Thermosiphon.Liq_s_ps1pps2m2z("AMMONIA") : 1.177641715545551e-005;
+  Thermosiphon.Liq_s_ps1pps2m2z("WATER") : 0.9999882235828447;
+  Thermosiphon.Liq_s_ps1pps2m3.F.spec : Fixed;
+  Thermosiphon.Liq_s_ps1pps2m3.F : 67.42421601872402;
+  Thermosiphon.Liq_s_ps1pps2m3.P.spec : Fixed;
+  Thermosiphon.Liq_s_ps1pps2m3.P : 14.69449270044603;
+  Thermosiphon.Liq_s_ps1pps2m3.T.spec : Fixed;
+  Thermosiphon.Liq_s_ps1pps2m3.T : 197.3105075804016;
+  Thermosiphon.Liq_s_ps1pps2m3.z("AMMONIA").spec : Fixed;
+  Thermosiphon.Liq_s_ps1pps2m3.z("AMMONIA") : 1.1776417155428e-005;
+  Thermosiphon.Liq_s_ps1pps2m3.z("WATER").spec : Fixed;
+  Thermosiphon.Liq_s_ps1pps2m3.z("WATER") : 0.9999882235828446;
+  Thermosiphon.LT1 : 64.1977;
+  Thermosiphon.Mg_R_CF : 2.158786523031608e-002;
+  Thermosiphon.Mg_S : 0.1589766788970053;
+  Thermosiphon.Ml_R_CF : 3.359375902636051;
+  Thermosiphon.Ml_S : 29.65255038760338;
+  Thermosiphon.MT.spec : Free;
+  Thermosiphon.MT : 33.19249083436675;
+  Thermosiphon.MuT.spec : Free;
+  Thermosiphon.MuT : -9.042893218627427;
+  Thermosiphon.MWLiq_s_ps1pps2m2 : 18.01526840352649;
+  Thermosiphon.MzT.spec : Free;
+  Thermosiphon.MzT : 3.90888618494234e-004;
+  Thermosiphon.Pg_R_CF : 14.817082087892;
+  Thermosiphon.Pg_S : 14.817082087892;
+  Thermosiphon.Pl_R_CF : 14.817082087892;
+  Thermosiphon.Pl_S : 14.817082087892;
+  Thermosiphon.QR.Q : 1.040048262353819;
+  Thermosiphon.R_CF_out.F.spec : Free;
+  Thermosiphon.R_CF_out.F : 29.59954836559393;
+  Thermosiphon.R_CF_out.P : 14.817082087892;
+  Thermosiphon.R_CF_out.T : 197.7056203032344;
+  Thermosiphon.R_CF_out.z("AMMONIA") : 1.177641715545551e-005;
+  Thermosiphon.R_CF_out.z("WATER") : 0.9999882235828447;
+  Thermosiphon.R_HF_in.F.spec : Free;
+  Thermosiphon.R_HF_in.F : 289.8264014;
+  Thermosiphon.R_HF_in.P.spec : Fixed;
+  Thermosiphon.R_HF_in.P : 7.2569;
+  Thermosiphon.R_HF_in.T.spec : Fixed;
+  Thermosiphon.R_HF_in.T : 230.0281;
+  Thermosiphon.R_HF_out.F.spec : Fixed;
+  Thermosiphon.R_HF_out.F : 289.8264014;
+  Thermosiphon.R_HF_out.P : 7.2569;
+  Thermosiphon.R_HF_out.T.spec : Free;
+  Thermosiphon.R_HF_out.T : 223.8366592048217;
+  Thermosiphon.rhogCF : 0.4164761677704014;
+  Thermosiphon.rhogS : 0.4164761677704014;
+  Thermosiphon.rholCF : 48.14347574421664;
+  Thermosiphon.rhoLiq_s_ps1pps2m2 : 48.16920441410556;
+  Thermosiphon.rholS : 48.16920441410556;
+  Thermosiphon.Tg_R_CF : 197.7056203032344;
+  Thermosiphon.Tg_S : 197.7056203032344;
+  Thermosiphon.Tl_R_CF : 197.7028829635781;
+  Thermosiphon.Tl_S : 197.3093665297355;
+  Thermosiphon.ugCF : -0.2410027584908408;
+  Thermosiphon.ugS : -0.2410027584908408;
+  Thermosiphon.ulCF : -0.2725813284527532;
+  Thermosiphon.ulS : -0.2726130944363517;
+  Thermosiphon.Vl_R_CF : 6.977842481677499e-002;
+  Thermosiphon.Vl_S : 0.6155914499372575;
+  Thermosiphon.x_R_CF("AMMONIA") : 1.177641715545551e-005;
+  Thermosiphon.x_R_CF("WATER") : 0.9999882235828447;
+  Thermosiphon.x_S("AMMONIA") : 1.177641715545551e-005;
+  Thermosiphon.x_S("WATER") : 0.9999882235828447;
+  Thermosiphon.y_R_CF("AMMONIA") : 1.177641715545551e-005;
+  Thermosiphon.y_R_CF("WATER") : 0.9999882235828447;
+  Thermosiphon.y_S("AMMONIA") : 1.177641715545551e-005;
+  Thermosiphon.y_S("WATER") : 0.9999882235828447;
+  Thermosiphon.z.spec : Fixed;
+  Thermosiphon.z : 1.440528945;
+  Graphics : TEXT CLSID {A0DFFFE6-908E-11CE-A964-0000C08C668E}
+# of PFS Objects = 8
+SIZE -7.43044 -2.10287 -8.85 -5.99428
+BLOCK
+ID: Thermosiphon
+Version: 1
+ICON: "Thermosiphon"
+Flag 0
+Section 
+At -6.910093 -6.454563
+Label At 2.919253 -2.693384
+Scale 0.633666 Modifier 0
+STREAM
+ID: Liq_s_ps1pps2m3
+Version: 2
+Flag 0
+STYLE 4 5
+TYPE 0 TERMINAL 1
+At -4.616242 -5.994275
+Label At 0.000000 -0.174233
+ROUTE 0 0
+$ $ 0.0 0.0
+ROUTE 1 0
+r d -4.616242 -5.994275 0
+y y -4.616242 -6.350000 0
+x x -4.850932 -6.350000 0
+y y -4.850932 -6.507407 0
+t u -4.850932 -6.707400 0
+$ C 1.000000 0.0
+$ $ 0.0 0.0
+At 0.000000 0.000000
+Label At 0.000000 0.000000
+ROUTE 0 1
+$ $ 0.0 0.0
+ROUTE 1 1
+$ $ 0.0 0.0
+At 0.000000 0.000000
+Label At 0.000000 0.000000
+ROUTE 0 2
+$ $ 0.0 0.0
+ROUTE 1 2
+$ $ 0.0 0.0
+STREAM
+ID: R_CF_out
+Version: 2
+Flag 0
+STYLE 4 5
+TYPE 0 TERMINAL 2
+At -5.408936 -6.123988
+Label At 0.000000 -0.028668
+ROUTE 0 0
+r d -5.408936 -6.123988 0
+y x -5.408936 -6.425000 1
+x y -5.230122 -6.425000 0
+y 0 -5.230122 -6.507413 0
+x x -5.230120 -6.507420 0
+t u -5.230125 -6.707399 0
+$ C 1.000000 0.0
+$ $ 0.0 0.0
+ROUTE 1 0
+$ $ 0.0 0.0
+At 0.000000 0.000000
+Label At 0.000000 0.000000
+ROUTE 0 1
+$ $ 0.0 0.0
+ROUTE 1 1
+$ $ 0.0 0.0
+At 0.000000 0.000000
+Label At 0.000000 0.000000
+ROUTE 0 2
+$ $ 0.0 0.0
+ROUTE 1 2
+$ $ 0.0 0.0
+STREAM
+ID: QR
+Version: 2
+Flag 0
+STYLE 0 1
+TYPE 0 TERMINAL 2
+At -4.194572 -8.211560
+Label At 0.000000 0.169434
+ROUTE 0 0
+r u -4.194572 -8.211560 0
+y x -4.194572 -7.872693 0
+x 0 -4.162469 -7.872693 0
+y y -4.162469 -7.836251 0
+t l -3.962469 -7.836253 0
+$ C 1.000000 0.0
+$ $ 0.0 0.0
+ROUTE 1 0
+$ $ 0.0 0.0
+At 0.000000 0.000000
+Label At 0.000000 0.000000
+ROUTE 0 1
+$ $ 0.0 0.0
+ROUTE 1 1
+$ $ 0.0 0.0
+At 0.000000 0.000000
+Label At 0.000000 0.000000
+ROUTE 0 2
+$ $ 0.0 0.0
+ROUTE 1 2
+$ $ 0.0 0.0
+STREAM
+ID: E_HF_in
+Version: 2
+Flag 0
+STYLE 4 5
+TYPE 0 TERMINAL 2
+At -7.430442 -6.950000
+Label At 1.065721 -1.900001
+ROUTE 0 0
+r d -7.430442 -6.950000 0
+y x -7.430442 -8.850000 0
+x y -5.316186 -8.850000 0
+y x -5.316186 -8.691241 0
+x x -5.316186 -8.691241 0
+t d -5.316189 -8.491241 0
+$ C 1.000000 0.0
+$ $ 0.0 0.0
+ROUTE 1 0
+$ $ 0.0 0.0
+At 0.000000 0.000000
+Label At 0.000000 0.000000
+ROUTE 0 1
+$ $ 0.0 0.0
+ROUTE 1 1
+$ $ 0.0 0.0
+At 0.000000 0.000000
+Label At 0.000000 0.000000
+ROUTE 0 2
+$ $ 0.0 0.0
+ROUTE 1 2
+$ $ 0.0 0.0
+STREAM
+ID: R_HF_in
+Version: 2
+Flag 0
+STYLE 6 5
+TYPE 0 TERMINAL 1
+At -2.167245 -8.619407
+Label At -0.738418 0.000000
+ROUTE 0 0
+$ $ 0.0 0.0
+ROUTE 1 0
+r l -2.167245 -8.619407 0
+x x -3.371178 -8.619407 0
+t r -3.571187 -8.619407 0
+$ C 1.000000 0.0
+$ $ 0.0 0.0
+At 0.000000 0.000000
+Label At 0.000000 0.000000
+ROUTE 0 1
+$ $ 0.0 0.0
+ROUTE 1 1
+$ $ 0.0 0.0
+At 0.000000 0.000000
+Label At 0.000000 0.000000
+ROUTE 0 2
+$ $ 0.0 0.0
+ROUTE 1 2
+$ $ 0.0 0.0
+STREAM
+ID: R_HF_out
+Version: 2
+Flag 0
+STYLE 6 5
+TYPE 0 TERMINAL 2
+At -2.102874 -7.781409
+Label At -0.806140 0.000000
+ROUTE 0 0
+r l -2.102874 -7.781409 0
+x y -3.400760 -7.781411 0
+y y -3.400759 -7.781411 0
+t r -3.600760 -7.781409 0
+$ C 1.000000 0.0
+$ $ 0.0 0.0
+ROUTE 1 0
+$ $ 0.0 0.0
+At 0.000000 0.000000
+Label At 0.000000 0.000000
+ROUTE 0 1
+$ $ 0.0 0.0
+ROUTE 1 1
+$ $ 0.0 0.0
+At 0.000000 0.000000
+Label At 0.000000 0.000000
+ROUTE 0 2
+$ $ 0.0 0.0
+ROUTE 1 2
+$ $ 0.0 0.0
+LEGEND
+Version: 2
+Dim: -4.10652 -3.2 -3.13928 -3.39617
+Size: 0.0128607
+Font: 1 0 =Times New Roman
+# of PFS Objects = 0
+VIEWPORT -8.875170 11.123283 -5.968321 -12.282945
+LAYOUT
+TableFormat 1
+Pages 1 1 1 1
+PAGESETUP
+PAPERSIZE 
+PAPERSOURCE 
+ORIENTATION -1
+PRINTPAGENO 1 1
+LEFTMARGIN 10mm
+RIGHTMARGIN 10mm
+TOPMARGIN 10mm
+BOTTOMMARGIN 10mm
+VISIBILITY 0.030000
+PFDFLAG 255 255
+PFDMODE 0
+SCALE 0.012861
+
+ENDTEXT;
+END
+
+Properties
+Package : "PropertiesPlus";
+TimeStamp : "31143833 -1733661053";
+
+Default as ComponentList; 
+
+AW as ComponentList; 
+Within AW
+  Components :["AMMONIA","WATER"];
+EndWithin
+End
+
+Options
+  AbsoluteSingularityTol: 1.e-004;
+  AbsPerturb: 1.e-005;
+  AbsTearTol: 1.e-005;
+  AbsTol: 1.e-005;
+  AssignmentWarningsEnabled: True;
+  ChangeTol: 1.e-005;
+  CheckProcDerivs: "Off";
+  Compression: True;
+  CurrentUOMSet: "Metric";
+  Decomposer.ProgID: "AspenTech.Decomposer";
+  Decomposition.MultipleGroup: True;
+  DerivAbsTol: 1.e-003;
+  DerivRelTol: 0.1;
+  EqnTol: 1.e-005;
+  EquationSensCheck: False;
+  EquationSensTol: 10000000000.;
+  EstimationPrintLevel: "Medium";
+  EstimationReturntoBestPoint: False;
+  EstimationSolver: 2;
+  Estimator: 1;
+  ExplicitEventTolerance: 1.e-005;
+  Feasopt.MaxAbsStep: 10.;
+  Feasopt.MaxEval: 100;
+  Feasopt.MaxRelStep: 10.;
+  Feasopt.OptTol: 1.e-004;
+  Homotopy.InitialStep: 0.1;
+  Homotopy.MaximumStep: 1.;
+  Homotopy.MinimumStep: 1.e-002;
+  Homotopy.StepDecrement: 0.5;
+  Homotopy.StepIncrement: 10;
+  Integration.AbsErrorTol: 1.e-005;
+  Integration.AbsTearTol: 1.e-005;
+  Integration.DiscontinuityEventTol: 1.e-005;
+  Integration.EnforceMinStep: False;
+  Integration.IncSensErrors: False;
+  Integration.InitStepSize: 5.e-003;
+  Integration.ItplToComTime: True;
+  Integration.LocateIEvents: False;
+  Integration.MaxOrder: 5;
+  Integration.MaxStepSize: 1.;
+  Integration.MinStepSize: 1.e-003;
+  Integration.ProgID: "AspenTech.UnifiedIntegrator";
+  Integration.RcvTornVars: False;
+  Integration.ReInitAfterEE: False;
+  Integration.ReInitAfterIE: False;
+  Integration.RelErrorTol: 1.e-005;
+  Integration.RelTearTol: 1.e-005;
+  Integration.RewindToLastConvStep: False;
+  Integration.ShowHIErrors: 0;
+  Integration.ShowHTIErrors: 0;
+  Integration.StepRedFact: 0.5;
+  Integration.StepSize: 1.e-002;
+  Integration.StepSizeType: "Fixed";
+  Integration.TestSAndAVars: False;
+  Integration.UsePrevAfterEE: False;
+  Integrator: "Euler";
+  KeepCompiledEvaluationFiles: False;
+  LinearSolver: "MA48";
+  ListEquivalenceVariables: True;
+  LogLikelihood.MaxIter: 100;
+  LogLikelihood.SolTol: 1.e-004;
+  MA48.DropTol: 0.;
+  MA48.EnableRefineIter: True;
+  MA48.MaxRefineIter: 10;
+  MA48.PivotSearch: 3;
+  MA48.PivotTol: 1.e-050;
+  MA48.Repivot: 0;
+  MA48.UseTranspose: 0;
+  MaxTearIter: 100;
+  Nl2sol.AbsFuncTol: 9.999999999999999e-021;
+  Nl2sol.FalseConvTol: 0.;
+  Nl2sol.MaxIter: 50;
+  Nl2sol.RelFuncTol: 1.e-004;
+  Nl2sol.SolTol: 1.e-004;
+  NLASolver: "Standard";
+  Nonlinear.AbsPert: 1.e-005;
+  Nonlinear.BestOnFail: True;
+  Nonlinear.BoundClip: 1.e-006;
+  Nonlinear.BoundFrac: 1.;
+  Nonlinear.ConvCrit: "Residual";
+  Nonlinear.CreepIter: 0;
+  Nonlinear.CreepSize: 0.1;
+  Nonlinear.Dogleg: False;
+  Nonlinear.HiResidual: 0;
+  Nonlinear.HiVarSteps: 0;
+  Nonlinear.MathsPrint: 0;
+  Nonlinear.MaxDivSteps: 10;
+  Nonlinear.MaxFastNewtonSteps: 5;
+  Nonlinear.MaxIter: 100;
+  Nonlinear.MaxStepRed: 10;
+  Nonlinear.MaxVarStep: 50.;
+  Nonlinear.Method: "Fast Newton";
+  Nonlinear.RangeFrac: 0.;
+  Nonlinear.SingPert: 1.e-002;
+  OptimizationObjFun: "Minimize";
+  OptimizationPrintLevel: "Medium";
+  Optimizer: 1;
+  PrintLevel: 3;
+  PropInfo: -1;
+  RelativeSingularityCheck: True;
+  RelativeSingularityTol: 1.e-002;
+  RelPerturb: 1.e-005;
+  RelTearTol: 1.e-005;
+  RelTol: 1.e-005;
+  RunMode: "SteadyState";
+  SaveFreeVariableValues: True;
+  Scaling: False;
+  SensErrorCheck: True;
+  SnapshotSettings.EnableDynInitialization: True;
+  SnapshotSettings.EnableFileSaved: False;
+  SnapshotSettings.EnableInitialization: True;
+  SnapshotSettings.EnableInitialSpec: True;
+  SnapshotSettings.EnableMaximum: True;
+  SnapshotSettings.EnableonReinitialization: False;
+  SnapshotSettings.EnableProblemEdit: True;
+  SnapshotSettings.EnableRegularSnapshot: False;
+  SnapshotSettings.EnableSteadyState: True;
+  SnapshotSettings.Interval: 2.;
+  SnapshotSettings.Maximum: 10;
+  SnapshotSettings.SaveConvergedOnly: True;
+  SnapshotSettings.TakeAutoSnapshots: True;
+  SyncSteps: "Full";
+  Tearing: "update";
+  TearUpdate: "Direct";
+  TimeSettings.CommunicationInterval: 1.e-002;
+  TimeSettings.CommunicationUnits: "Hours";
+  TimeSettings.DisplayUpdateInterval: 2000;
+  TimeSettings.EnablePauseAt: False;
+  TimeSettings.EnableStepFor: False;
+  TimeSettings.PauseAt: 0.;
+  TimeSettings.RealTimeSyncFactor: 0.;
+  TimeSettings.RecordHistory: False;
+  TimeSettings.StepFor: 0;
+  TimeSettings.TimeDisplayUnits: "Hours";
+  UseCompiledEvaluation: False;
+  UseSavedSnapshotOnLoad: False;
+  WatchGroup: 0;
+  WatchSubGroup: 0;
+  Wegstein.MaxAcceleration: 0.;
+  Wegstein.MinAcceleration: -5.;
+  OpenLASolver: "";
+  OpenNLASolver: "";
+  OpenOPTSolver: "";
+  OpenESTSolver: "";
+End
+Optimization
+  IsDynamic : FALSE;
+  ElementSizeBoundsAutomatic : TRUE;
+  EndTime : 1.000000000000000;
+  Control.FinalTime_Initial : 1.000000000000000;
+  Control.FinalTime_Upper : 2.000000000000000;
+  Control.FinalTime_Lower : 0.5000000000000000;
+  Control.FinalTime_IsFixed : TRUE;
+  Control.FinalTime_IsObjective : FALSE;
+  Control.Elements : 5;
+  Control.FixedInterval : TRUE;
+  Control.MovingElementsVarying : FALSE;
+  Control.PiecewiseLinear : FALSE;
+  Control(0) : 0.2000000000000000, 0.05000000000000000, 0.4000000000000000 ;
+  Control(1) : 0.2000000000000000, 0.05000000000000000, 0.4000000000000000 ;
+  Control(2) : 0.2000000000000000, 0.05000000000000000, 0.4000000000000000 ;
+  Control(3) : 0.2000000000000000, 0.05000000000000000, 0.4000000000000000 ;
+  Control(4) : 0.2000000000000000, 0.05000000000000000, 0.4000000000000000 ;
+End
+Estimation
+  CalcHeteroParams : TRUE;
+  ExperimentTimeUnit: "";
+End
+Homotopy
+ Enabled: FALSE;
+End
+SimulationAccessExtension
+  ENABLED: false;
+End
+OnLineLinks
+  Protocol: "OPC", 1;
+  //Server: "";
+  IO: Synchronous, Cached;
+  Bounds: Clip;
+  Quality: UseLast;
+  Update: 1000;
+  PrintLevel: 2;
+  Enabled: OFF;
+  Input Events : Before SS Run, After DYN Step, After INI Step, Before INI Run;
+  Output Events: After SS Run, After DYN Step, After INI Step, After INI Run;
+End
