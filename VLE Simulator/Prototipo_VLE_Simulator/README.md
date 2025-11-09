@@ -1,9 +1,11 @@
 # VLE Simulator: Prototipo de simulador termodinámico adaptado a las demandas académicas e industriales actuales en la Ingeniería Química
 
 **Mariola Camacho-Lie**
+
 Universidad de Guadalajara, México
 
 **Adriana Palacios**
+
 Universidad de las Américas Puebla, México
 
 **Participación con resumen en el X Congreso Virtual Internacional de Educación, Innovación y TIC 2025**
@@ -12,6 +14,6 @@ Universidad de las Américas Puebla, México
 
 **Referencia de video**
 
-![VLE Simulator](https://github.com/IMClick-Project/IQ/tree/main/VLE%20Simulator/Prototipo_VLE_Simulator/EDUNOVATIC_Esp.jpg)
+![VLE_Simulator](https://raw.githubusercontent.com/IMClick-Project/IQ/main/VLE%20Simulator/Prototipo_VLE_Simulator/EDUNOVATIC_Esp.jpg)
 
 *Diferentes capacidades de VLE Simulator a través del estudio de un ciclo de Rankine simple.*
